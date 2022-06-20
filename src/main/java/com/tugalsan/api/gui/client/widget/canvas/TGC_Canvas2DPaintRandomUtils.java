@@ -17,10 +17,6 @@ public class TGC_Canvas2DPaintRandomUtils {
 
     final private static TGC_Log d = TGC_Log.of(TGC_Canvas2DPaintFillStyleUtils.class.getSimpleName());
 
-    final private static Image getExampleImage() {
-        return new Image("https://tugalsan.com:8443/ASW/favicon/tugalsan-dark-16x16.png");
-    }
-
     public static Canvas styleDrawRandom(Canvas canvas) {
         switch (TGS_RandomUtils.nextInt(0, 2)) {
             case 0:
