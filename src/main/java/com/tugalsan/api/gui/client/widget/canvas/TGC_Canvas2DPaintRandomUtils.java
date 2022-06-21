@@ -1,7 +1,7 @@
 package com.tugalsan.api.gui.client.widget.canvas;
 
 import com.google.gwt.canvas.client.Canvas;
-import com.google.gwt.user.client.ui.Image;
+import com.google.gwt.user.client.ui.*;
 import com.tugalsan.api.color.client.TGC_ColorUtils;
 import com.tugalsan.api.log.client.TGC_Log;
 import com.tugalsan.api.random.client.*;
@@ -10,7 +10,7 @@ import com.tugalsan.api.shape.client.TGS_ShapeDimension;
 import com.tugalsan.api.shape.client.TGS_ShapeDimensionUtils;
 import com.tugalsan.api.shape.client.TGS_ShapeLocation;
 import com.tugalsan.api.shape.client.TGS_ShapeMargin;
-import com.tugalsan.api.stream.client.*;
+import com.tugalsan.api.stream.client.*; 
 import java.util.stream.*;
 
 public class TGC_Canvas2DPaintRandomUtils {
@@ -50,7 +50,7 @@ public class TGC_Canvas2DPaintRandomUtils {
         return canvas;
     }
 
-    public static Canvas styleFillRandom(Canvas canvas, TGS_ShapeDimension<Integer> boundary) {
+    public static Canvas styleFillRandom(Canvas canvas, TGS_ShapeDimension<Integer> boundary, Image image) {
         switch (TGS_RandomUtils.nextInt(0, 7)) {
 //            case 0:
 //                d.ci("createGradiantLinear", "init");
@@ -89,19 +89,19 @@ public class TGC_Canvas2DPaintRandomUtils {
 //                TGC_Canvas2DPaintFillStyleUtils.style(canvas, gradRadial);
 //                break;
             case 2:
-                var pattNone = TGC_Canvas2DPaintStyleUtils.createPatternRepeatNone(canvas, getExampleImage());
+                var pattNone = TGC_Canvas2DPaintStyleUtils.createPatternRepeatNone(canvas, image);
                 TGC_Canvas2DPaintFillStyleUtils.style(canvas, pattNone);
                 break;
             case 3:
-                var pattX = TGC_Canvas2DPaintStyleUtils.createPatternRepeatX(canvas, getExampleImage());
+                var pattX = TGC_Canvas2DPaintStyleUtils.createPatternRepeatX(canvas, image);
                 TGC_Canvas2DPaintFillStyleUtils.style(canvas, pattX);
                 break;
             case 4:
-                var pattY = TGC_Canvas2DPaintStyleUtils.createPatternRepeatY(canvas, getExampleImage());
+                var pattY = TGC_Canvas2DPaintStyleUtils.createPatternRepeatY(canvas, image);
                 TGC_Canvas2DPaintFillStyleUtils.style(canvas, pattY);
                 break;
             case 5:
-                var pattXY = TGC_Canvas2DPaintStyleUtils.createPatternRepeatXY(canvas, getExampleImage());
+                var pattXY = TGC_Canvas2DPaintStyleUtils.createPatternRepeatXY(canvas, image);
                 TGC_Canvas2DPaintFillStyleUtils.style(canvas, pattXY);
                 break;
             case 6:
@@ -114,24 +114,24 @@ public class TGC_Canvas2DPaintRandomUtils {
         return canvas;
     }
 
-    public static Canvas paintImage(Canvas canvas) {
+    public static Canvas paintImage(Canvas canvas, Image image) {
         var resolution = TGC_CanvasUtils.getResolution(canvas);
         var loc = TGS_RandomUtils.nextLoc(resolution);
-        TGC_Canvas2DPaintImageUtils.paint(canvas, getExampleImage(), loc);
+        TGC_Canvas2DPaintImageUtils.paint(canvas, image, loc);
         return canvas;
     }
 
-    public static Canvas paintFillList(Canvas canvas) {
+    public static Canvas paintFillList(Canvas canvas, Image image) {
         var resolution = TGC_CanvasUtils.getResolution(canvas);
         var locs = TGS_StreamUtils.toList(
                 IntStream.range(0, 4).mapToObj(i -> TGS_RandomUtils.nextLoc(resolution))
         );
-        styleFillRandom(canvas, TGS_ShapeDimensionUtils.getDimension(locs));
+        styleFillRandom(canvas, TGS_ShapeDimensionUtils.getDimension(locs), image);
         TGC_Canvas2DPaintFillUtils.paintList(canvas, locs);
         return canvas;
     }
 
-    public static Canvas paintFillArc(Canvas canvas) {
+    public static Canvas paintFillArc(Canvas canvas, Image image) {
         var resolution = TGC_CanvasUtils.getResolution(canvas);
         var loc = TGS_RandomUtils.nextLoc(resolution);
         TGS_ShapeMargin<Integer> margins = new TGS_ShapeMargin(
@@ -152,24 +152,24 @@ public class TGC_Canvas2DPaintRandomUtils {
                 radiusDegrees_start_and_end.x,
                 radiusDegrees_start_and_end.y
         );
-        styleFillRandom(canvas, TGS_ShapeDimensionUtils.getDimension(radius));
+        styleFillRandom(canvas, TGS_ShapeDimensionUtils.getDimension(radius), image);
         TGC_Canvas2DPaintFillUtils.paintArc(canvas, arc);
         return canvas;
     }
 
-    public static Canvas paintFillRect(Canvas canvas) {
+    public static Canvas paintFillRect(Canvas canvas, Image image) {
         var resolution = TGC_CanvasUtils.getResolution(canvas);
         var randRect = TGS_RandomUtils.nextRect(resolution);
-        styleFillRandom(canvas, TGS_ShapeDimensionUtils.getDimension(randRect));
+        styleFillRandom(canvas, TGS_ShapeDimensionUtils.getDimension(randRect), image);
         TGC_Canvas2DPaintFillUtils.paintRect(canvas, randRect);
         return canvas;
     }
 
-    public static Canvas paintFillRectRadius(Canvas canvas) {
+    public static Canvas paintFillRectRadius(Canvas canvas, Image image) {
         var resolution = TGC_CanvasUtils.getResolution(canvas);
         var randRect = TGS_RandomUtils.nextRect(resolution);
         var radius = Math.min(randRect.width, randRect.height) / 5;
-        styleFillRandom(canvas, TGS_ShapeDimensionUtils.getDimension(randRect));
+        styleFillRandom(canvas, TGS_ShapeDimensionUtils.getDimension(randRect), image);
         TGC_Canvas2DPaintFillUtils.paintRectRadius(canvas, randRect, radius);
         return canvas;
     }
