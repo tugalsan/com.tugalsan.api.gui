@@ -10,6 +10,7 @@ import com.tugalsan.api.gui.client.dim.TGC_Dimension;
 import com.tugalsan.api.gui.client.widget.abs.TGC_ScrollPanel;
 import com.tugalsan.api.log.client.TGC_Log;
 import com.tugalsan.api.shape.client.TGS_ShapeRectangle;
+import com.tugalsan.api.unsafe.client.*;
 
 public class TGC_PanelAbsoluteUtils {
 
@@ -63,7 +64,7 @@ public class TGC_PanelAbsoluteUtils {
         var tolerans = 5;
         var newPanelWidth = rect.x + rect.width + tolerans;
         var newPanelHeight = rect.y + rect.height + tolerans;
-        try {
+        TGS_UnSafe.execute(() -> {
             var oldPanelWidth = TGC_DOMUtils.getWidth(panel.getElement());
             var oldPanelHeight = TGC_DOMUtils.getHeight(panel.getElement());
             if (oldPanelWidth < newPanelWidth) {
@@ -73,9 +74,9 @@ public class TGC_PanelAbsoluteUtils {
                 oldPanelHeight = newPanelHeight;
             }
             TGC_DOMUtils.setSize(panel.getElement(), oldPanelWidth, oldPanelHeight);
-        } catch (Exception e) {
+        }, e -> {
             TGC_DOMUtils.setSize(panel.getElement(), newPanelWidth, newPanelHeight);
-        }
+        });
 //        addElement(widget.getElement(), x, y, width, height);//button not working
     }
 

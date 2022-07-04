@@ -5,6 +5,7 @@ module com.tugalsan.api.gui {
     requires com.tugalsan.api.pack;
     requires com.tugalsan.api.string;
     requires com.tugalsan.api.stream;
+    requires com.tugalsan.api.unsafe;
     requires com.tugalsan.api.random;
     requires com.tugalsan.api.time;
     requires com.tugalsan.api.shape;
