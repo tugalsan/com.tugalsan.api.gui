@@ -10,7 +10,7 @@ import java.util.stream.IntStream;
 
 public class TGC_Canvas2DPaintFillUtils {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_Canvas2DPaintFillUtils.class.getSimpleName());
+    final private static TGC_Log d = TGC_Log.of(TGC_Canvas2DPaintFillUtils.class);
 
     public static Canvas paintList(Canvas canvas, List<TGS_ShapeLocation<Integer>> locs) {
         if (locs.size() < 3) {

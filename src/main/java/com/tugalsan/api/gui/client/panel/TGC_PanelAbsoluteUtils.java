@@ -14,7 +14,7 @@ import com.tugalsan.api.unsafe.client.*;
 
 public class TGC_PanelAbsoluteUtils {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_PanelAbsoluteUtils.class.getSimpleName());
+    final private static TGC_Log d = TGC_Log.of(TGC_PanelAbsoluteUtils.class);
 
     public static AbsolutePanel wrap(TGC_ScrollPanel scroll) {
         var dim = scroll.getSize();

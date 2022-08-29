@@ -15,7 +15,7 @@ import java.util.stream.*;
 
 public class TGC_CardUtils {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_CardUtils.class.getSimpleName());
+    final private static TGC_Log d = TGC_Log.of(TGC_CardUtils.class);
 
     public static String CLASSNAME_DIV_CARDS() {
         return TGC_Card.class.getSimpleName() + "_cards";

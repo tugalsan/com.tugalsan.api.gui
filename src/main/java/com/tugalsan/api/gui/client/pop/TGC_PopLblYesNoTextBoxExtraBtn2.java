@@ -19,7 +19,7 @@ import com.tugalsan.api.string.client.TGS_StringUtils;
 
 public class TGC_PopLblYesNoTextBoxExtraBtn2 implements TGC_PopInterface {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_PopLblYesNoTextBoxExtraBtn2.class.getSimpleName());
+    final private static TGC_Log d = TGC_Log.of(TGC_PopLblYesNoTextBoxExtraBtn2.class);
 
     public void setLabelHTML(String html) {
         lblHtml = TGS_NetworkHTMLUtils.HTML_SPACE() + html;

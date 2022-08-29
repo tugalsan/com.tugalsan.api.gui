@@ -15,7 +15,7 @@ import java.util.stream.*;
 
 public class TGC_Canvas2DPaintRandomUtils {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_Canvas2DPaintFillStyleUtils.class.getSimpleName());
+    final private static TGC_Log d = TGC_Log.of(TGC_Canvas2DPaintFillStyleUtils.class);
 
     public static Canvas styleDrawRandom(Canvas canvas) {
         switch (TGS_RandomUtils.nextInt(0, 2)) {

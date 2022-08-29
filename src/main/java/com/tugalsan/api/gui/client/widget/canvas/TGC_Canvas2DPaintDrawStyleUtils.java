@@ -9,7 +9,7 @@ import com.tugalsan.api.log.client.TGC_Log;
 
 public class TGC_Canvas2DPaintDrawStyleUtils {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_Canvas2DPaintDrawStyleUtils.class.getSimpleName());
+    final private static TGC_Log d = TGC_Log.of(TGC_Canvas2DPaintDrawStyleUtils.class);
 
     public static Canvas styleCap_BUTT(Canvas canvas) {
         var c2d = TGC_Canvas2DUtils.toContext2d(canvas);

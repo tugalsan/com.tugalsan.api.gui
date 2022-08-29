@@ -7,7 +7,7 @@ import com.tugalsan.api.string.client.*;
 
 public class TGC_TabPanel extends TGC_WidgetAbstract<TabPanel> {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_TabPanel.class.getSimpleName());
+    final private static TGC_Log d = TGC_Log.of(TGC_TabPanel.class);
 
     public TGC_TabPanel() {
         this(null);

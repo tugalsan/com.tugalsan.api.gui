@@ -8,7 +8,7 @@ import com.tugalsan.api.log.client.TGC_Log;
 
 public class TGC_Canvas2DPaintFillStyleUtils {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_Canvas2DPaintFillStyleUtils.class.getSimpleName());
+    final private static TGC_Log d = TGC_Log.of(TGC_Canvas2DPaintFillStyleUtils.class);
 
     public static Canvas style(Canvas canvas, CssColor color) {
         var c2d = TGC_Canvas2DUtils.toContext2d(canvas);

@@ -10,7 +10,7 @@ import com.tugalsan.api.log.client.*;
 
 public class TGC_Pop {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_Pop.class.getSimpleName());
+    final private static TGC_Log d = TGC_Log.of(TGC_Pop.class);
 
     static class TGC_PopGlassStyle {
         //LOOK CSS
@@ -21,7 +21,7 @@ public class TGC_Pop {
         this.content = content;
         this.dim = dim == null ? new TGC_Dimension(null, null, true) : dim;
         changeContentDimension(dim);
-        content.setStyleName(TGC_Pop.class.getSimpleName());
+        content.setStyleName(d.className);
         widget = new PopupPanel();
         widget.setGlassEnabled(true);
         widget.setGlassStyleName(TGC_PopGlassStyle.class.getSimpleName());

@@ -8,7 +8,7 @@ import com.tugalsan.api.string.client.*;
 
 abstract public class TGC_WidgetAbstract<T extends Widget> {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_WidgetAbstract.class.getSimpleName());
+    final private static TGC_Log d = TGC_Log.of(TGC_WidgetAbstract.class);
 
     public TGC_WidgetAbstract(CharSequence tooltip, T widget) {
         this.widget = widget;

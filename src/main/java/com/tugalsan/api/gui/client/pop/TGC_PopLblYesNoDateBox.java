@@ -20,7 +20,7 @@ import com.tugalsan.api.thread.client.TGC_ThreadUtils;
 
 public class TGC_PopLblYesNoDateBox implements TGC_PopInterface {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_PopLblYesNoTextBox.class.getSimpleName());
+    final private static TGC_Log d = TGC_Log.of(TGC_PopLblYesNoTextBox.class);
 
     public void setLabelHTML(String html) {
         lblHtml = TGS_NetworkHTMLUtils.HTML_SPACE() + html;

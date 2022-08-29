@@ -11,7 +11,7 @@ import com.tugalsan.api.pack.client.*;
 
 public class TGC_MenuMobileSub implements TGS_Executable {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_MenuMobileSub.class.getSimpleName());
+    final private static TGC_Log d = TGC_Log.of(TGC_MenuMobileSub.class);
 
     public TGC_MenuMobileSub(TGC_Dimension dim, CharSequence label, String ok, String esc) {
         this.label = label.toString();

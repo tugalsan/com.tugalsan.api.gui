@@ -22,7 +22,7 @@ public class TGC_MenuPC {
         return "TGC_MenuBar_MenuItem";
     }
 
-    final private static TGC_Log d = TGC_Log.of(TGC_Menu.class.getSimpleName());
+    final private static TGC_Log d = TGC_Log.of(TGC_Menu.class);
 
     public TGC_MenuPC() {
         widget = new MenuBar();

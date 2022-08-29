@@ -18,7 +18,7 @@ import com.tugalsan.api.icon.client.TGS_IconUtils;
 
 public class TGC_ThemeUtils {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_ThemeUtils.class.getSimpleName());
+    final private static TGC_Log d = TGC_Log.of(TGC_ThemeUtils.class);
 
     public static native JsArrayString getThemeNames()/*-{
         return $wnd.getThemeNames();

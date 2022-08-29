@@ -8,7 +8,7 @@ import elemental2.dom.MessageEvent;
 @Deprecated //TODO NOT WORKING
 public class TGC_BrowserTabUtils {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_BrowserTabUtils.class.getSimpleName());
+    final private static TGC_Log d = TGC_Log.of(TGC_BrowserTabUtils.class);
 
     public static BroadcastChannel addBroadCastChannel(CharSequence channelName, TGS_ExecutableType1<MessageEvent<Object>> exe) {
         var bc = new BroadcastChannel(channelName.toString());

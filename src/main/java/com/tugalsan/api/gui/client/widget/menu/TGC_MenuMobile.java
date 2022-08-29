@@ -14,7 +14,7 @@ import com.tugalsan.api.pack.client.*;
 
 public class TGC_MenuMobile {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_MenuMobile.class.getSimpleName());
+    final private static TGC_Log d = TGC_Log.of(TGC_MenuMobile.class);
 
     public TGC_MenuMobile(TGC_Dimension dim, CharSequence fullIconClassName, CharSequence label, String ok, String esc) {
         pop = new TGC_PopLblYesNoListBox(

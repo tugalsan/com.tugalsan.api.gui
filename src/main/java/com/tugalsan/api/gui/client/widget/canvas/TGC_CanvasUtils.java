@@ -9,7 +9,7 @@ import com.tugalsan.api.shape.client.TGS_ShapeLocation;
 
 public class TGC_CanvasUtils {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_CanvasUtils.class.getSimpleName());
+    final private static TGC_Log d = TGC_Log.of(TGC_CanvasUtils.class);
 
     public static boolean isSupported() {
         return createCanvas() != null;

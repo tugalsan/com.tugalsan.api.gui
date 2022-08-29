@@ -10,7 +10,7 @@ import com.tugalsan.api.shape.client.TGS_ShapeRectangle;
 
 public class TGC_Canvas2DImageUtils {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_Canvas2DImageUtils.class.getSimpleName());
+    final private static TGC_Log d = TGC_Log.of(TGC_Canvas2DImageUtils.class);
 
     public static TGS_ShapeDimension<Integer> getDimension(ImageData imageData) {
         return new TGS_ShapeDimension(imageData.getWidth(), imageData.getHeight());

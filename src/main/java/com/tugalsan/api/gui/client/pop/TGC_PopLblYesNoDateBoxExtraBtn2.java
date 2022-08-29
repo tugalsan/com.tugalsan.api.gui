@@ -21,7 +21,7 @@ import com.tugalsan.api.thread.client.TGC_ThreadUtils;
 
 public class TGC_PopLblYesNoDateBoxExtraBtn2 implements TGC_PopInterface {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_PopLblYesNoDateBoxExtraBtn2.class.getSimpleName());
+    final private static TGC_Log d = TGC_Log.of(TGC_PopLblYesNoDateBoxExtraBtn2.class);
 
     public void setLabelHTML(String html) {
         lblHtml = TGS_NetworkHTMLUtils.HTML_SPACE() + html;

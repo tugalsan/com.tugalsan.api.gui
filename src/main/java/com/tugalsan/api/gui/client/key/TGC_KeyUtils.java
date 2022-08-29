@@ -16,7 +16,7 @@ import com.tugalsan.api.log.client.TGC_Log;
 
 public class TGC_KeyUtils {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_KeyUtils.class.getSimpleName());
+    final private static TGC_Log d = TGC_Log.of(TGC_KeyUtils.class);
 
     public static void addEsc(TGS_Executable exe, FocusWidget... w) {
         TGS_ListUtils.of(w).forEach(wi -> wi.addKeyDownHandler(e -> {

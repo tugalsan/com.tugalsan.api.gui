@@ -14,7 +14,7 @@ import java.util.stream.*;
 
 public class TGC_ListBoxUtils {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_ListBoxUtils.class.getSimpleName());
+    final private static TGC_Log d = TGC_Log.of(TGC_ListBoxUtils.class);
 
     public static ListBox create(boolean comboBox) {
         var listBox = new ListBox();

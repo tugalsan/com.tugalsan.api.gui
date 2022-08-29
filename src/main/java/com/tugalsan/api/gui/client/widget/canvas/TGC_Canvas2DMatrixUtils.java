@@ -7,7 +7,7 @@ import com.tugalsan.api.shape.client.TGS_ShapeLocation;
 
 public class TGC_Canvas2DMatrixUtils {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_Canvas2DMatrixUtils.class.getSimpleName());
+    final private static TGC_Log d = TGC_Log.of(TGC_Canvas2DMatrixUtils.class);
 
     public static Canvas reset(Canvas canvas) {
         var c2d = TGC_Canvas2DUtils.toContext2d(canvas);

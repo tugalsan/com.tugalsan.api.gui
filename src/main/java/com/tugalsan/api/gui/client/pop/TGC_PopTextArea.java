@@ -9,7 +9,7 @@ import com.tugalsan.api.executable.client.TGS_Executable;
 
 public class TGC_PopTextArea implements TGC_PopInterface {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_PopTextArea.class.getSimpleName());
+    final private static TGC_Log d = TGC_Log.of(TGC_PopTextArea.class);
 
     final private String initText;
     final public TGS_Executable onVisible;

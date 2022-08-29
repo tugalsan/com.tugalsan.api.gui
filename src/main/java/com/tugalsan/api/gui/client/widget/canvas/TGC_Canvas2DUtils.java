@@ -8,7 +8,7 @@ import com.tugalsan.api.shape.client.TGS_ShapeRectangle;
 
 public class TGC_Canvas2DUtils {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_Canvas2DUtils.class.getSimpleName());
+    final private static TGC_Log d = TGC_Log.of(TGC_Canvas2DUtils.class);
 
     public static CanvasElement toCanvasElement(Canvas canvas) {
         var c2d = toContext2d(canvas);

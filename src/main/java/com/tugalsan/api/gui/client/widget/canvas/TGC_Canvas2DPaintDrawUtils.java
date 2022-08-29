@@ -10,7 +10,7 @@ import java.util.stream.IntStream;
 
 public class TGC_Canvas2DPaintDrawUtils {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_Canvas2DPaintDrawUtils.class.getSimpleName());
+    final private static TGC_Log d = TGC_Log.of(TGC_Canvas2DPaintDrawUtils.class);
 
     public static Canvas paintLine(Canvas canvas, TGS_ShapeLocation<Integer> locStart, TGS_ShapeLocation<Integer> locEnd) {
         var c2d = TGC_Canvas2DUtils.toContext2d(canvas);

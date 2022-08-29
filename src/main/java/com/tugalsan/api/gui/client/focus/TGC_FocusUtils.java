@@ -12,7 +12,7 @@ import com.tugalsan.api.thread.client.TGC_ThreadUtils;
 
 public class TGC_FocusUtils {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_FocusUtils.class.getSimpleName());
+    final private static TGC_Log d = TGC_Log.of(TGC_FocusUtils.class);
 
     public static void setFocusAfterGUIUpdate(FocusWidget fw) {
         TGC_ThreadUtils.execute_afterGUIUpdate(() -> {

@@ -16,7 +16,7 @@ import com.tugalsan.api.executable.client.TGS_ExecutableType1;
 
 public class TGC_PopYesNoOptions implements TGC_PopInterface {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_PopYesNoOptions.class.getSimpleName());
+    final private static TGC_Log d = TGC_Log.of(TGC_PopYesNoOptions.class);
 
     final private String btnOkText, btnCancelText;
     final public TGS_ExecutableType1<TGC_PopYesNoOptions> onEsc, onExe;

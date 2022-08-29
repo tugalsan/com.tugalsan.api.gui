@@ -21,7 +21,7 @@ import com.tugalsan.api.executable.client.TGS_ExecutableType1;
 
 public class TGC_PopLblYesNoListBox implements TGC_PopInterface {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_PopLblYesNoListBox.class.getSimpleName());
+    final private static TGC_Log d = TGC_Log.of(TGC_PopLblYesNoListBox.class);
 
     final private String lblHTML, btnOkText, btnCancelText;
     final public TGS_ExecutableType1<TGC_PopLblYesNoListBox> onEsc, onExe;

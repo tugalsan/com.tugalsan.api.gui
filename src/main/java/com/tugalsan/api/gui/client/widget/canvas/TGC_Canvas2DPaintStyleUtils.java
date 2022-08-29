@@ -15,7 +15,7 @@ import java.util.List;
 
 public class TGC_Canvas2DPaintStyleUtils {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_Canvas2DPaintStyleUtils.class.getSimpleName());
+    final private static TGC_Log d = TGC_Log.of(TGC_Canvas2DPaintStyleUtils.class);
 
     public static CanvasGradient createGradiantLinear(Canvas canvas,
             TGS_ShapeLocation<Integer> locStart, TGS_ShapeLocation<Integer> locEnd,

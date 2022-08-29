@@ -13,7 +13,7 @@ import com.tugalsan.api.thread.client.TGC_ThreadUtils;
 
 public class TGC_BrowserWindowUtils {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_BrowserWindowUtils.class.getSimpleName());
+    final private static TGC_Log d = TGC_Log.of(TGC_BrowserWindowUtils.class);
 
     public static void setTitle(CharSequence newTitle) {
         if (Document.get() != null) {

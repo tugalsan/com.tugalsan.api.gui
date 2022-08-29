@@ -5,7 +5,7 @@ import com.tugalsan.api.log.client.TGC_Log;
 
 public class TGC_BrowserNavigatorUtils {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_BrowserNavigatorUtils.class.getSimpleName());
+    final private static TGC_Log d = TGC_Log.of(TGC_BrowserNavigatorUtils.class);
 
     public static native String userAgent() /*-{
         return navigator.userAgent.toLowerCase();

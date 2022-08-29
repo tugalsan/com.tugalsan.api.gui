@@ -7,7 +7,7 @@ import com.tugalsan.api.shape.client.TGS_ShapeRectangle;
 
 public class TGC_DimensionUtils {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_DimensionUtils.class.getSimpleName());
+    final private static TGC_Log d = TGC_Log.of(TGC_DimensionUtils.class);
 
     public static TGS_ShapeRectangle<Integer> toRect(TGS_ShapeMargin<Integer> margin) {
         var rect = new TGS_ShapeRectangle(

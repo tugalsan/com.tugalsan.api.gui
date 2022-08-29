@@ -10,7 +10,7 @@ import java.util.*;
 
 public class TGC_KeyTriggerUtils {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_KeyTriggerUtils.class.getSimpleName());
+    final private static TGC_Log d = TGC_Log.of(TGC_KeyTriggerUtils.class);
 
     public static void add2Dom() {
         Element body = TGC_DOMUtils.getElementByTagName("body");

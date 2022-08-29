@@ -16,7 +16,7 @@ import com.tugalsan.api.executable.client.TGS_ExecutableType1;
 
 public class TGC_PopLblYesNo implements TGC_PopInterface {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_PopLblYesNo.class.getSimpleName());
+    final private static TGC_Log d = TGC_Log.of(TGC_PopLblYesNo.class);
 
     public TGC_PopLblYesNo(TGC_Dimension dim,
             CharSequence lblHTML, CharSequence btnOkText, CharSequence btnCancelText,

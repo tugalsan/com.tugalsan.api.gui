@@ -30,7 +30,7 @@ import java.util.stream.*;
 
 public class TGC_PopLblYesNoCheckListBox implements TGC_PopInterface {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_PopLblYesNoCheckListBox.class.getSimpleName());
+    final private static TGC_Log d = TGC_Log.of(TGC_PopLblYesNoCheckListBox.class);
 
     final private String lblListBoxHTML, btnOkText, btnCancelText, lblCheckBoxHTML;
     final public TGS_ExecutableType1<TGC_PopLblYesNoCheckListBox> onEsc, onExe;

@@ -13,7 +13,7 @@ import com.tugalsan.api.string.client.*;
 
 public class TGC_PanelLayoutUtils {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_PanelLayoutUtils.class.getSimpleName());
+    final private static TGC_Log d = TGC_Log.of(TGC_PanelLayoutUtils.class);
 
     public static int MAX_GRID_WIDTH() {
         return 500;
