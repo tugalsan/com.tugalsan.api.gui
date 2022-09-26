@@ -3,7 +3,7 @@ package com.tugalsan.api.gui.client.browser;
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.user.client.Window;
 import java.util.List;
-import com.tugalsan.api.charset.client.TGS_CharacterSets;
+import com.tugalsan.api.charset.client.TGS_CharSet;
 import com.tugalsan.api.executable.client.TGS_Executable;
 import com.tugalsan.api.executable.client.TGS_ExecutableType1;
 import com.tugalsan.api.list.client.*;
@@ -17,7 +17,7 @@ public class TGC_BrowserWindowUtils {
 
     public static void setTitle(CharSequence newTitle) {
         if (Document.get() != null) {
-            Document.get().setTitle(newTitle == null ? TGS_CharacterSets.UTF8_HOURGLASS() : newTitle.toString());
+            Document.get().setTitle(newTitle == null ? TGS_CharSet.UTF8_HOURGLASS() : newTitle.toString());
         }
     }
 
