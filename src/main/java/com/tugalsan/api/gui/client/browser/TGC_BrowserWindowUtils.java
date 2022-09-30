@@ -39,18 +39,16 @@ public class TGC_BrowserWindowUtils {
 
     public static void addResizeHandler() {
         d.ci("addResizeHandler", "callled...");
-        var addedBefore = SYNC_lastResizeRequestMillis.get();
-        if (addedBefore != null) {
+        if (SYNC_lastResizeRequestMillis != 0L) {
             d.ci("addResizeHandler", "already inited", "skipping...");
             return;
         }
-        SYNC_lastResizeRequestMillis.set(0L);
         Window.addResizeHandler(re -> {
             d.ci("addResizeHandler", "requesting...");
             var reqMillis = System.currentTimeMillis();
-            SYNC_lastResizeRequestMillis.set(reqMillis);
+            SYNC_lastResizeRequestMillis = reqMillis;
             TGC_ThreadUtils.execute_afterSeconds_afterGUIUpdate(t -> {
-                if (SYNC_lastResizeRequestMillis.get() == reqMillis) {
+                if (SYNC_lastResizeRequestMillis == reqMillis) {
                     d.ci("addResizeHandler", "exe_resizeHandlers.size()", exe_resizeHandlers.size());
                     exe_resizeHandlers.stream().forEachOrdered(exe -> {
                         exe.execute(new TGS_ShapeDimension(re.getWidth(), re.getHeight()));
@@ -63,7 +61,7 @@ public class TGC_BrowserWindowUtils {
         d.ci("addResizeHandler", "init");
     }
     final public static List<TGS_ExecutableType1<TGS_ShapeDimension<Integer>>> exe_resizeHandlers = TGS_ListUtils.of();
-    final private static TGS_ListSyncItem<Long> SYNC_lastResizeRequestMillis = new TGS_ListSyncItem();
+    volatile private static long SYNC_lastResizeRequestMillis = 0;
 
     public static native void close()/*-{
         $wnd.close();
