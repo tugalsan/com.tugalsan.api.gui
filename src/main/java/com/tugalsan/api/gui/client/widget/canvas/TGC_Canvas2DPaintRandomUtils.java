@@ -123,7 +123,7 @@ public class TGC_Canvas2DPaintRandomUtils {
 
     public static Canvas paintFillList(Canvas canvas, Image image) {
         var resolution = TGC_CanvasUtils.getResolution(canvas);
-        var locs = TGS_StreamUtils.toList(
+        var locs = TGS_StreamUtils.toLst(
                 IntStream.range(0, 4).mapToObj(i -> TGS_RandomUtils.nextLoc(resolution))
         );
         styleFillRandom(canvas, TGS_ShapeDimensionUtils.getDimension(locs), image);

@@ -89,7 +89,7 @@ public class TGC_PopLblYesNoCheckListBox implements TGC_PopInterface {
         lblListBox = new HTML(lblListBoxHTML);
         lblCheckBox = new HTML(lblCheckBoxHTML);
         listBox = TGC_ListBoxUtils.create(false);
-        checkBoxes = TGS_StreamUtils.toList(
+        checkBoxes = TGS_StreamUtils.toLst(
                 IntStream.range(0, checkBoxIconAndLabels.size())
                         .mapToObj(i -> TGC_CheckBoxUtils.createIcon(checkBoxIconAndLabels.get(i).value0, checkBoxIconAndLabels.get(i).value1))
         );

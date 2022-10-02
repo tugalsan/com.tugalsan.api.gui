@@ -51,7 +51,7 @@ public class TGC_ListBoxUtils {
     }
 
     public static List<Integer> getSelectedIndexes(ListBox w) {
-        return TGS_StreamUtils.toList(
+        return TGS_StreamUtils.toLst(
                 IntStream.range(0, w.getItemCount())
                         .filter(i -> w.isItemSelected(i))
                         .boxed()
