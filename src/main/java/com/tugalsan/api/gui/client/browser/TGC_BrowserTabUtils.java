@@ -5,7 +5,7 @@ import com.tugalsan.api.log.client.TGC_Log;
 import elemental2.dom.BroadcastChannel;
 import elemental2.dom.MessageEvent;
 
-@Deprecated //TODO NOT WORKING
+@Deprecated //TODO BroadCast NOT WORKING
 public class TGC_BrowserTabUtils {
 
     final private static TGC_Log d = TGC_Log.of(TGC_BrowserTabUtils.class);
