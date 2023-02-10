@@ -4,6 +4,7 @@ import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.tugalsan.api.gui.client.browser.TGC_BrowserNavigatorUtils;
 
+@Deprecated //for not scaling apps
 public class TGC_PanelRootScaler {
 
     public TGC_PanelRootScaler(int widthDefault) {
