@@ -11,7 +11,7 @@ public class TGC_PopToast implements TGC_PopInterface {
 
     final private static TGC_Log d = TGC_Log.of(TGC_PopToast.class);
 
-    private TGC_PopToast(TGC_Dimension dim, TGS_Executable onVisible_optional) {
+    public TGC_PopToast(TGC_Dimension dim, TGS_Executable onVisible_optional) {
         this.dim = dim;
         this.onVisible = onVisible_optional;
         createWidgets();
@@ -63,15 +63,14 @@ public class TGC_PopToast implements TGC_PopInterface {
         return panelPopup;
     }
 
-    public static void toast(TGC_Dimension dim, TGS_Executable onVisible_optional, int seconds, String htmlContent) {
-        var toast = new TGC_PopToast(dim, onVisible_optional);
-        toast.html.setHTML(htmlContent);
-        RootPanel.get().add(toast.panelPopup.widget);
-        toast.panelPopup.widget.setPopupPositionAndShow((int offsetWidth, int offsetHeight) -> {
+    public void toast(int seconds, String htmlContent) {
+        html.setHTML(htmlContent);
+        RootPanel.get().add(panelPopup.widget);
+        panelPopup.widget.setPopupPositionAndShow((int offsetWidth, int offsetHeight) -> {
             //center
 //            int left = (Window.getClientWidth() - offsetWidth) / 2;
 //            int top = (Window.getClientHeight() - offsetHeight) / 2;
-            toast.panelPopup.widget.setPopupPosition(
+            panelPopup.widget.setPopupPosition(
                     10,
                     TGC_Dimension.FULLSCREEN.getHeight() - offsetHeight - 10
             );
@@ -79,7 +78,7 @@ public class TGC_PopToast implements TGC_PopInterface {
         new Timer() {
             @Override
             public void run() {
-                RootPanel.get().remove(toast.panelPopup.widget);
+                RootPanel.get().remove(panelPopup.widget);
                 this.cancel();
             }
         }.schedule(seconds * 1000);
