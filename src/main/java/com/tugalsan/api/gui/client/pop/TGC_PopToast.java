@@ -55,7 +55,7 @@ public class TGC_PopToast implements TGC_PopInterface {
                 onVisible
         );
         panelPopup.widget.setAutoHideEnabled(true);
-
+        panelPopup.widget.setGlassEnabled(false);
     }
     private TGC_Pop panelPopup;
 
@@ -65,26 +65,23 @@ public class TGC_PopToast implements TGC_PopInterface {
     }
 
     public void toast(String htmlContent) {
-//        var pop = new PopupPanel(true);
-//        pop.setWidget(new Label(text));
-//
-//        RootPanel.get().add(pop);
-
         html.setHTML(htmlContent);
-
         panelPopup.widget.setPopupPositionAndShow((int offsetWidth, int offsetHeight) -> {
-            int left = (Window.getClientWidth() - offsetWidth) / 2;
-            int top = (Window.getClientHeight() - offsetHeight) / 2;
-            panelPopup.widget.setPopupPosition(left, top);
+            //center
+//            int left = (Window.getClientWidth() - offsetWidth) / 2;
+//            int top = (Window.getClientHeight() - offsetHeight) / 2;
+            panelPopup.widget.setPopupPosition(
+                    10,
+                    TGC_Dimension.FULLSCREEN.getHeight() - offsetHeight - 10
+            );
         });
-
+        RootPanel.get().add(panelPopup.widget);
         new Timer() {
             @Override
             public void run() {
-                System.out.println("timer repeated");
                 RootPanel.get().remove(panelPopup.widget);
                 this.cancel();
             }
-        }.scheduleRepeating(2000);
+        }.schedule(2000);
     }
 }
