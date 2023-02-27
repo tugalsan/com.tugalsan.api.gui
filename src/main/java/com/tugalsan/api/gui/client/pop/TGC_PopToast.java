@@ -63,7 +63,7 @@ public class TGC_PopToast implements TGC_PopInterface {
         return panelPopup;
     }
 
-    public static void toast(TGC_Dimension dim, TGS_Executable onVisible_optional, String htmlContent) {
+    public static void toast(TGC_Dimension dim, TGS_Executable onVisible_optional, int seconds, String htmlContent) {
         var toast = new TGC_PopToast(dim, onVisible_optional);
         toast.html.setHTML(htmlContent);
         RootPanel.get().add(toast.panelPopup.widget);
@@ -82,6 +82,6 @@ public class TGC_PopToast implements TGC_PopInterface {
                 RootPanel.get().remove(toast.panelPopup.widget);
                 this.cancel();
             }
-        }.schedule(2000);
+        }.schedule(seconds * 1000);
     }
 }
