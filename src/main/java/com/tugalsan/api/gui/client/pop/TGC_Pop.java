@@ -28,7 +28,7 @@ public class TGC_Pop {
         widget.setWidget(content);
     }
     public final TGS_Executable onVisible;
-    private final PopupPanel widget;
+    public final PopupPanel widget;
     private final TGC_Dimension dim;
     private final Widget content;
 
