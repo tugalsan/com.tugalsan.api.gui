@@ -1,7 +1,6 @@
 package com.tugalsan.api.gui.client.pop;
 
 import com.google.gwt.user.client.Timer;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.tugalsan.api.executable.client.TGS_Executable;
@@ -12,7 +11,7 @@ public class TGC_PopToast implements TGC_PopInterface {
 
     final private static TGC_Log d = TGC_Log.of(TGC_PopToast.class);
 
-    public TGC_PopToast(TGC_Dimension dim, TGS_Executable onVisible_optional) {
+    private TGC_PopToast(TGC_Dimension dim, TGS_Executable onVisible_optional) {
         this.dim = dim;
         this.onVisible = onVisible_optional;
         createWidgets();
@@ -64,22 +63,23 @@ public class TGC_PopToast implements TGC_PopInterface {
         return panelPopup;
     }
 
-    public void toast(String htmlContent) {
-        html.setHTML(htmlContent);
-        panelPopup.widget.setPopupPositionAndShow((int offsetWidth, int offsetHeight) -> {
+    public static void toast(TGC_Dimension dim, TGS_Executable onVisible_optional, String htmlContent) {
+        var toast = new TGC_PopToast(dim, onVisible_optional);
+        toast.html.setHTML(htmlContent);
+        RootPanel.get().add(toast.panelPopup.widget);
+        toast.panelPopup.widget.setPopupPositionAndShow((int offsetWidth, int offsetHeight) -> {
             //center
 //            int left = (Window.getClientWidth() - offsetWidth) / 2;
 //            int top = (Window.getClientHeight() - offsetHeight) / 2;
-            panelPopup.widget.setPopupPosition(
+            toast.panelPopup.widget.setPopupPosition(
                     10,
                     TGC_Dimension.FULLSCREEN.getHeight() - offsetHeight - 10
             );
         });
-        RootPanel.get().add(panelPopup.widget);
         new Timer() {
             @Override
             public void run() {
-                RootPanel.get().remove(panelPopup.widget);
+                RootPanel.get().remove(toast.panelPopup.widget);
                 this.cancel();
             }
         }.schedule(2000);
