@@ -1,11 +1,11 @@
 package com.tugalsan.api.gui.client.pop;
 
-import com.google.gwt.user.client.Timer;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.tugalsan.api.executable.client.TGS_Executable;
 import com.tugalsan.api.gui.client.dim.TGC_Dimension;
 import com.tugalsan.api.log.client.TGC_Log;
+import com.tugalsan.api.thread.client.TGC_ThreadUtils;
 
 public class TGC_PopToast implements TGC_PopInterface {
 
@@ -75,12 +75,8 @@ public class TGC_PopToast implements TGC_PopInterface {
                     TGC_Dimension.FULLSCREEN.getHeight() - offsetHeight - 3
             );
         });
-        new Timer() {
-            @Override
-            public void run() {
-                RootPanel.get().remove(panelPopup.widget);
-                this.cancel();
-            }
-        }.schedule(seconds * 1000);
+        TGC_ThreadUtils.execute_afterSeconds(exe -> {
+            RootPanel.get().remove(panelPopup.widget);
+        }, seconds);
     }
 }
