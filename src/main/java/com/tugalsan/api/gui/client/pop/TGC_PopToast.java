@@ -71,7 +71,7 @@ public class TGC_PopToast implements TGC_PopInterface {
 //            int left = (Window.getClientWidth() - offsetWidth) / 2;
 //            int top = (Window.getClientHeight() - offsetHeight) / 2;
             panelPopup.widget.setPopupPosition(
-                    3,
+                    10,
                     TGC_Dimension.FULLSCREEN.getHeight() - offsetHeight - 3
             );
         });
