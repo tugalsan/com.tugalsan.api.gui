@@ -8,7 +8,7 @@ public class TGC_BrowserNavigatorUtils {
     final private static TGC_Log d = TGC_Log.of(TGC_BrowserNavigatorUtils.class);
 
     public static native String userAgent() /*-{
-        return navigator.userAgent.toLowerCase();
+        return navigator.userAgent.toLocaleLowerCase();
     }-*/;
 
     public static native String appName() /*-{
@@ -16,15 +16,15 @@ public class TGC_BrowserNavigatorUtils {
     }-*/;
 
     public static native String product() /*-{
-        return navigator.product.toLowerCase();
+        return navigator.product.toLocaleLowerCase();
     }-*/;
 
     public static native String appVersion() /*-{
-        return navigator.appVersion.toLowerCase();
+        return navigator.appVersion.toLocaleLowerCase();
     }-*/;
 
     public static native String language() /*-{
-        return navigator.language.toLowerCase();
+        return navigator.language.toLocaleLowerCase();
     }-*/;
 
     public static native boolean onLine() /*-{
@@ -32,7 +32,7 @@ public class TGC_BrowserNavigatorUtils {
     }-*/;
 
     public static native String platform() /*-{
-        return navigator_platform.toLowerCase();
+        return navigator_platform.toLocaleLowerCase();
     }-*/;
 
     public static native boolean javaEnabled() /*-{
