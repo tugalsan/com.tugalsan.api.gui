@@ -85,7 +85,7 @@ public class TGC_CardUtils {
                 }
 
                 var contentTrim = TGS_CharSetCast.toLocaleLowerCase(TGS_StringUtils.removeHidden(card.htmlContent.toString().trim()));
-                var contains = contentTrim.contains(searchTagTrim);
+                var contains = TGS_CharSetCast.containsLocaleIgnoreCase(contentTrim,searchTagTrim);
                 
                 if (widget.isVisible() && !contains) {
                     widget.setVisible(false);
