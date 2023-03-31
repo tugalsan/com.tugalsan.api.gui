@@ -62,11 +62,11 @@ public class TGC_ButtonUtils {
         return btn;
     }
 
-    public static void setIcon(PushButton btn, CharSequence fullIconClassName0, CharSequence fullIconClassName1, CharSequence text) {
+    public static void setIcon(CustomButton btn, CharSequence fullIconClassName0, CharSequence fullIconClassName1, CharSequence text) {
         btn.getUpFace().setHTML(TGS_IconUtils.createSpan(fullIconClassName0, TGS_IconUtils.createSpan(fullIconClassName1, text)));
     }
 
-    public static void setIcon(PushButton btn, CharSequence fullIconClassName, CharSequence text) {
+    public static void setIcon(CustomButton btn, CharSequence fullIconClassName, CharSequence text) {
         btn.getUpFace().setHTML(TGS_IconUtils.createSpan(fullIconClassName, text));
     }
 
