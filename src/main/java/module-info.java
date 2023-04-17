@@ -1,6 +1,6 @@
 module com.tugalsan.api.gui {
     requires gwt.user;
-    requires com.tugalsan.api.executable;
+    requires com.tugalsan.api.runnable;
     requires com.tugalsan.api.list;
     requires com.tugalsan.api.pack;
     requires com.tugalsan.api.string;

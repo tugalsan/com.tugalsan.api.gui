@@ -6,7 +6,7 @@ import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.TextArea;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.ValueBoxBase;
-import com.tugalsan.api.executable.client.TGS_ExecutableType1;
+import com.tugalsan.api.runnable.client.TGS_RunnableType1;
 import com.tugalsan.api.log.client.TGC_Log;
 import com.tugalsan.api.thread.client.TGC_ThreadUtils;
 
@@ -15,7 +15,7 @@ public class TGC_FocusUtils {
     final private static TGC_Log d = TGC_Log.of(TGC_FocusUtils.class);
 
     public static void setFocusAfterGUIUpdate(FocusWidget fw) {
-        TGC_ThreadUtils.execute_afterGUIUpdate(() -> {
+        TGC_ThreadUtils.run_afterGUIUpdate(() -> {
             fw.setFocus(true);
             if (fw instanceof TextArea) {
                 //DO NOTHING
@@ -84,7 +84,7 @@ public class TGC_FocusUtils {
                 if (fw instanceof TextArea) {
                     var ta = (TextArea) fw;
                     var pos0 = ta.getCursorPos();
-                    TGC_ThreadUtils.execute_afterGUIUpdate(() -> {
+                    TGC_ThreadUtils.run_afterGUIUpdate(() -> {
                         var pos1 = ta.getCursorPos();
                         if (pos0 == pos1) {
                             d.ci("pos", "posizyon değişmedi, focus up");
@@ -132,23 +132,23 @@ public class TGC_FocusUtils {
     }
 
     @Deprecated //problem on textFields
-    public static void addKeyUp(FocusWidget fw, TGS_ExecutableType1<Integer> exe) {
+    public static void addKeyUp(FocusWidget fw, TGS_RunnableType1<Integer> exe) {
         fw.addKeyUpHandler(e -> {
             var curKeyCode = e.getNativeKeyCode();
             d.ci("KeyUpHandler", "curKeyCode", curKeyCode);
-            exe.execute(curKeyCode);
+            exe.run(curKeyCode);
         });
     }
 
-    public static void addKeyDown(FocusWidget fw, TGS_ExecutableType1<Integer> exe) {
+    public static void addKeyDown(FocusWidget fw, TGS_RunnableType1<Integer> exe) {
         fw.addKeyDownHandler(e -> {
             var curKeyCode = e.getNativeKeyCode();
             d.ci("KeyUpHandler", "curKeyCode", curKeyCode);
-            exe.execute(curKeyCode);
+            exe.run(curKeyCode);
         });
     }
 
-    public static void addKey(ListBox lb, TGS_FocusSides4 sides, TGS_ExecutableType1<Integer> exe) {
+    public static void addKey(ListBox lb, TGS_FocusSides4 sides, TGS_RunnableType1<Integer> exe) {
         var sideUp = sides.up;
         var sideDown = sides.down;
         sides.up = sides.down = null;
@@ -160,7 +160,7 @@ public class TGC_FocusUtils {
             switch (nativeKeyCode) {
                 case KeyCodes.KEY_UP:
                 case KeyCodes.KEY_DOWN:
-                    exe.execute(lb.getSelectedIndex());
+                    exe.run(lb.getSelectedIndex());
                     break;
                 default:
                     break;

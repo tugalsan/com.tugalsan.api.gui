@@ -64,7 +64,7 @@ public class TGC_PanelAbsoluteUtils {
         var tolerans = 5;
         var newPanelWidth = rect.x + rect.width + tolerans;
         var newPanelHeight = rect.y + rect.height + tolerans;
-        TGS_UnSafe.execute(() -> {
+        TGS_UnSafe.run(() -> {
             var oldPanelWidth = TGC_DOMUtils.getWidth(panel.getElement());
             var oldPanelHeight = TGC_DOMUtils.getHeight(panel.getElement());
             if (oldPanelWidth < newPanelWidth) {

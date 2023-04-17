@@ -5,16 +5,16 @@ import com.tugalsan.api.log.client.TGC_Log;
 import com.tugalsan.api.gui.client.editable.TGC_EditableUtils;
 import com.tugalsan.api.gui.client.dim.TGC_Dimension;
 import com.tugalsan.api.gui.client.panel.TGC_PanelLayoutUtils;
-import com.tugalsan.api.executable.client.TGS_Executable;
+import com.tugalsan.api.runnable.client.TGS_Runnable;
 
 public class TGC_PopTextArea implements TGC_PopInterface {
 
     final private static TGC_Log d = TGC_Log.of(TGC_PopTextArea.class);
 
     final private String initText;
-    final public TGS_Executable onVisible;
+    final public TGS_Runnable onVisible;
 
-    public TGC_PopTextArea(TGC_Dimension dim, CharSequence initText, TGS_Executable onVisible_optional) {
+    public TGC_PopTextArea(TGC_Dimension dim, CharSequence initText, TGS_Runnable onVisible_optional) {
         this.dim = dim;
         this.initText = initText.toString();
         this.onVisible = onVisible_optional;

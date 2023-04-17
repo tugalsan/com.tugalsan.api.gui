@@ -12,8 +12,8 @@ import com.tugalsan.api.gui.client.dim.TGC_Dimension;
 import com.tugalsan.api.gui.client.widget.TGC_ButtonUtils;
 import com.tugalsan.api.gui.client.panel.TGC_PanelLayoutUtils;
 import com.tugalsan.api.icon.client.TGS_IconUtils;
-import com.tugalsan.api.executable.client.TGS_Executable;
-import com.tugalsan.api.executable.client.TGS_ExecutableType1;
+import com.tugalsan.api.runnable.client.TGS_Runnable;
+import com.tugalsan.api.runnable.client.TGS_RunnableType1;
 import com.tugalsan.api.gui.client.widget.TGC_DateBoxUtils;
 import com.tugalsan.api.network.client.*;
 import com.tugalsan.api.thread.client.TGC_ThreadUtils;
@@ -29,7 +29,7 @@ public class TGC_PopLblYesNoDateBox implements TGC_PopInterface {
     private String lblHtml;
 
     public void setVisibleDatePicker(boolean visible) {
-        TGC_ThreadUtils.execute_afterGUIUpdate(() -> {
+        TGC_ThreadUtils.run_afterGUIUpdate(() -> {
             if (visible) {
                 dateBox.showDatePicker();
             } else {
@@ -42,9 +42,9 @@ public class TGC_PopLblYesNoDateBox implements TGC_PopInterface {
 
     public TGC_PopLblYesNoDateBox(TGC_Dimension dim,
             CharSequence lblHtml, CharSequence btnOkText, CharSequence btnCancelText,
-            TGS_ExecutableType1<TGC_PopLblYesNoDateBox> onExe,
-            TGS_ExecutableType1<TGC_PopLblYesNoDateBox> onEsc,
-            TGS_Executable onVisible_optional) {
+            TGS_RunnableType1<TGC_PopLblYesNoDateBox> onExe,
+            TGS_RunnableType1<TGC_PopLblYesNoDateBox> onEsc,
+            TGS_Runnable onVisible_optional) {
         this(dim,
                 lblHtml, btnOkText, btnCancelText,
                 onExe, onEsc, onVisible_optional,
@@ -54,9 +54,9 @@ public class TGC_PopLblYesNoDateBox implements TGC_PopInterface {
 
     public TGC_PopLblYesNoDateBox(TGC_Dimension dim,
             CharSequence lblHtml, CharSequence btnOkText, CharSequence btnCancelText,
-            TGS_ExecutableType1<TGC_PopLblYesNoDateBox> onExe,
-            TGS_ExecutableType1<TGC_PopLblYesNoDateBox> onEsc,
-            TGS_Executable onVisible_optional, CharSequence iconClassExe_optional, CharSequence iconClassEsc_optional) {
+            TGS_RunnableType1<TGC_PopLblYesNoDateBox> onExe,
+            TGS_RunnableType1<TGC_PopLblYesNoDateBox> onEsc,
+            TGS_Runnable onVisible_optional, CharSequence iconClassExe_optional, CharSequence iconClassEsc_optional) {
         this.dim = dim;
         this.lblHtml = lblHtml.toString();
         this.btnOkText = btnOkText.toString();
@@ -66,7 +66,7 @@ public class TGC_PopLblYesNoDateBox implements TGC_PopInterface {
         this.onVisible = () -> {
             setVisibleDatePicker(false);
             if (onVisible_optional != null) {
-                onVisible_optional.execute();
+                onVisible_optional.run();
             }
         };
         this.iconClassExe = iconClassExe_optional == null ? null : iconClassExe_optional.toString();
@@ -82,8 +82,8 @@ public class TGC_PopLblYesNoDateBox implements TGC_PopInterface {
     private String iconClassExe, iconClassEsc;
     private TGC_Dimension dim;
     final private String btnOkText, btnCancelText;
-    final public TGS_ExecutableType1<TGC_PopLblYesNoDateBox> onEsc, onExe;
-    final public TGS_Executable onVisible;
+    final public TGS_RunnableType1<TGC_PopLblYesNoDateBox> onEsc, onExe;
+    final public TGS_Runnable onVisible;
 
     @Override
     public void createWidgets() {
@@ -107,11 +107,11 @@ public class TGC_PopLblYesNoDateBox implements TGC_PopInterface {
 
     @Override
     public void configActions() {
-        TGC_ClickUtils.add(btnExe, () -> onExe.execute(this));
-        TGC_ClickUtils.add(btnEsc, () -> onEsc.execute(this));
-        TGC_KeyUtils.add(btnExe, () -> onExe.execute(this), () -> onEsc.execute(this));
-        TGC_KeyUtils.add(btnEsc, () -> onEsc.execute(this), () -> onEsc.execute(this));
-        TGC_KeyUtils.add(dateBox.getTextBox(), () -> onExe.execute(this), () -> onEsc.execute(this));
+        TGC_ClickUtils.add(btnExe, () -> onExe.run(this));
+        TGC_ClickUtils.add(btnEsc, () -> onEsc.run(this));
+        TGC_KeyUtils.add(btnExe, () -> onExe.run(this), () -> onEsc.run(this));
+        TGC_KeyUtils.add(btnEsc, () -> onEsc.run(this), () -> onEsc.run(this));
+        TGC_KeyUtils.add(dateBox.getTextBox(), () -> onExe.run(this), () -> onEsc.run(this));
     }
 
     @Override

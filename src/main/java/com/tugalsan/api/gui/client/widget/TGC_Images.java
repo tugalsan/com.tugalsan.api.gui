@@ -15,7 +15,7 @@ public class TGC_Images {
         if (images.isEmpty() || idx < 0 || idx >= images.size()) {
             return this;
         }
-        TGC_ThreadUtils.execute_afterSeconds_afterGUIUpdate(t -> {
+        TGC_ThreadUtils.run_afterSeconds_afterGUIUpdate(t -> {
             IntStream.range(0, images.size()).parallel().forEach(i -> images.get(i).setVisible(i == idx));
         }, 0.1f);
         return this;

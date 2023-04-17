@@ -2,7 +2,7 @@ package com.tugalsan.api.gui.client.key;
 
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.Event;
-import com.tugalsan.api.executable.client.TGS_Executable;
+import com.tugalsan.api.runnable.client.TGS_Runnable;
 import com.tugalsan.api.gui.client.dom.TGC_DOMUtils;
 import com.tugalsan.api.list.client.*;
 import com.tugalsan.api.log.client.TGC_Log;
@@ -26,7 +26,7 @@ public class TGC_KeyTriggerUtils {
                 isPreShift = isShift;
                 isCtrl = ctrl;
                 isShift = shift;
-                onTrigger.stream().forEachOrdered(t -> t.execute());
+                onTrigger.stream().forEachOrdered(t -> t.run());
             }
             if (Event.ONKEYUP == event.getTypeInt()) {
                 var ctrl = event.getCtrlKey();
@@ -38,28 +38,28 @@ public class TGC_KeyTriggerUtils {
                 isPreShift = isShift;
                 isCtrl = ctrl;
                 isShift = shift;
-                onTrigger.stream().forEachOrdered(t -> t.execute());
+                onTrigger.stream().forEachOrdered(t -> t.run());
             }
         });
         onTrigger.add(() -> {
             if (isCtrl && isShift) {
                 if (quickCtrlShift != null) {
-                    quickCtrlShift.execute();
+                    quickCtrlShift.run();
                 }
                 d.ci("add2Dom", "quickCtrlShift", "CS");
             } else if (isCtrl) {
                 if (quickCtrl != null) {
-                    quickCtrl.execute();
+                    quickCtrl.run();
                 }
                 d.ci("add2Dom", "quickCtrl", "C");
             } else if (isShift) {
                 if (quickShift != null) {
-                    quickShift.execute();
+                    quickShift.run();
                 }
                 d.ci("add2Dom", "quickShift", "S");
             } else {
                 if (quickNull != null) {
-                    quickNull.execute();
+                    quickNull.run();
                 }
                 d.ci("add2Dom", "quickNull", "N");
             }
@@ -70,9 +70,9 @@ public class TGC_KeyTriggerUtils {
     public static boolean isPreShift = false;
     public static boolean isCtrl = false;
     public static boolean isShift = false;
-    final public static List<TGS_Executable> onTrigger = TGS_ListUtils.of();
-    public static TGS_Executable quickCtrlShift = null;
-    public static TGS_Executable quickCtrl = null;
-    public static TGS_Executable quickShift = null;
-    public static TGS_Executable quickNull = null;
+    final public static List<TGS_Runnable> onTrigger = TGS_ListUtils.of();
+    public static TGS_Runnable quickCtrlShift = null;
+    public static TGS_Runnable quickCtrl = null;
+    public static TGS_Runnable quickShift = null;
+    public static TGS_Runnable quickNull = null;
 }

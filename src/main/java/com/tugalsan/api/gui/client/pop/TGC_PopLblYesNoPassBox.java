@@ -12,31 +12,31 @@ import com.tugalsan.api.gui.client.dim.TGC_Dimension;
 import com.tugalsan.api.gui.client.panel.TGC_PanelLayoutUtils;
 import com.tugalsan.api.gui.client.widget.TGC_ButtonUtils;
 import com.tugalsan.api.icon.client.TGS_IconUtils;
-import com.tugalsan.api.executable.client.TGS_Executable;
-import com.tugalsan.api.executable.client.TGS_ExecutableType1;
+import com.tugalsan.api.runnable.client.TGS_Runnable;
+import com.tugalsan.api.runnable.client.TGS_RunnableType1;
 
 public class TGC_PopLblYesNoPassBox implements TGC_PopInterface {
 
     final private static TGC_Log d = TGC_Log.of(TGC_PopLblYesNoPassBox.class);
 
     final private String lblHTML, btnOkText, btnCancelText;
-    final public TGS_ExecutableType1<TGC_PopLblYesNoPassBox> onEsc, onExe;
-    final public TGS_Executable onVisible;
+    final public TGS_RunnableType1<TGC_PopLblYesNoPassBox> onEsc, onExe;
+    final public TGS_Runnable onVisible;
 
     public TGC_PopLblYesNoPassBox(TGC_Dimension dim,
             CharSequence lblHTML, CharSequence btnOkText, CharSequence btnCancelText,
-            TGS_ExecutableType1<TGC_PopLblYesNoPassBox> onExe,
-            TGS_ExecutableType1<TGC_PopLblYesNoPassBox> onEsc,
-            TGS_Executable onVisible_optional) {
+            TGS_RunnableType1<TGC_PopLblYesNoPassBox> onExe,
+            TGS_RunnableType1<TGC_PopLblYesNoPassBox> onEsc,
+            TGS_Runnable onVisible_optional) {
         this(dim, lblHTML, btnOkText, btnCancelText,
                 onExe, onEsc, onVisible_optional, null, null);
     }
 
     public TGC_PopLblYesNoPassBox(TGC_Dimension dim,
             CharSequence lblHTML, CharSequence btnOkText, CharSequence btnCancelText,
-            TGS_ExecutableType1<TGC_PopLblYesNoPassBox> onExe,
-            TGS_ExecutableType1<TGC_PopLblYesNoPassBox> onEsc,
-            TGS_Executable onVisible_optional, CharSequence iconClassExe_optional, CharSequence iconClassEsc_optional) {
+            TGS_RunnableType1<TGC_PopLblYesNoPassBox> onExe,
+            TGS_RunnableType1<TGC_PopLblYesNoPassBox> onEsc,
+            TGS_Runnable onVisible_optional, CharSequence iconClassExe_optional, CharSequence iconClassEsc_optional) {
         this.dim = dim;
         this.lblHTML = lblHTML.toString();
         this.btnOkText = btnOkText.toString();
@@ -80,11 +80,11 @@ public class TGC_PopLblYesNoPassBox implements TGC_PopInterface {
 
     @Override
     public void configActions() {
-        TGC_ClickUtils.add(btnExe, () -> onExe.execute(this));
-        TGC_ClickUtils.add(btnEsc, () -> onEsc.execute(this));
-        TGC_KeyUtils.add(btnExe, () -> onExe.execute(this), () -> onEsc.execute(this));
-        TGC_KeyUtils.add(btnEsc, () -> onEsc.execute(this), () -> onEsc.execute(this));
-        TGC_KeyUtils.add(passwordTextBox, () -> onExe.execute(this), () -> onEsc.execute(this));
+        TGC_ClickUtils.add(btnExe, () -> onExe.run(this));
+        TGC_ClickUtils.add(btnEsc, () -> onEsc.run(this));
+        TGC_KeyUtils.add(btnExe, () -> onExe.run(this), () -> onEsc.run(this));
+        TGC_KeyUtils.add(btnEsc, () -> onEsc.run(this), () -> onEsc.run(this));
+        TGC_KeyUtils.add(passwordTextBox, () -> onExe.run(this), () -> onEsc.run(this));
     }
 
     @Override

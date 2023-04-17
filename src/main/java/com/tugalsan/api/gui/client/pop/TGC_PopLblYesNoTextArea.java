@@ -9,7 +9,7 @@ import com.tugalsan.api.gui.client.dim.*;
 import com.tugalsan.api.gui.client.widget.*;
 import com.tugalsan.api.gui.client.panel.*;
 import com.tugalsan.api.icon.client.*;
-import com.tugalsan.api.executable.client.*;
+import com.tugalsan.api.runnable.client.*;
 import com.tugalsan.api.gui.client.browser.*;
 import com.tugalsan.api.network.client.*;
 import com.tugalsan.api.string.client.*;
@@ -28,8 +28,8 @@ public class TGC_PopLblYesNoTextArea implements TGC_PopInterface {
     }
 
     final private String btnOkText, btnCancelText;
-    final public TGS_ExecutableType1<TGC_PopLblYesNoTextArea> onEsc, onExe;
-    final public TGS_Executable onVisible;
+    final public TGS_RunnableType1<TGC_PopLblYesNoTextArea> onEsc, onExe;
+    final public TGS_Runnable onVisible;
 
     public void setLabelHTML(String html) {
         lblHtml = TGS_NetworkHTMLUtils.HTML_SPACE() + html;
@@ -39,9 +39,9 @@ public class TGC_PopLblYesNoTextArea implements TGC_PopInterface {
 
     public TGC_PopLblYesNoTextArea(TGC_Dimension dim,
             CharSequence lblHtml, CharSequence btnOkText, CharSequence btnCancelText,
-            TGS_ExecutableType1<TGC_PopLblYesNoTextArea> onExe,
-            TGS_ExecutableType1<TGC_PopLblYesNoTextArea> onEsc,
-            TGS_Executable onVisible_optional) {
+            TGS_RunnableType1<TGC_PopLblYesNoTextArea> onExe,
+            TGS_RunnableType1<TGC_PopLblYesNoTextArea> onEsc,
+            TGS_Runnable onVisible_optional) {
         this(dim,
                 lblHtml, btnOkText, btnCancelText,
                 onExe, onEsc, onVisible_optional,
@@ -51,9 +51,9 @@ public class TGC_PopLblYesNoTextArea implements TGC_PopInterface {
 
     public TGC_PopLblYesNoTextArea(TGC_Dimension dim,
             CharSequence lblHtml, CharSequence btnOkText, CharSequence btnCancelText,
-            TGS_ExecutableType1<TGC_PopLblYesNoTextArea> onExe,
-            TGS_ExecutableType1<TGC_PopLblYesNoTextArea> onEsc,
-            TGS_Executable onVisible_optional, CharSequence iconClassExe_optional, CharSequence iconClassEsc_optional) {
+            TGS_RunnableType1<TGC_PopLblYesNoTextArea> onExe,
+            TGS_RunnableType1<TGC_PopLblYesNoTextArea> onEsc,
+            TGS_Runnable onVisible_optional, CharSequence iconClassExe_optional, CharSequence iconClassEsc_optional) {
         maxCharCount = MAX_CHAR_SQL_BLOB();
         this.dim = dim;
         this.lblHtml = TGS_NetworkHTMLUtils.HTML_SPACE() + lblHtml;
@@ -99,11 +99,11 @@ public class TGC_PopLblYesNoTextArea implements TGC_PopInterface {
 
     @Override
     public void configActions() {
-        TGC_ClickUtils.add(btnExe, () -> onExe.execute(this));
-        TGC_ClickUtils.add(btnEsc, () -> onEsc.execute(this));
-        TGC_KeyUtils.add(btnExe, () -> onExe.execute(this), () -> onEsc.execute(this));
-        TGC_KeyUtils.add(btnEsc, () -> onEsc.execute(this), () -> onEsc.execute(this));
-        TGC_KeyUtils.add(textArea, () -> onExe.execute(this), () -> onEsc.execute(this));
+        TGC_ClickUtils.add(btnExe, () -> onExe.run(this));
+        TGC_ClickUtils.add(btnEsc, () -> onEsc.run(this));
+        TGC_KeyUtils.add(btnExe, () -> onExe.run(this), () -> onEsc.run(this));
+        TGC_KeyUtils.add(btnEsc, () -> onEsc.run(this), () -> onEsc.run(this));
+        TGC_KeyUtils.add(textArea, () -> onExe.run(this), () -> onEsc.run(this));
         TGC_ClickUtils.add(btnExtend, () -> getPop().setVisibleFullScreen());
     }
 
@@ -162,7 +162,7 @@ public class TGC_PopLblYesNoTextArea implements TGC_PopInterface {
     public void startMaxCharCheck_untilUnVisible() {
         var delayInSec = 1;
         var hint = TGC_BrowserNavigatorUtils.mobile() ? "" : "<span style=\"float:left;\"><i><b>" + TGS_NetworkHTMLUtils.HTML_SPACE() + "İp Ucu-Uygula: </b>Control'e basılı tutarak Enter basın</i></span>";
-        TGC_ThreadUtils.execute_afterSeconds_afterGUIUpdate(t -> {
+        TGC_ThreadUtils.run_afterSeconds_afterGUIUpdate(t -> {
             var max = maxCharCount;
             var isBlob = maxCharCount > MAX_CHAR_SQL_STR();
             var cc = textArea.getText().length();
@@ -176,7 +176,7 @@ public class TGC_PopLblYesNoTextArea implements TGC_PopInterface {
             var warningValue = TGS_StringUtils.concat(String.valueOf(cc), "/", String.valueOf(max), " karakter, %", String.valueOf(per), suffix);
             footer.setHTML(TGS_StringUtils.concat("<span style=\"float:left;\">", hint, "</span>", "<br/>", "<span style=\"float:left;\"><i><b>", warningLabel, "</b>", warningValue, "</i></span>"));
             if (getPop().isVisible()) {
-                t.execute_afterSeconds(delayInSec);
+                t.run_afterSeconds(delayInSec);
             } else {
                 footer.setHTML(hint);
             }

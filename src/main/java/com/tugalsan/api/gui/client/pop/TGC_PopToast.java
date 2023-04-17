@@ -2,7 +2,7 @@ package com.tugalsan.api.gui.client.pop;
 
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.RootPanel;
-import com.tugalsan.api.executable.client.TGS_Executable;
+import com.tugalsan.api.runnable.client.TGS_Runnable;
 import com.tugalsan.api.gui.client.dim.TGC_Dimension;
 import com.tugalsan.api.log.client.TGC_Log;
 import com.tugalsan.api.thread.client.TGC_ThreadUtils;
@@ -11,7 +11,7 @@ public class TGC_PopToast implements TGC_PopInterface {
 
     final private static TGC_Log d = TGC_Log.of(TGC_PopToast.class);
 
-    public TGC_PopToast(TGC_Dimension dim, TGS_Executable onVisible_optional) {
+    public TGC_PopToast(TGC_Dimension dim, TGS_Runnable onVisible_optional) {
         this.dim = dim;
         this.onVisible = onVisible_optional;
         createWidgets();
@@ -22,7 +22,7 @@ public class TGC_PopToast implements TGC_PopInterface {
         configLayout();
     }
     private TGC_Dimension dim;
-    public final TGS_Executable onVisible;
+    public final TGS_Runnable onVisible;
 
     @Override
     public void createWidgets() {
@@ -75,7 +75,7 @@ public class TGC_PopToast implements TGC_PopInterface {
                     TGC_Dimension.FULLSCREEN.getHeight() - offsetHeight - 3
             );
         });
-        TGC_ThreadUtils.execute_afterSeconds(exe -> {
+        TGC_ThreadUtils.run_afterSeconds(exe -> {
             RootPanel.get().remove(panelPopup.widget);
         }, seconds);
     }

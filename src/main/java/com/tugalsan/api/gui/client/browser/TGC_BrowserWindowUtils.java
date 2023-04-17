@@ -4,8 +4,8 @@ import com.google.gwt.dom.client.Document;
 import com.google.gwt.user.client.Window;
 import java.util.List;
 import com.tugalsan.api.charset.client.TGS_CharSetUTF8;
-import com.tugalsan.api.executable.client.TGS_Executable;
-import com.tugalsan.api.executable.client.TGS_ExecutableType1;
+import com.tugalsan.api.runnable.client.TGS_Runnable;
+import com.tugalsan.api.runnable.client.TGS_RunnableType1;
 import com.tugalsan.api.list.client.*;
 import com.tugalsan.api.log.client.TGC_Log;
 import com.tugalsan.api.shape.client.TGS_ShapeDimension;
@@ -34,7 +34,7 @@ public class TGC_BrowserWindowUtils {
     }
 
     public static void reloadInSecs(int seconds) {
-        TGC_ThreadUtils.execute_afterSeconds_afterGUIUpdate(t -> TGC_BrowserWindowUtils.reload(), seconds);
+        TGC_ThreadUtils.run_afterSeconds_afterGUIUpdate(t -> TGC_BrowserWindowUtils.reload(), seconds);
     }
 
     public static void addResizeHandler() {
@@ -47,11 +47,11 @@ public class TGC_BrowserWindowUtils {
             d.ci("addResizeHandler", "requesting...");
             var reqMillis = System.currentTimeMillis();
             SYNC_lastResizeRequestMillis = reqMillis;
-            TGC_ThreadUtils.execute_afterSeconds_afterGUIUpdate(t -> {
+            TGC_ThreadUtils.run_afterSeconds_afterGUIUpdate(t -> {
                 if (SYNC_lastResizeRequestMillis == reqMillis) {
                     d.ci("addResizeHandler", "exe_resizeHandlers.size()", exe_resizeHandlers.size());
                     exe_resizeHandlers.stream().forEachOrdered(exe -> {
-                        exe.execute(new TGS_ShapeDimension(re.getWidth(), re.getHeight()));
+                        exe.run(new TGS_ShapeDimension(re.getWidth(), re.getHeight()));
                     });
                 } else {
                     d.ci("addResizeHandler", "request skipped...");
@@ -60,7 +60,7 @@ public class TGC_BrowserWindowUtils {
         });
         d.ci("addResizeHandler", "init");
     }
-    final public static List<TGS_ExecutableType1<TGS_ShapeDimension<Integer>>> exe_resizeHandlers = TGS_ListUtils.of();
+    final public static List<TGS_RunnableType1<TGS_ShapeDimension<Integer>>> exe_resizeHandlers = TGS_ListUtils.of();
     volatile private static long SYNC_lastResizeRequestMillis = 0;
 
     public static native void close()/*-{
@@ -74,8 +74,8 @@ public class TGC_BrowserWindowUtils {
         };
     }-*/;
 
-    public static void onClosing(TGS_Executable exe) {
-        Window.addWindowClosingHandler(e -> exe.execute());
+    public static void onClosing(TGS_Runnable exe) {
+        Window.addWindowClosingHandler(e -> exe.run());
     }
 
     @Deprecated

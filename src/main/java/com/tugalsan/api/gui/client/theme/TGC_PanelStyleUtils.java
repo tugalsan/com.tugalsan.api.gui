@@ -8,7 +8,7 @@ public class TGC_PanelStyleUtils {
 
     public static void warn(Widget w, int seconds) {
         red(w);
-        TGC_ThreadUtils.execute_afterSeconds_afterGUIUpdate(t -> TGC_ThreadUtils.execute_afterGUIUpdate(() -> {
+        TGC_ThreadUtils.run_afterSeconds_afterGUIUpdate(t -> TGC_ThreadUtils.run_afterGUIUpdate(() -> {
             remove(w);
         }), seconds);
     }

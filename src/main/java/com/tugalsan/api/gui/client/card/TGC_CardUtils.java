@@ -3,7 +3,7 @@ package com.tugalsan.api.gui.client.card;
 import com.google.gwt.user.client.ui.*;
 import com.tugalsan.api.charset.client.*;
 import com.tugalsan.api.color.client.*;
-import com.tugalsan.api.executable.client.*;
+import com.tugalsan.api.runnable.client.*;
 import com.tugalsan.api.gui.client.widget.canvas.*;
 import com.tugalsan.api.list.client.*;
 import com.tugalsan.api.log.client.*;
@@ -45,9 +45,9 @@ public class TGC_CardUtils {
         return TGC_Card.class.getSimpleName() + "_input";
     }
 
-    public static TGS_Pack3<TextBox, FlowPanel, List<TGC_Card>> create(ScrollPanel optionalScroll, CharSequence optionalTitleHtml, CharSequence urlSearchIcon, TGS_ExecutableType1<List<TGC_Card>> cards) {
+    public static TGS_Pack3<TextBox, FlowPanel, List<TGC_Card>> create(ScrollPanel optionalScroll, CharSequence optionalTitleHtml, CharSequence urlSearchIcon, TGS_RunnableType1<List<TGC_Card>> cards) {
         List<TGC_Card> cardsInner = TGS_ListUtils.of();
-        cards.execute(cardsInner);
+        cards.run(cardsInner);
 
         var tbInput = new TextBox();
         tbInput.getElement().setId(IDNAME_INPUT());
@@ -141,7 +141,7 @@ public class TGC_CardUtils {
             } else {
                 cardFocus.addStyleName(TGC_CardUtils.CLASSNAME_CARD_A());
                 cardFocus.addClickHandler(e -> {
-                    card.optionalAction.execute();
+                    card.optionalAction.run();
                 });
             }
 

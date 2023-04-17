@@ -9,7 +9,7 @@ import java.util.stream.IntStream;
 import com.tugalsan.api.log.client.TGC_Log;
 import com.tugalsan.api.thread.client.TGC_ThreadUtils;
 import com.tugalsan.api.gui.client.widget.TGC_ListBoxUtils;
-import com.tugalsan.api.executable.client.TGS_ExecutableType1;
+import com.tugalsan.api.runnable.client.TGS_RunnableType1;
 import com.tugalsan.api.gui.client.click.TGC_ClickUtils;
 import com.tugalsan.api.gui.client.pop.TGC_PopLblYesNoListBox;
 import com.tugalsan.api.gui.client.widget.TGC_ButtonUtils;
@@ -58,7 +58,7 @@ public class TGC_ThemeUtils {
         );
 
         //ACTION
-        TGC_ThreadUtils.execute_afterGUIUpdate(() -> {
+        TGC_ThreadUtils.run_afterGUIUpdate(() -> {
             var themeStoredIdx = TGC_ThemeUtils.getThemeIdxStored();
             d.ci("GWTthemeStoredIdx.0: " + themeStoredIdx);
             themeStoredIdx = themeStoredIdx == -1 ? 0 : themeStoredIdx;
@@ -105,8 +105,8 @@ public class TGC_ThemeUtils {
         if (onChangeAddon == null){
             return;
         }
-        onChangeAddon.execute(si);
+        onChangeAddon.run(si);
     }
     
-    public static TGS_ExecutableType1<Integer> onChangeAddon = null;
+    public static TGS_RunnableType1<Integer> onChangeAddon = null;
 }

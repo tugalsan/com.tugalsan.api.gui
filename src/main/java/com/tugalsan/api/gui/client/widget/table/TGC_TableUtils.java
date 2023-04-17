@@ -4,14 +4,14 @@ import com.google.gwt.user.cellview.client.*;
 import com.google.gwt.view.client.*;
 import java.util.*;
 import java.util.stream.*;
-import com.tugalsan.api.executable.client.*;
+import com.tugalsan.api.runnable.client.*;
 import com.tugalsan.api.list.client.*;
 import com.tugalsan.api.pack.client.*;
 import com.tugalsan.api.string.client.*;
 
 public class TGC_TableUtils {
 
-    public static TGS_Pack2<CellTable<TGC_TableRow>, List<TGC_TableRow>> createTable(int rowSize, List<String> columnTitles, TGS_ExecutableType1<String> onSelectTitle) {
+    public static TGS_Pack2<CellTable<TGC_TableRow>, List<TGC_TableRow>> createTable(int rowSize, List<String> columnTitles, TGS_RunnableType1<String> onSelectTitle) {
         CellTable<TGC_TableRow> cellTable = new CellTable();
         var colSize = columnTitles.size();
 
@@ -36,7 +36,7 @@ public class TGC_TableUtils {
             };
             columnHeader.setUpdater((String value) -> {
                 if (onSelectTitle != null) {
-                    onSelectTitle.execute(value);
+                    onSelectTitle.run(value);
                 }
             });
             var columnPresenter = new TextColumn<TGC_TableRow>() {
@@ -69,13 +69,13 @@ public class TGC_TableUtils {
         return cellTable.getSelectionModel() instanceof SingleSelectionModel ? (TGC_TableRow) ((SingleSelectionModel) cellTable.getSelectionModel()).getSelectedObject() : null;
     }
 
-    public static void addOnSelectAction(CellTable cellTable, TGS_Executable onSelect) {
+    public static void addOnSelectAction(CellTable cellTable, TGS_Runnable onSelect) {
         var sm = cellTable.getSelectionModel() instanceof SingleSelectionModel ? (SingleSelectionModel) cellTable.getSelectionModel() : null;
         if (sm != null) {
             sm.addSelectionChangeHandler(e -> {
                 var selRow = sm.getSelectedObject();
                 if (selRow != null) {
-                    onSelect.execute();
+                    onSelect.run();
                 }
             });
         }
