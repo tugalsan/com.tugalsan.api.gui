@@ -84,10 +84,8 @@ public class TGC_PopFrame implements TGC_PopInterface {
     public void configLayout() {
         panelPopup = new TGC_Pop(
                 TGC_PanelLayoutUtils.createDockNorth(2,
-                        TGC_PanelLayoutUtils.createVertical(btnExe,
-                                frame
-                        ),
-                        new HTML("")
+                        btnExe,
+                        frame
                 ),
                 dim, onVisible
         );
