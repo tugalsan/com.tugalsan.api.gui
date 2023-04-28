@@ -82,6 +82,8 @@ public class TGC_PopFrame implements TGC_PopInterface {
 
     @Override
     public void configLayout() {
+        frame.setWidth("100%");
+        frame.setHeight("100%");
         panelPopup = new TGC_Pop(
                 TGC_PanelLayoutUtils.createDockNorth(2,
                         btnExe,
