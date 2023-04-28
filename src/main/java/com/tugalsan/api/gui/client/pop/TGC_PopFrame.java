@@ -21,7 +21,6 @@ public class TGC_PopFrame implements TGC_PopInterface {
     public TGC_PopFrame(TGC_Dimension dim,
             TGS_Url url_optional, CharSequence btnOkText,
             TGS_RunnableType1<TGC_PopFrame> onExe,
-            TGS_RunnableType1<TGC_PopFrame> onEsc,
             TGS_Runnable onVisible_optional) {
         this(dim,
                 url_optional, btnOkText,
