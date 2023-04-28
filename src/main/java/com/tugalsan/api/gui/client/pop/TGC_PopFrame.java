@@ -1,7 +1,6 @@
 package com.tugalsan.api.gui.client.pop;
 
 import com.google.gwt.user.client.ui.Frame;
-import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.PushButton;
 import com.tugalsan.api.log.client.TGC_Log;
 import com.tugalsan.api.gui.client.click.TGC_ClickUtils;
