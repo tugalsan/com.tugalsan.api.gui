@@ -6,6 +6,10 @@ public class TGS_PopYesNoOptionCodes {
         return "EXE_REDIRECT";
     }
 
+    public static String EXE_NEWTAB() {
+        return "EXE_NEWTAB";
+    }
+
     public static String EXE_SERVLET() {
         return "EXE_SERVLET";
     }
