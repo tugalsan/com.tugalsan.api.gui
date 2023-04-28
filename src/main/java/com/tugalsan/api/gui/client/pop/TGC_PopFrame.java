@@ -19,23 +19,23 @@ public class TGC_PopFrame implements TGC_PopInterface {
     final private static TGC_Log d = TGC_Log.of(TGC_PopFrame.class);
 
     public TGC_PopFrame(TGC_Dimension dim,
-            TGS_Url url, CharSequence btnOkText,
+            TGS_Url url_optional, CharSequence btnOkText,
             TGS_RunnableType1<TGC_PopFrame> onExe,
             TGS_RunnableType1<TGC_PopFrame> onEsc,
             TGS_Runnable onVisible_optional) {
         this(dim,
-                url, btnOkText,
+                url_optional, btnOkText,
                 onExe, onVisible_optional,
                 null
         );
     }
 
     public TGC_PopFrame(TGC_Dimension dim,
-            TGS_Url url, CharSequence btnOkText,
+            TGS_Url url_optional, CharSequence btnOkText,
             TGS_RunnableType1<TGC_PopFrame> onExe,
             TGS_Runnable onVisible_optional, CharSequence iconClassExe_optional) {
         this.dim = dim;
-        this.url = url;
+        this.url = url_optional == null ? new TGS_Url("") : url_optional;
         this.btnOkText = btnOkText.toString();
         this.onExe = onExe;
         this.onVisible = onVisible_optional;
@@ -98,5 +98,10 @@ public class TGC_PopFrame implements TGC_PopInterface {
     @Override
     public TGC_Pop getPop() {
         return panelPopup;
+    }
+
+    public void setUrl(TGS_Url newUrl) {
+        url.setUrl(newUrl.getUrl());
+        frame.setUrl(url.getUrl().toString());
     }
 }

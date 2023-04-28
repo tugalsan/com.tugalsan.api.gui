@@ -25,8 +25,6 @@ import com.tugalsan.api.runnable.client.TGS_RunnableType1;
 import com.tugalsan.api.list.client.*;
 import com.tugalsan.api.pack.client.TGS_Pack2;
 import com.tugalsan.api.stream.client.*;
-import java.util.*;
-import java.util.stream.*;
 
 public class TGC_PopLblYesNoCheckListBox implements TGC_PopInterface {
 
