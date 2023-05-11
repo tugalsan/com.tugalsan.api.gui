@@ -78,8 +78,8 @@ public class TGC_PopFrame implements TGC_PopInterface {
         TGC_ClickUtils.add(btnExe, () -> onExe.run(this));
         TGC_KeyUtils.add(btnExe, () -> onExe.run(this), () -> onExe.run(this));
         TGS_Runnable onTab = () -> TGC_BrowserWindowUtils.openNew(url);
-        TGC_ClickUtils.add(btnExe, onTab);
-        TGC_KeyUtils.add(btnExe, onTab, () -> onExe.run(this));
+        TGC_ClickUtils.add(btnTab, onTab);
+        TGC_KeyUtils.add(btnTab, onTab, () -> onExe.run(this));
     }
     
     @Override
