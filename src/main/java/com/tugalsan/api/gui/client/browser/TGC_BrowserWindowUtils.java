@@ -10,6 +10,7 @@ import com.tugalsan.api.list.client.*;
 import com.tugalsan.api.log.client.TGC_Log;
 import com.tugalsan.api.shape.client.TGS_ShapeDimension;
 import com.tugalsan.api.thread.client.TGC_ThreadUtils;
+import com.tugalsan.api.url.client.TGS_Url;
 
 public class TGC_BrowserWindowUtils {
 
@@ -21,12 +22,12 @@ public class TGC_BrowserWindowUtils {
         }
     }
 
-    public static void openNew(CharSequence link) {
-        Window.open(link.toString(), "_blank", null);
+    public static void openNew(TGS_Url url) {
+        Window.open(url.toString(), "_blank", null);
     }
 
-    public static void openSame(CharSequence link) {
-        Window.open(link.toString(), "_self", null);
+    public static void openSame(TGS_Url url) {
+        Window.open(url.toString(), "_self", null);
     }
 
     public static void reload() {
