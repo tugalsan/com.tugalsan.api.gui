@@ -15,9 +15,9 @@ import com.tugalsan.api.runnable.client.TGS_RunnableType1;
 import com.tugalsan.api.url.client.TGS_Url;
 
 public class TGC_PopFrame implements TGC_PopInterface {
-    
+
     final private static TGC_Log d = TGC_Log.of(TGC_PopFrame.class);
-    
+
     public TGC_PopFrame(TGC_Dimension dim,
             TGS_Url url_optional, CharSequence btnOkText, CharSequence btnTabText,
             TGS_RunnableType1<TGC_PopFrame> onExe,
@@ -28,7 +28,7 @@ public class TGC_PopFrame implements TGC_PopInterface {
                 null
         );
     }
-    
+
     public TGC_PopFrame(TGC_Dimension dim,
             TGS_Url url_optional, CharSequence btnOkText, CharSequence btnTabText,
             TGS_RunnableType1<TGC_PopFrame> onExe,
@@ -55,7 +55,7 @@ public class TGC_PopFrame implements TGC_PopInterface {
     final private String btnTabText;
     final public TGS_RunnableType1<TGC_PopFrame> onExe;
     final private TGS_Runnable onVisible;
-    
+
     @Override
     public void createWidgets() {
         btnExe = TGC_ButtonUtils.createIcon(iconClassExe == null ? TGS_IconUtils.CLASS_CHECKMARK() : iconClassExe, btnOkText);
@@ -64,28 +64,31 @@ public class TGC_PopFrame implements TGC_PopInterface {
     }
     public Frame frame;
     public PushButton btnExe, btnTab;
-    
+
     @Override
     public void createPops() {
     }
-    
+
     @Override
     public void configInit() {
     }
-    
+
     @Override
     public void configActions() {
         TGC_ClickUtils.add(btnExe, () -> onExe.run(this));
         TGC_KeyUtils.add(btnExe, () -> onExe.run(this), () -> onExe.run(this));
-        TGS_Runnable onTab = () -> TGC_BrowserWindowUtils.openNew(url);
+        TGS_Runnable onTab = () -> {
+            TGC_BrowserWindowUtils.openNew(url);
+            onExe.run(this);
+        };
         TGC_ClickUtils.add(btnTab, onTab);
         TGC_KeyUtils.add(btnTab, onTab, () -> onExe.run(this));
     }
-    
+
     @Override
     public void configFocus() {
     }
-    
+
     @Override
     public void configLayout() {
         frame.setWidth("100%");
@@ -99,12 +102,12 @@ public class TGC_PopFrame implements TGC_PopInterface {
         );
     }
     private TGC_Pop panelPopup;
-    
+
     @Override
     public TGC_Pop getPop() {
         return panelPopup;
     }
-    
+
     public void setUrl(TGS_Url newUrl) {
         url.setUrl(newUrl.getUrl());
         frame.setUrl(url.getUrl().toString());
