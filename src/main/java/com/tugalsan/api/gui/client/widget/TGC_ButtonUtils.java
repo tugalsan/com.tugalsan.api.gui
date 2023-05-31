@@ -2,16 +2,16 @@ package com.tugalsan.api.gui.client.widget;
 
 import com.google.gwt.user.client.ui.*;
 import com.tugalsan.api.icon.client.*;
-import com.tugalsan.api.pack.client.*;
+import com.tugalsan.api.tuple.client.*;
 import com.tugalsan.api.string.client.*;
 
 public class TGC_ButtonUtils {
 
-    public static PushButton create(TGS_Pack3<String, String, Boolean> urlImageUpDownVertical) {
+    public static PushButton create(TGS_Tuple3<String, String, Boolean> urlImageUpDownVertical) {
         return create(urlImageUpDownVertical, null);
     }
 
-    public static PushButton create(TGS_Pack3<String, String, Boolean> urlImageUpDownVertical, CharSequence label) {
+    public static PushButton create(TGS_Tuple3<String, String, Boolean> urlImageUpDownVertical, CharSequence label) {
         PushButton pb;
         if (urlImageUpDownVertical == null) {
             pb = new PushButton(label.toString());

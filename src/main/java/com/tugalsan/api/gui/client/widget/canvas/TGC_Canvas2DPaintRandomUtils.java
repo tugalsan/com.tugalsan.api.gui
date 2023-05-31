@@ -57,9 +57,9 @@ public class TGC_Canvas2DPaintRandomUtils {
 //                var locLinearStart = TGS_RandomUtils.nextLoc(boundary);
 //                var locLinearEnd = TGS_RandomUtils.nextLoc(boundary);
 //                var offsetLinearColor = TGS_ListUtils.of(
-//                        new TGS_Pack2(0f, TGC_ColorUtils.createRandom(false)),
-//                        new TGS_Pack2(0.5f, TGC_ColorUtils.createRandom(false)),
-//                        new TGS_Pack2(1f, TGC_ColorUtils.createRandom(false))
+//                        new TGS_Tuple2(0f, TGC_ColorUtils.createRandom(false)),
+//                        new TGS_Tuple2(0.5f, TGC_ColorUtils.createRandom(false)),
+//                        new TGS_Tuple2(1f, TGC_ColorUtils.createRandom(false))
 //                );
 //                d.ci("locLinearStart", locLinearStart);
 //                d.ci("locLinearEnd", locLinearEnd);
@@ -78,9 +78,9 @@ public class TGC_Canvas2DPaintRandomUtils {
 //                        TGS_RandomUtils.nextInt(0, Math.min(boundary.width, boundary.height) / 2)
 //                );
 //                var offsetRadialColor = TGS_ListUtils.of(
-//                        new TGS_Pack2(0f, TGC_ColorUtils.createRandom(false)),
-//                        new TGS_Pack2(0.5f, TGC_ColorUtils.createRandom(false)),
-//                        new TGS_Pack2(1f, TGC_ColorUtils.createRandom(false))
+//                        new TGS_Tuple2(0f, TGC_ColorUtils.createRandom(false)),
+//                        new TGS_Tuple2(0.5f, TGC_ColorUtils.createRandom(false)),
+//                        new TGS_Tuple2(1f, TGC_ColorUtils.createRandom(false))
 //                );
 //                d.ci("locRadialStart", locRadialStart);
 //                d.ci("locRadialEnd", locRadialEnd);

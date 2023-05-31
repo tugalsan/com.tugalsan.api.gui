@@ -7,7 +7,7 @@ import com.tugalsan.api.gui.client.pop.*;
 import com.tugalsan.api.gui.client.widget.*;
 import com.tugalsan.api.runnable.client.*;
 import com.tugalsan.api.list.client.*;
-import com.tugalsan.api.pack.client.*;
+import com.tugalsan.api.tuple.client.*;
 
 public class TGC_MenuMobileSub implements TGS_Runnable {
 
@@ -48,7 +48,7 @@ public class TGC_MenuMobileSub implements TGS_Runnable {
         TGC_ListBoxUtils.selectNone(pop.listBox);
     }
     final public List<TGC_MenuMobileSub> subMenus = TGS_ListUtils.of();
-    final public List<TGS_Pack2<String, TGS_Runnable>> cmd = TGS_ListUtils.of();
+    final public List<TGS_Tuple2<String, TGS_Runnable>> cmd = TGS_ListUtils.of();
 
     @Override
     public void run() {

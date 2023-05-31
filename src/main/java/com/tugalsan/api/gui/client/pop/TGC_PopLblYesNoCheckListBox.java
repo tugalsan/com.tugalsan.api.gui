@@ -23,7 +23,7 @@ import com.tugalsan.api.icon.client.TGS_IconUtils;
 import com.tugalsan.api.runnable.client.TGS_Runnable;
 import com.tugalsan.api.runnable.client.TGS_RunnableType1;
 import com.tugalsan.api.list.client.*;
-import com.tugalsan.api.pack.client.TGS_Pack2;
+import com.tugalsan.api.tuple.client.TGS_Tuple2;
 import com.tugalsan.api.stream.client.*;
 
 public class TGC_PopLblYesNoCheckListBox implements TGC_PopInterface {
@@ -33,11 +33,11 @@ public class TGC_PopLblYesNoCheckListBox implements TGC_PopInterface {
     final private String lblListBoxHTML, btnOkText, btnCancelText, lblCheckBoxHTML;
     final public TGS_RunnableType1<TGC_PopLblYesNoCheckListBox> onEsc, onExe;
     final public List<String> listBoxContent;
-    final public List<TGS_Pack2<String, String>> checkBoxIconAndLabels;
+    final public List<TGS_Tuple2<String, String>> checkBoxIconAndLabels;
     final private TGS_Runnable onVisible;
 
     public TGC_PopLblYesNoCheckListBox(TGC_Dimension dim,
-            List<String> listBoxContent_optional, List<TGS_Pack2<String, String>> checkBoxIconAndLabels,
+            List<String> listBoxContent_optional, List<TGS_Tuple2<String, String>> checkBoxIconAndLabels,
             CharSequence lblListBoxHTML, CharSequence lblCheckBoxHTML, CharSequence btnOkText, CharSequence btnCancelText,
             TGS_RunnableType1<TGC_PopLblYesNoCheckListBox> onExe,
             TGS_RunnableType1<TGC_PopLblYesNoCheckListBox> onEsc,
@@ -48,7 +48,7 @@ public class TGC_PopLblYesNoCheckListBox implements TGC_PopInterface {
     }
 
     public TGC_PopLblYesNoCheckListBox(TGC_Dimension dim,
-            List<String> listBoxContent_optional, List<TGS_Pack2<String, String>> checkBoxIconAndLabels,
+            List<String> listBoxContent_optional, List<TGS_Tuple2<String, String>> checkBoxIconAndLabels,
             CharSequence lblListBoxHTML, CharSequence lblCheckBoxHTML, CharSequence btnOkText, CharSequence btnCancelText,
             TGS_RunnableType1<TGC_PopLblYesNoCheckListBox> onExe,
             TGS_RunnableType1<TGC_PopLblYesNoCheckListBox> onEsc,

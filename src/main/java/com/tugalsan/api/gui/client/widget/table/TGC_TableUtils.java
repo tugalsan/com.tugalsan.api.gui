@@ -6,12 +6,12 @@ import java.util.*;
 import java.util.stream.*;
 import com.tugalsan.api.runnable.client.*;
 import com.tugalsan.api.list.client.*;
-import com.tugalsan.api.pack.client.*;
+import com.tugalsan.api.tuple.client.*;
 import com.tugalsan.api.string.client.*;
 
 public class TGC_TableUtils {
 
-    public static TGS_Pack2<CellTable<TGC_TableRow>, List<TGC_TableRow>> createTable(int rowSize, List<String> columnTitles, TGS_RunnableType1<String> onSelectTitle) {
+    public static TGS_Tuple2<CellTable<TGC_TableRow>, List<TGC_TableRow>> createTable(int rowSize, List<String> columnTitles, TGS_RunnableType1<String> onSelectTitle) {
         CellTable<TGC_TableRow> cellTable = new CellTable();
         var colSize = columnTitles.size();
 
@@ -47,7 +47,7 @@ public class TGC_TableUtils {
             };
             cellTable.addColumn(columnPresenter, columnHeader);
         });
-        return new TGS_Pack2(cellTable, tableData);
+        return new TGS_Tuple2(cellTable, tableData);
     }
 
     public static void setColumnWidthsPx(CellTable cellTable, int[] widths) {

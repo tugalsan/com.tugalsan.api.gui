@@ -7,7 +7,7 @@ import java.util.*;
 import java.util.stream.*;
 import com.tugalsan.api.log.client.*;
 import com.tugalsan.api.gui.client.dom.*;
-import com.tugalsan.api.pack.client.*;
+import com.tugalsan.api.tuple.client.*;
 import com.tugalsan.api.shape.client.*;
 import com.tugalsan.api.string.client.*;
 
@@ -77,16 +77,16 @@ public class TGC_PanelLayoutUtils {
     }
 
     public static HorizontalPanel createHorizontal(Widget childRest, Widget... childeren) {
-        TGS_Pack2<Widget, Integer>[] childerenAndWidths = new TGS_Pack2[childeren.length];
-        IntStream.range(0, childeren.length).forEachOrdered(i -> childerenAndWidths[i] = new TGS_Pack2(childeren[i], null));
+        TGS_Tuple2<Widget, Integer>[] childerenAndWidths = new TGS_Tuple2[childeren.length];
+        IntStream.range(0, childeren.length).forEachOrdered(i -> childerenAndWidths[i] = new TGS_Tuple2(childeren[i], null));
         return createHorizontal(10, false, childRest, childerenAndWidths);
     }
 
-    public static HorizontalPanel createHorizontal(Widget childRest, TGS_Pack2<Widget, Integer>... childerenAndWidths) {
+    public static HorizontalPanel createHorizontal(Widget childRest, TGS_Tuple2<Widget, Integer>... childerenAndWidths) {
         return createHorizontal(10, false, childRest, childerenAndWidths);
     }
 
-    public static HorizontalPanel createHorizontal(int spacingPx, boolean top, Widget childRest, TGS_Pack2<Widget, Integer>... childerenAndWidths) {
+    public static HorizontalPanel createHorizontal(int spacingPx, boolean top, Widget childRest, TGS_Tuple2<Widget, Integer>... childerenAndWidths) {
         var hp = new HorizontalPanel();
         hp.setWidth("100%");
         hp.setVerticalAlignment(top ? HasVerticalAlignment.ALIGN_TOP : HasVerticalAlignment.ALIGN_MIDDLE);

@@ -2,7 +2,7 @@ package com.tugalsan.api.gui.client.widget.canvas;
 
 import com.google.gwt.canvas.client.Canvas;
 import com.tugalsan.api.log.client.TGC_Log;
-import com.tugalsan.api.pack.client.TGS_Pack4;
+import com.tugalsan.api.tuple.client.TGS_Tuple4;
 import com.tugalsan.api.shape.client.TGS_ShapeLocation;
 
 public class TGC_Canvas2DMatrixUtils {
@@ -35,7 +35,7 @@ public class TGC_Canvas2DMatrixUtils {
         return canvas;
     }
 
-    public static Canvas transform(Canvas canvas, TGS_Pack4<Float, Float, Float, Float> matrix_m11_m22, TGS_ShapeLocation<Float> d) {
+    public static Canvas transform(Canvas canvas, TGS_Tuple4<Float, Float, Float, Float> matrix_m11_m22, TGS_ShapeLocation<Float> d) {
         var c2d = TGC_Canvas2DUtils.toContext2d(canvas);
         c2d.transform(matrix_m11_m22.value0, matrix_m11_m22.value1, matrix_m11_m22.value2, matrix_m11_m22.value3, d.x, d.y);
         return canvas;
