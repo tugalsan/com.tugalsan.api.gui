@@ -29,11 +29,15 @@ public class TGC_SuggestBox extends SuggestBox {
         });
     }
 
-    public void addSuggestion(Collection<String> items) {
+    public void clear(Collection<String> items) {
+        ((MultiWordSuggestOracle) getSuggestOracle()).clear();
+    }
+
+    public void addAll(Collection<String> items) {
         ((MultiWordSuggestOracle) getSuggestOracle()).addAll(items);
     }
 
-    public void addSuggestion(String item) {
+    public void add(String item) {
         ((MultiWordSuggestOracle) getSuggestOracle()).add(item);
     }
 
