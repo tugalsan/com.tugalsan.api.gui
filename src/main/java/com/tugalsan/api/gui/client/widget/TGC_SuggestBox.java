@@ -5,11 +5,10 @@ import com.google.gwt.user.client.ui.SuggestBox;
 import com.google.gwt.user.client.ui.SuggestOracle.Suggestion;
 import com.google.gwt.user.client.ui.TextBox;
 import java.util.Collection;
-import java.util.List;
 
 public class TGC_SuggestBox extends SuggestBox {
 
-    public TGC_SuggestBox(List<String> items) {
+    public TGC_SuggestBox(/*List<String> items*/) {
         super(
                 //        new SuggestOracle() {
                 //            @Override
