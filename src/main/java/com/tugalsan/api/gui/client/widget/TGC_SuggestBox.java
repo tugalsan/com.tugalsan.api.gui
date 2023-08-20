@@ -4,6 +4,7 @@ import com.google.gwt.user.client.ui.MultiWordSuggestOracle;
 import com.google.gwt.user.client.ui.SuggestBox;
 import com.google.gwt.user.client.ui.SuggestOracle.Suggestion;
 import com.google.gwt.user.client.ui.TextBox;
+import com.google.gwt.user.client.ui.ValueBoxBase;
 import java.util.Collection;
 
 public class TGC_SuggestBox extends SuggestBox {
@@ -39,6 +40,10 @@ public class TGC_SuggestBox extends SuggestBox {
 
     public void add(String item) {
         ((MultiWordSuggestOracle) getSuggestOracle()).add(item);
+    }
+    
+    public ValueBoxBase<String> getFocusWidget(){
+        return getValueBox();
     }
 
 //    private static class TGC_SuggestBoxSuggestion implements Suggestion {
