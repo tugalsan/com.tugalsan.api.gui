@@ -29,7 +29,7 @@ public class TGC_SuggestBox extends SuggestBox {
         });
     }
 
-    public void clear(Collection<String> items) {
+    public void clear() {
         ((MultiWordSuggestOracle) getSuggestOracle()).clear();
     }
 
