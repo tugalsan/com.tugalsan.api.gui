@@ -14,11 +14,10 @@ public class PasteAwareTextBox extends TextBox {
     public void onBrowserEvent(Event event) {
         super.onBrowserEvent(event);
         switch (event.getTypeInt()) {
-        case Event.ONPASTE:
-            onPasted(getClipboardData(event));
-            break;
+            case Event.ONPASTE:
+                onPasted(getClipboardData(event));
+                break;
         }
-
     }
 
     private void onPasted(CharSequence clipboardData) {
@@ -28,5 +27,4 @@ public class PasteAwareTextBox extends TextBox {
     private static native String getClipboardData(Event event) /*-{
         return event.clipboardData.getData('text/plain'); 
     }-*/;
-
 }
