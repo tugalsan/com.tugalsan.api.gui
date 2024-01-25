@@ -1,11 +1,10 @@
 package com.tugalsan.api.gui.client.widget.canvas;
 
 import com.google.gwt.canvas.client.Canvas;
-import com.tugalsan.api.log.client.TGC_Log;
 
 public class TGC_Canvas2DClipUtils {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_Canvas2DClipUtils.class);
+//    final private static TGC_Log d = TGC_Log.of(TGC_Canvas2DClipUtils.class);
 
     public static Canvas clipPathRect(Canvas canvas, float x, float y, float width, float height) {
         var c2d = TGC_Canvas2DUtils.toContext2d(canvas);

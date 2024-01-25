@@ -34,13 +34,13 @@ public class TGC_ProgressBar extends Widget {
     }
     public TGS_Tuple2<Integer, Integer> range;
 
-    public void update(int cur) {
+    final public void update(int cur) {
         var percent = TGS_MathUtils.convertWeightedInt(cur, range, toMinMax100);
         barElement.getStyle().setWidth(percent, Style.Unit.PCT);
         textElement.setPropertyString("innerHTML", percent + "%");
     }
-    private TGS_Tuple2<Integer, Integer> toMinMax100 = new TGS_Tuple2(0, 100);
-    private TGS_Tuple2<Integer, Integer> toMinMax255 = new TGS_Tuple2(20, 50);
+    private final TGS_Tuple2<Integer, Integer> toMinMax100 = new TGS_Tuple2(0, 100);
+//    private final TGS_Tuple2<Integer, Integer> toMinMax255 = new TGS_Tuple2(20, 50);
 
     public void setTextVisible(boolean textVisible) {
         textElement.getStyle().setVisibility(textVisible ? Style.Visibility.VISIBLE : Style.Visibility.HIDDEN);

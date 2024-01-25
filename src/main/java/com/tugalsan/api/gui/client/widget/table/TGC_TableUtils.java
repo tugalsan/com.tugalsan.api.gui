@@ -56,7 +56,7 @@ public class TGC_TableUtils {
     }
 
     public static void setColumnWidthsPx(CellTable cellTable, int widthsCommon) {
-        int[] widths = new int[cellTable.getColumnCount()];
+        var widths = new int[cellTable.getColumnCount()];
         Arrays.fill(widths, widthsCommon);
         setColumnWidthsPx(cellTable, widths);
     }

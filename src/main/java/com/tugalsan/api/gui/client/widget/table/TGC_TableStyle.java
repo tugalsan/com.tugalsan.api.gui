@@ -2,20 +2,13 @@ package com.tugalsan.api.gui.client.widget.table;
 
 import com.google.gwt.cell.client.Cell.Context;
 import com.google.gwt.core.shared.GWT;
-import com.google.gwt.dom.builder.shared.DivBuilder;
-import com.google.gwt.dom.builder.shared.TableCellBuilder;
-import com.google.gwt.dom.builder.shared.TableRowBuilder;
 import com.google.gwt.dom.client.Style.OutlineStyle;
 import com.google.gwt.resources.client.ClientBundle;
 import com.google.gwt.user.cellview.client.AbstractCellTable;
 import com.google.gwt.user.cellview.client.AbstractCellTableBuilder;
 import com.google.gwt.user.cellview.client.CellTable;
-import com.google.gwt.user.cellview.client.Column;
 import com.google.gwt.user.cellview.client.RowStyles;
 import com.google.gwt.user.cellview.client.AbstractCellTable.Style;
-import com.google.gwt.user.client.ui.HasHorizontalAlignment.HorizontalAlignmentConstant;
-import com.google.gwt.user.client.ui.HasVerticalAlignment.VerticalAlignmentConstant;
-import com.google.gwt.view.client.SelectionModel;
 
 //http://federico.defaveri.org/projects/CustomTableStyle/CustomTableStyle.html
 public class TGC_TableStyle<T> extends AbstractCellTableBuilder<T> {
@@ -23,6 +16,7 @@ public class TGC_TableStyle<T> extends AbstractCellTableBuilder<T> {
     interface CustomResources extends CellTable.Resources {
 
         @ClientBundle.Source("TGC_TableStyle.css")
+        @Override
         CustomStyle cellTableStyle();
     }
 
@@ -179,11 +173,11 @@ public class TGC_TableStyle<T> extends AbstractCellTableBuilder<T> {
         super(cellTable);
 
         // Cache styles for faster access.
-        Style style = cellTable.getResources().style();
+        var style = cellTable.getResources().style();
         setStyle(style);
     }
 
-    public void setStyle(Style style) {
+    final public void setStyle(Style style) {
         evenRowStyle = style.evenRow();
         oddRowStyle = style.oddRow();
         selectedRowStyle = " " + style.selectedRow();
@@ -199,11 +193,10 @@ public class TGC_TableStyle<T> extends AbstractCellTableBuilder<T> {
     public void buildRowImpl(T rowValue, int absRowIndex) {
 
         // Calculate the row styles.
-        SelectionModel<? super T> selectionModel = cellTable.getSelectionModel();
-        boolean isSelected
-                = (selectionModel == null || rowValue == null) ? false : selectionModel.isSelected(rowValue);
-        boolean isEven = absRowIndex % 2 == 0;
-        StringBuilder trClasses = new StringBuilder(isEven ? evenRowStyle : oddRowStyle);
+        var selectionModel = cellTable.getSelectionModel();
+        var isSelected = (selectionModel == null || rowValue == null) ? false : selectionModel.isSelected(rowValue);
+        var isEven = absRowIndex % 2 == 0;
+        var trClasses = new StringBuilder(isEven ? evenRowStyle : oddRowStyle);
         if (isSelected) {
             trClasses.append(selectedRowStyle);
         }
@@ -218,15 +211,15 @@ public class TGC_TableStyle<T> extends AbstractCellTableBuilder<T> {
         }
 
         // Build the row.
-        TableRowBuilder tr = startRow();
+        var tr = startRow();
         tr.className(trClasses.toString());
 
         // Build the columns.
-        int columnCount = cellTable.getColumnCount();
-        for (int curColumn = 0; curColumn < columnCount; curColumn++) {
-            Column<T, ?> column = cellTable.getColumn(curColumn);
+        var columnCount = cellTable.getColumnCount();
+        for (var curColumn = 0; curColumn < columnCount; curColumn++) {
+            var column = cellTable.getColumn(curColumn);
             // Create the cell styles.
-            StringBuilder tdClasses = new StringBuilder(cellStyle);
+            var tdClasses = new StringBuilder(cellStyle);
             tdClasses.append(isEven ? evenCellStyle : oddCellStyle);
             if (curColumn == 0) {
                 tdClasses.append(firstColumnStyle);
@@ -240,16 +233,16 @@ public class TGC_TableStyle<T> extends AbstractCellTableBuilder<T> {
             }
 
             // Add class names specific to the cell.
-            Context context = new Context(absRowIndex, curColumn, cellTable.getValueKey(rowValue));
-            String cellStyles = column.getCellStyleNames(context, rowValue);
+            var context = new Context(absRowIndex, curColumn, cellTable.getValueKey(rowValue));
+            var cellStyles = column.getCellStyleNames(context, rowValue);
             if (cellStyles != null) {
-                tdClasses.append(" " + cellStyles);
+                tdClasses.append(" ").append(cellStyles);
             }
 
             // Build the cell.
-            HorizontalAlignmentConstant hAlign = column.getHorizontalAlignment();
-            VerticalAlignmentConstant vAlign = column.getVerticalAlignment();
-            TableCellBuilder td = tr.startTD();
+            var hAlign = column.getHorizontalAlignment();
+            var vAlign = column.getVerticalAlignment();
+            var td = tr.startTD();
             td.className(tdClasses.toString());
             if (hAlign != null) {
                 td.align(hAlign.getTextAlignString());
@@ -259,7 +252,7 @@ public class TGC_TableStyle<T> extends AbstractCellTableBuilder<T> {
             }
 
             // Add the inner div.
-            DivBuilder div = td.startDiv();
+            var div = td.startDiv();
             div.style().outlineStyle(OutlineStyle.NONE).endStyle();
 
             // Render the cell into the div.

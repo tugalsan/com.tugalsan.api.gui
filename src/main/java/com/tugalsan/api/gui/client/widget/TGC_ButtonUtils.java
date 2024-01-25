@@ -33,9 +33,9 @@ public class TGC_ButtonUtils {
     @Deprecated
     public static PushButton create(HTML label) {
         var pb = new PushButton();
-        var innerHtml = pb.getElement().getInnerHTML();
+//        var innerHtml = pb.getElement().getInnerHTML();
 //        innerHtml = TGS_StringUtils.concat("<table><tr><td>", innerHtml, "</td><td><label style='cursor:pointer'>", label.getHTML(), "</label></td></tr></table>");
-        innerHtml = label.getHTML();
+        var innerHtml = label.getHTML();
         pb.getElement().setInnerHTML(innerHtml);
         return pb;
     }

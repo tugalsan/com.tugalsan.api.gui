@@ -2,13 +2,12 @@ package com.tugalsan.api.gui.client.widget.abs;
 
 import com.google.gwt.user.client.ui.*;
 import com.tugalsan.api.gui.client.focus.*;
-import com.tugalsan.api.log.client.*;
 import com.tugalsan.api.shape.client.*;
 import com.tugalsan.api.string.client.*;
 
 abstract public class TGC_WidgetAbstract<T extends Widget> {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_WidgetAbstract.class);
+//    final private static TGC_Log d = TGC_Log.of(TGC_WidgetAbstract.class);
 
     public TGC_WidgetAbstract(CharSequence tooltip, T widget) {
         this.widget = widget;

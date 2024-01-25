@@ -87,7 +87,7 @@ public class TGC_PopLblYesNoDateBoxExtraBtn2 implements TGC_PopInterface {
     final public TGS_Runnable onVisible;
 
     @Override
-    public void createWidgets() {
+    final public void createWidgets() {
         btnEsc = TGC_ButtonUtils.createIcon(iconClassEsc == null ? TGS_IconUtils.CLASS_CROSS() : iconClassEsc, btnCancelText);
         btnExe = TGC_ButtonUtils.createIcon(iconClassExe == null ? TGS_IconUtils.CLASS_CHECKMARK() : iconClassExe, btnOkText);
         label = new HTML(lblHtml);
@@ -101,16 +101,16 @@ public class TGC_PopLblYesNoDateBoxExtraBtn2 implements TGC_PopInterface {
     private PushButton btnAdd1, btnAdd2;
 
     @Override
-    public void createPops() {
+    final public void createPops() {
     }
 
     @Override
-    public void configInit() {
+    final public void configInit() {
         TGC_ClickUtils.add(dateBox.getTextBox(), () -> setVisibleDatePicker(true));
     }
 
     @Override
-    public void configActions() {
+    final public void configActions() {
         TGC_ClickUtils.add(btnExe, () -> onExe.run(this));
         TGC_ClickUtils.add(btnEsc, () -> onEsc.run(this));
         TGC_ClickUtils.add(btnAdd1, () -> {
@@ -147,7 +147,7 @@ public class TGC_PopLblYesNoDateBoxExtraBtn2 implements TGC_PopInterface {
     }
 
     @Override
-    public void configFocus() {
+    final public void configFocus() {
         TGC_FocusUtils.addKeyDown(btnEsc, new TGS_FocusSides4(null, btnExe, null, dateBox.getTextBox()));
         TGC_FocusUtils.addKeyDown(btnExe, new TGS_FocusSides4(btnEsc, dateBox.getTextBox(), null, dateBox.getTextBox()));
         TGC_FocusUtils.addKeyDown(dateBox.getTextBox(), new TGS_FocusSides4(null, null, btnEsc, btnAdd1));
@@ -156,7 +156,7 @@ public class TGC_PopLblYesNoDateBoxExtraBtn2 implements TGC_PopInterface {
     }
 
     @Override
-    public void configLayout() {
+    final public void configLayout() {
         btnAdd1.setVisible(false);
         btnAdd2.setVisible(false);
         var maxWidth = dim == null ? null : dim.getWidth();
@@ -175,7 +175,7 @@ public class TGC_PopLblYesNoDateBoxExtraBtn2 implements TGC_PopInterface {
     private TGC_Pop panelPopup;
 
     @Override
-    public TGC_Pop getPop() {
+    final public TGC_Pop getPop() {
         return panelPopup;
     }
 

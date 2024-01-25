@@ -2,12 +2,11 @@ package com.tugalsan.api.gui.client.widget.abs;
 
 import com.google.gwt.user.client.ui.*;
 import java.util.*;
-import com.tugalsan.api.log.client.*;
 import com.tugalsan.api.string.client.*;
 
 public class TGC_TabPanel extends TGC_WidgetAbstract<TabPanel> {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_TabPanel.class);
+//    final private static TGC_Log d = TGC_Log.of(TGC_TabPanel.class);
 
     public TGC_TabPanel() {
         this(null);
@@ -69,7 +68,7 @@ public class TGC_TabPanel extends TGC_WidgetAbstract<TabPanel> {
 
     public Integer find(AbsolutePanel fw) {
         var size = size();
-        for (int i = 0; i < size; i++) {
+        for (var i = 0; i < size; i++) {
             if (Objects.equals(fw, get(i))) {
                 return i;
             }

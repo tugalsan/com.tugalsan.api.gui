@@ -1,6 +1,5 @@
 package com.tugalsan.api.gui.client.key;
 
-import com.google.gwt.dom.client.Element;
 import com.google.gwt.user.client.Event;
 import com.tugalsan.api.runnable.client.TGS_Runnable;
 import com.tugalsan.api.gui.client.dom.TGC_DOMUtils;
@@ -13,7 +12,7 @@ public class TGC_KeyTriggerUtils {
     final private static TGC_Log d = TGC_Log.of(TGC_KeyTriggerUtils.class);
 
     public static void add2Dom() {
-        Element body = TGC_DOMUtils.getElementByTagName("body");
+        var body = TGC_DOMUtils.getElementByTagName("body");
         Event.sinkEvents(body, Event.ONKEYDOWN | Event.ONKEYUP);
         Event.setEventListener(body, event -> {
             if (Event.ONKEYDOWN == event.getTypeInt()) {

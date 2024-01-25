@@ -12,11 +12,10 @@ import com.google.gwt.user.client.ui.TextArea;
 import com.google.gwt.user.client.ui.TextBox;
 import com.tugalsan.api.runnable.client.TGS_Runnable;
 import com.tugalsan.api.list.client.*;
-import com.tugalsan.api.log.client.TGC_Log;
 
 public class TGC_KeyUtils {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_KeyUtils.class);
+//    final private static TGC_Log d = TGC_Log.of(TGC_KeyUtils.class);
 
     public static void addEsc(TGS_Runnable exe, FocusWidget... w) {
         TGS_ListUtils.of(w).forEach(wi -> wi.addKeyDownHandler(e -> {
@@ -96,7 +95,7 @@ public class TGC_KeyUtils {
             if (e.isAnyModifierKeyDown()) {
                 return;
             }
-            boolean b = false;
+            var b = false;
             if (e.getNativeKeyCode() == KeyCodes.KEY_SPACE) {
                 if (space != null) {
                     space.run();
@@ -119,7 +118,7 @@ public class TGC_KeyUtils {
             if (e.isAnyModifierKeyDown()) {
                 return;
             }
-            boolean b = false;
+            var b = false;
             if (e.getNativeKeyCode() == KeyCodes.KEY_ENTER) {
                 if (enter != null) {
                     enter.run();
@@ -194,7 +193,7 @@ public class TGC_KeyUtils {
 
     public static void add(TextArea btn, TGS_Runnable controlEnter, TGS_Runnable esc) {
         btn.addKeyDownHandler(e -> {
-            boolean b = false;
+            var b = false;
             if (e.getNativeKeyCode() == KeyCodes.KEY_ESCAPE) {
                 if (e.isAnyModifierKeyDown()) {
                     return;

@@ -1,7 +1,6 @@
 package com.tugalsan.api.gui.client.pop;
 
 import com.google.gwt.user.client.ui.*;
-import com.tugalsan.api.log.client.*;
 import com.tugalsan.api.gui.client.click.*;
 import com.tugalsan.api.gui.client.focus.*;
 import com.tugalsan.api.gui.client.key.*;
@@ -17,7 +16,7 @@ import com.tugalsan.api.thread.client.*;
 
 public class TGC_PopLblYesNoTextArea implements TGC_PopInterface {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_PopLblYesNoTextArea.class);
+//    final private static TGC_Log d = TGC_Log.of(TGC_PopLblYesNoTextArea.class);
 
     public static int MAX_CHAR_SQL_STR() {
         return 254;
@@ -77,7 +76,7 @@ public class TGC_PopLblYesNoTextArea implements TGC_PopInterface {
     public int maxCharCount;
 
     @Override
-    public void createWidgets() {
+    final public void createWidgets() {
         btnEsc = TGC_ButtonUtils.createIcon(iconClassEsc == null ? TGS_IconUtils.CLASS_CROSS() : iconClassEsc, btnCancelText);
         btnExe = TGC_ButtonUtils.createIcon(iconClassExe == null ? TGS_IconUtils.CLASS_CHECKMARK() : iconClassExe, btnOkText);
         label = new HTML(lblHtml);
@@ -90,15 +89,15 @@ public class TGC_PopLblYesNoTextArea implements TGC_PopInterface {
     public HTML label, footer;
 
     @Override
-    public void createPops() {
+    final public void createPops() {
     }
 
     @Override
-    public void configInit() {
+    final public void configInit() {
     }
 
     @Override
-    public void configActions() {
+    final public void configActions() {
         TGC_ClickUtils.add(btnExe, () -> onExe.run(this));
         TGC_ClickUtils.add(btnEsc, () -> onEsc.run(this));
         TGC_KeyUtils.add(btnExe, () -> onExe.run(this), () -> onEsc.run(this));
@@ -108,14 +107,14 @@ public class TGC_PopLblYesNoTextArea implements TGC_PopInterface {
     }
 
     @Override
-    public void configFocus() {
+    final public void configFocus() {
         TGC_FocusUtils.addKeyDown(btnEsc, new TGS_FocusSides4(null, btnExe, null, textArea));
         TGC_FocusUtils.addKeyDown(btnExe, new TGS_FocusSides4(btnEsc, textArea, null, textArea));
         TGC_FocusUtils.addKeyDown(textArea, new TGS_FocusSides4(null, null, btnEsc, null));
     }
 
     @Override
-    public void configLayout() {
+    final public void configLayout() {
         label.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_LEFT);
         footer.setHorizontalAlignment(HasHorizontalAlignment.ALIGN_LEFT);
 
@@ -143,7 +142,7 @@ public class TGC_PopLblYesNoTextArea implements TGC_PopInterface {
     private TGC_Pop panelPopup;
 
     @Override
-    public TGC_Pop getPop() {
+    final public TGC_Pop getPop() {
         return panelPopup;
     }
 
@@ -183,11 +182,11 @@ public class TGC_PopLblYesNoTextArea implements TGC_PopInterface {
         }, delayInSec);
     }
 
-    final private static String SUF_STR() {
+    private String SUF_STR() {
         return " (%100'den daha uzun yazılar aramalarda gözükmeyecek!)";
     }
 
-    final private String SUF_BLOB() {
+    private String SUF_BLOB() {
         return " (%100'den daha uzun yazılarda kırpma işlemi uygulanacak!)";
     }
 }

@@ -3,12 +3,11 @@ package com.tugalsan.api.gui.client.widget.canvas;
 import com.google.gwt.canvas.client.Canvas;
 import com.google.gwt.canvas.dom.client.Context2d;
 import com.google.gwt.dom.client.CanvasElement;
-import com.tugalsan.api.log.client.TGC_Log;
 import com.tugalsan.api.shape.client.TGS_ShapeRectangle;
 
 public class TGC_Canvas2DUtils {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_Canvas2DUtils.class);
+//    final private static TGC_Log d = TGC_Log.of(TGC_Canvas2DUtils.class);
 
     public static CanvasElement toCanvasElement(Canvas canvas) {
         var c2d = toContext2d(canvas);

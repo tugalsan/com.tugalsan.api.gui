@@ -7,7 +7,6 @@ import com.tugalsan.api.gui.client.click.*;
 import com.tugalsan.api.gui.client.dim.*;
 import com.tugalsan.api.gui.client.pop.*;
 import com.tugalsan.api.gui.client.widget.*;
-import com.tugalsan.api.gui.client.widget.*;
 import com.tugalsan.api.runnable.client.*;
 import com.tugalsan.api.list.client.*;
 import com.tugalsan.api.tuple.client.*;

@@ -2,11 +2,10 @@ package com.tugalsan.api.gui.client.widget.canvas;
 
 import com.google.gwt.canvas.client.Canvas;
 import com.google.gwt.canvas.dom.client.Context2d;
-import com.tugalsan.api.log.client.TGC_Log;
 
 public class TGC_Canvas2DCompositeOperationUtils {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_Canvas2DCompositeOperationUtils.class);
+//    final private static TGC_Log d = TGC_Log.of(TGC_Canvas2DCompositeOperationUtils.class);
 
     public static Canvas setCompositeOperation_COPY(Canvas canvas) {
         var c2d = TGC_Canvas2DUtils.toContext2d(canvas);

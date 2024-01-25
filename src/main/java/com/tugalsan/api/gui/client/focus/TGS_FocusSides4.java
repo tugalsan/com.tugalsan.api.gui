@@ -9,6 +9,7 @@ public class TGS_FocusSides4<T extends FocusWidget> {
     public T up;
     public T down;
 
+    @Override
     public String toString() {
         return TGS_FocusSides4.class.getSimpleName() + "{left/right/up/down: " + left + "/" + right + "/" + up + "/" + down + "}";
     }
@@ -21,11 +22,11 @@ public class TGS_FocusSides4<T extends FocusWidget> {
         sniffFrom(sides);
     }
 
-    public void sniffFrom(TGS_FocusSides4<T> sides) {
+    final public void sniffFrom(TGS_FocusSides4<T> sides) {
         set(sides.left, sides.right, sides.up, sides.down);
     }
 
-    public void set(T left, T right, T up, T down) {
+    final public void set(T left, T right, T up, T down) {
         this.left = left;
         this.right = right;
         this.up = up;

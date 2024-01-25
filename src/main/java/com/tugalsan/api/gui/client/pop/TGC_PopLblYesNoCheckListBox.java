@@ -8,7 +8,6 @@ import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.Widget;
 import java.util.List;
 import java.util.stream.IntStream;
-import com.tugalsan.api.log.client.TGC_Log;
 import com.tugalsan.api.gui.client.click.TGC_ClickUtils;
 import com.tugalsan.api.gui.client.focus.TGC_FocusUtils;
 import com.tugalsan.api.gui.client.focus.TGS_FocusSides4;
@@ -28,7 +27,7 @@ import com.tugalsan.api.stream.client.*;
 
 public class TGC_PopLblYesNoCheckListBox implements TGC_PopInterface {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_PopLblYesNoCheckListBox.class);
+//    final private static TGC_Log d = TGC_Log.of(TGC_PopLblYesNoCheckListBox.class);
 
     final private String lblListBoxHTML, btnOkText, btnCancelText, lblCheckBoxHTML;
     final public TGS_RunnableType1<TGC_PopLblYesNoCheckListBox> onEsc, onExe;
@@ -81,7 +80,7 @@ public class TGC_PopLblYesNoCheckListBox implements TGC_PopInterface {
     }
 
     @Override
-    public void createWidgets() {
+    final public void createWidgets() {
         btnEsc = TGC_ButtonUtils.createIcon(iconClassEsc == null ? TGS_IconUtils.CLASS_CROSS() : iconClassEsc, btnCancelText);
         btnExe = TGC_ButtonUtils.createIcon(iconClassExe == null ? TGS_IconUtils.CLASS_CHECKMARK() : iconClassExe, btnOkText);
         lblListBox = new HTML(lblListBoxHTML);
@@ -99,12 +98,12 @@ public class TGC_PopLblYesNoCheckListBox implements TGC_PopInterface {
     public List<CheckBox> checkBoxes;
 
     @Override
-    public void createPops() {
+   final  public void createPops() {
     }
     private TGC_Pop panelPopup;
 
     @Override
-    public void configInit() {
+    final public void configInit() {
         if (listBoxContent != null) {
             listBoxContent.stream().forEachOrdered(s -> listBox.addItem(s));
             listBox.setSelectedIndex(0);
@@ -112,7 +111,7 @@ public class TGC_PopLblYesNoCheckListBox implements TGC_PopInterface {
     }
 
     @Override
-    public void configActions() {
+    final public void configActions() {
         TGC_ClickUtils.add(btnEsc, () -> onEsc.run(this));
         TGC_ClickUtils.add(btnExe, () -> onExe.run(this));
         TGC_ClickUtils.add(listBox, null, () -> onExe.run(this));
@@ -123,7 +122,7 @@ public class TGC_PopLblYesNoCheckListBox implements TGC_PopInterface {
     }
 
     @Override
-    public void configFocus() {
+    final public void configFocus() {
         TGC_FocusUtils.addKeyDown(btnEsc, new TGS_FocusSides4(null, btnExe, null, checkBoxes.get(0)));
         TGC_FocusUtils.addKeyDown(btnExe, new TGS_FocusSides4(btnEsc, checkBoxes.get(0), null, checkBoxes.get(0)));
         TGC_FocusUtils.addKeyDown(listBox, new TGS_FocusSides4(checkBoxes.get(checkBoxes.size() - 1), null, checkBoxes.get(checkBoxes.size() - 1), null));
@@ -154,9 +153,9 @@ public class TGC_PopLblYesNoCheckListBox implements TGC_PopInterface {
     }
 
     @Override
-    public void configLayout() {
+    final public void configLayout() {
         var maxWidth = dim == null ? null : dim.getWidth();
-        boolean mobile = TGC_BrowserNavigatorUtils.mobile();
+        var mobile = TGC_BrowserNavigatorUtils.mobile();
         Integer[] columnPercent = {50, 50};
         List<Widget> widgetsArr = TGS_ListUtils.of(
                 btnEsc, btnExe,
@@ -181,7 +180,7 @@ public class TGC_PopLblYesNoCheckListBox implements TGC_PopInterface {
     }
 
     @Override
-    public TGC_Pop getPop() {
+    final public TGC_Pop getPop() {
         return panelPopup;
     }
 }

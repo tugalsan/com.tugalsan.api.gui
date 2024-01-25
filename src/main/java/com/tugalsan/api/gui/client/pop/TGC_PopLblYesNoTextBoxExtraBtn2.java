@@ -68,7 +68,7 @@ public class TGC_PopLblYesNoTextBoxExtraBtn2 implements TGC_PopInterface {
     private String iconClassExe, iconClassEsc;
 
     @Override
-    public void createWidgets() {
+    final public void createWidgets() {
         btnEsc = TGC_ButtonUtils.createIcon(iconClassEsc == null ? TGS_IconUtils.CLASS_CROSS() : iconClassEsc, btnCancelText);
         btnExe = TGC_ButtonUtils.createIcon(iconClassExe == null ? TGS_IconUtils.CLASS_CHECKMARK() : iconClassExe, btnOkText);
         label = new HTML(lblHtml);
@@ -82,15 +82,15 @@ public class TGC_PopLblYesNoTextBoxExtraBtn2 implements TGC_PopInterface {
     private PushButton btnAdd1, btnAdd2;
 
     @Override
-    public void createPops() {
+    final public void createPops() {
     }
 
     @Override
-    public void configInit() {
+    final public void configInit() {
     }
 
     @Override
-    public void configActions() {
+    final public void configActions() {
         TGC_ClickUtils.add(btnExe, () -> onExe.run(this));
         TGC_ClickUtils.add(btnEsc, () -> onEsc.run(this));
         TGC_ClickUtils.add(btnAdd1, () -> {
@@ -127,7 +127,7 @@ public class TGC_PopLblYesNoTextBoxExtraBtn2 implements TGC_PopInterface {
     }
 
     @Override
-    public void configFocus() {
+    final public void configFocus() {
         TGC_FocusUtils.addKeyDown(btnEsc, new TGS_FocusSides4(null, btnExe, null, textBox));
         TGC_FocusUtils.addKeyDown(btnExe, new TGS_FocusSides4(btnEsc, textBox, null, textBox));
         TGC_FocusUtils.addKeyDown(textBox, new TGS_FocusSides4(null, null, btnEsc, btnAdd1));
@@ -136,7 +136,7 @@ public class TGC_PopLblYesNoTextBoxExtraBtn2 implements TGC_PopInterface {
     }
 
     @Override
-    public void configLayout() {
+    final public void configLayout() {
         btnAdd1.setVisible(false);
         btnAdd2.setVisible(false);
         var maxWidth = dim == null ? null : dim.getWidth();
@@ -157,7 +157,7 @@ public class TGC_PopLblYesNoTextBoxExtraBtn2 implements TGC_PopInterface {
     private TGC_Pop panelPopup;
 
     @Override
-    public TGC_Pop getPop() {
+    final public TGC_Pop getPop() {
         return panelPopup;
     }
 

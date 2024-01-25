@@ -3,7 +3,6 @@ package com.tugalsan.api.gui.client.widget.canvas;
 import com.google.gwt.canvas.client.Canvas;
 import com.google.gwt.user.client.ui.*;
 import com.tugalsan.api.color.client.TGC_ColorUtils;
-import com.tugalsan.api.log.client.TGC_Log;
 import com.tugalsan.api.random.client.*;
 import com.tugalsan.api.shape.client.TGS_ShapeArc;
 import com.tugalsan.api.shape.client.TGS_ShapeDimension;
@@ -15,7 +14,7 @@ import java.util.stream.*;
 
 public class TGC_Canvas2DPaintRandomUtils {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_Canvas2DPaintFillStyleUtils.class);
+//    final private static TGC_Log d = TGC_Log.of(TGC_Canvas2DPaintFillStyleUtils.class);
 
     public static Canvas styleDrawRandom(Canvas canvas) {
         switch (TGS_RandomUtils.nextInt(0, 2)) {

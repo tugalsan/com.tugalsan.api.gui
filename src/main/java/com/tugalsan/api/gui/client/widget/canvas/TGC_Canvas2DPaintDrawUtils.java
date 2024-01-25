@@ -1,7 +1,6 @@
 package com.tugalsan.api.gui.client.widget.canvas;
 
 import com.google.gwt.canvas.client.Canvas;
-import com.tugalsan.api.log.client.TGC_Log;
 import com.tugalsan.api.shape.client.TGS_ShapeArc;
 import com.tugalsan.api.shape.client.TGS_ShapeLocation;
 import com.tugalsan.api.shape.client.TGS_ShapeRectangle;
@@ -10,7 +9,7 @@ import java.util.stream.IntStream;
 
 public class TGC_Canvas2DPaintDrawUtils {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_Canvas2DPaintDrawUtils.class);
+//    final private static TGC_Log d = TGC_Log.of(TGC_Canvas2DPaintDrawUtils.class);
 
     public static Canvas paintLine(Canvas canvas, TGS_ShapeLocation<Integer> locStart, TGS_ShapeLocation<Integer> locEnd) {
         var c2d = TGC_Canvas2DUtils.toContext2d(canvas);

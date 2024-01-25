@@ -77,8 +77,7 @@ public class TGC_Canvas2DImageUtils {
         var c = TGC_CanvasUtils.toCanvas(dim);
         TGC_Canvas2DPaintFillStyleUtils.style(c, bg);
         TGC_Canvas2DPaintFillUtils.paintRect(c, new TGS_ShapeRectangle(0, 0, dim.width, dim.height));
-        var url = TGC_CanvasUtils.toUrl(c);
-        return url;
+        return TGC_CanvasUtils.toUrl(c);
     }
 
     public static String createTextImageUrl(TGS_ShapeDimension<Integer> dim, TGS_ShapeLocation<Integer> loc,

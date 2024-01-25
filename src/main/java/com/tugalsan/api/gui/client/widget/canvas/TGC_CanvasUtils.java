@@ -3,13 +3,12 @@ package com.tugalsan.api.gui.client.widget.canvas;
 import com.google.gwt.canvas.client.Canvas;
 import com.google.gwt.user.client.ui.Image;
 import com.tugalsan.api.gui.client.dom.TGC_DOMUtils;
-import com.tugalsan.api.log.client.TGC_Log;
 import com.tugalsan.api.shape.client.TGS_ShapeDimension;
 import com.tugalsan.api.shape.client.TGS_ShapeLocation;
 
 public class TGC_CanvasUtils {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_CanvasUtils.class);
+//    final private static TGC_Log d = TGC_Log.of(TGC_CanvasUtils.class);
 
     public static boolean isSupported() {
         return createCanvas() != null;

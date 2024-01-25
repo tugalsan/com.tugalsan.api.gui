@@ -2,7 +2,6 @@ package com.tugalsan.api.gui.client.pop.options;
 
 import com.google.gwt.user.client.ui.*;
 import com.tugalsan.api.gui.client.pop.*;
-import com.tugalsan.api.log.client.TGC_Log;
 import com.tugalsan.api.gui.client.click.TGC_ClickUtils;
 import com.tugalsan.api.gui.client.focus.TGC_FocusUtils;
 import com.tugalsan.api.gui.client.focus.TGS_FocusSides4;
@@ -16,7 +15,7 @@ import com.tugalsan.api.runnable.client.TGS_RunnableType1;
 
 public class TGC_PopYesNoOptions implements TGC_PopInterface {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_PopYesNoOptions.class);
+//    final private static TGC_Log d = TGC_Log.of(TGC_PopYesNoOptions.class);
 
     final private String btnOkText, btnCancelText;
     final public TGS_RunnableType1<TGC_PopYesNoOptions> onEsc, onExe;
@@ -58,21 +57,21 @@ public class TGC_PopYesNoOptions implements TGC_PopInterface {
     public PushButton btnEsc, btnExe;
 
     @Override
-    public void createWidgets() {
+    final public void createWidgets() {
         btnEsc = TGC_ButtonUtils.createIcon(iconClassEsc == null ? TGS_IconUtils.CLASS_CROSS() : iconClassEsc, btnCancelText);
         btnExe = TGC_ButtonUtils.createIcon(iconClassExe == null ? TGS_IconUtils.CLASS_CHECKMARK() : iconClassExe, btnOkText);
     }
 
     @Override
-    public void createPops() {
+    final public void createPops() {
     }
 
     @Override
-    public void configInit() {
+    final public void configInit() {
     }
 
     @Override
-    public void configActions() {
+    final public void configActions() {
         TGC_ClickUtils.add(btnEsc, () -> onEsc.run(this));
         TGC_ClickUtils.add(btnExe, () -> onExe.run(this));
         TGC_KeyUtils.add(btnExe, () -> onExe.run(this), () -> onEsc.run(this));
@@ -80,17 +79,17 @@ public class TGC_PopYesNoOptions implements TGC_PopInterface {
     }
 
     @Override
-    public void configFocus() {
+    final public void configFocus() {
         FocusWidget widgetDown = null;
         TGC_FocusUtils.addKeyDown(btnEsc, new TGS_FocusSides4(null, btnExe, null, widgetDown));
         TGC_FocusUtils.addKeyDown(btnExe, new TGS_FocusSides4(btnEsc, widgetDown, null, widgetDown));
     }
 
     @Override
-    public void configLayout() {
+    final public void configLayout() {
         var maxWidth = dim == null ? null : dim.getWidth();
         Integer[] columnPercent = {50, 50};
-        Widget[] widgets = new Widget[]{
+        var widgets = new Widget[]{
             btnEsc, btnExe
         };
         var grid = TGC_PanelLayoutUtils.createGrid(maxWidth, columnPercent, widgets, false);
@@ -99,7 +98,7 @@ public class TGC_PopYesNoOptions implements TGC_PopInterface {
     private TGC_Pop panelPopup;
 
     @Override
-    public TGC_Pop getPop() {
+    final public TGC_Pop getPop() {
         return panelPopup;
     }
 }

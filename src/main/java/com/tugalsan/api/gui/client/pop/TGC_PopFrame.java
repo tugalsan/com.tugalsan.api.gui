@@ -3,7 +3,6 @@ package com.tugalsan.api.gui.client.pop;
 import com.google.gwt.user.client.ui.Frame;
 import com.google.gwt.user.client.ui.PushButton;
 import com.tugalsan.api.gui.client.browser.TGC_BrowserWindowUtils;
-import com.tugalsan.api.log.client.TGC_Log;
 import com.tugalsan.api.gui.client.click.TGC_ClickUtils;
 import com.tugalsan.api.gui.client.key.TGC_KeyUtils;
 import com.tugalsan.api.gui.client.dim.TGC_Dimension;
@@ -16,7 +15,7 @@ import com.tugalsan.api.url.client.TGS_Url;
 
 public class TGC_PopFrame implements TGC_PopInterface {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_PopFrame.class);
+//    final private static TGC_Log d = TGC_Log.of(TGC_PopFrame.class);
 
     public TGC_PopFrame(TGC_Dimension dim,
             TGS_Url url_optional, CharSequence btnOkText, CharSequence btnTabText,
@@ -57,7 +56,7 @@ public class TGC_PopFrame implements TGC_PopInterface {
     final private TGS_Runnable onVisible;
 
     @Override
-    public void createWidgets() {
+    final public void createWidgets() {
         btnExe = TGC_ButtonUtils.createIcon(iconClassExe == null ? TGS_IconUtils.CLASS_CHECKMARK() : iconClassExe, btnOkText);
         btnTab = TGC_ButtonUtils.createIcon(iconClassExe == null ? TGS_IconUtils.CLASS_UPLOAD() : iconClassExe, btnTabText);
         frame = new Frame(url.toString());
@@ -66,15 +65,15 @@ public class TGC_PopFrame implements TGC_PopInterface {
     public PushButton btnExe, btnTab;
 
     @Override
-    public void createPops() {
+    final public void createPops() {
     }
 
     @Override
-    public void configInit() {
+    final public void configInit() {
     }
 
     @Override
-    public void configActions() {
+    final public void configActions() {
         TGC_ClickUtils.add(btnExe, () -> onExe.run(this));
         TGC_KeyUtils.add(btnExe, () -> onExe.run(this), () -> onExe.run(this));
         TGS_Runnable onTab = () -> {
@@ -86,11 +85,11 @@ public class TGC_PopFrame implements TGC_PopInterface {
     }
 
     @Override
-    public void configFocus() {
+    final public void configFocus() {
     }
 
     @Override
-    public void configLayout() {
+    final public void configLayout() {
         frame.setWidth("100%");
         frame.setHeight("100%");
         panelPopup = new TGC_Pop(
@@ -104,7 +103,7 @@ public class TGC_PopFrame implements TGC_PopInterface {
     private TGC_Pop panelPopup;
 
     @Override
-    public TGC_Pop getPop() {
+    final public TGC_Pop getPop() {
         return panelPopup;
     }
 

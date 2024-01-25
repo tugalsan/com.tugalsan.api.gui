@@ -3,12 +3,13 @@ package com.tugalsan.api.gui.client.widget.menu;
 import com.google.gwt.user.client.*;
 import com.google.gwt.user.client.ui.*;
 import java.util.*;
-import com.tugalsan.api.log.client.*;
 import com.tugalsan.api.icon.client.*;
 import com.tugalsan.api.file.html.client.*;
 import com.tugalsan.api.list.client.*;
 
 public class TGC_MenuPC {
+
+//    final private static TGC_Log d = TGC_Log.of(TGC_Menu.class);
 
     private static String CSS_NAME_MenuMain() {
         return "TGC_MenuBar_MenuMain";
@@ -21,8 +22,6 @@ public class TGC_MenuPC {
     private static String CSS_NAME_MenuItem() {
         return "TGC_MenuBar_MenuItem";
     }
-
-    final private static TGC_Log d = TGC_Log.of(TGC_Menu.class);
 
     public TGC_MenuPC() {
         widget = new MenuBar();
@@ -56,8 +55,8 @@ public class TGC_MenuPC {
         }
         final public String label;
         final public MenuBar widget;
-        private List<TGC_Menu> subMenus = TGS_ListUtils.of();
-        private List<TGC_MenuCommand> items = TGS_ListUtils.of();
+        private final List<TGC_Menu> subMenus = TGS_ListUtils.of();
+        private final List<TGC_MenuCommand> items = TGS_ListUtils.of();
 
         public TGC_Menu addSubMenu(CharSequence iconClassName, TGS_FileHtmlText fontedText) {
             var subMenu = new MenuBar(true);

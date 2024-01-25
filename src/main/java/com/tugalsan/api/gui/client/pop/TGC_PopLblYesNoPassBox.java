@@ -3,7 +3,6 @@ package com.tugalsan.api.gui.client.pop;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.PushButton;
 import com.google.gwt.user.client.ui.PasswordTextBox;
-import com.tugalsan.api.log.client.TGC_Log;
 import com.tugalsan.api.gui.client.click.TGC_ClickUtils;
 import com.tugalsan.api.gui.client.focus.TGC_FocusUtils;
 import com.tugalsan.api.gui.client.focus.TGS_FocusSides4;
@@ -17,7 +16,7 @@ import com.tugalsan.api.runnable.client.TGS_RunnableType1;
 
 public class TGC_PopLblYesNoPassBox implements TGC_PopInterface {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_PopLblYesNoPassBox.class);
+//    final private static TGC_Log d = TGC_Log.of(TGC_PopLblYesNoPassBox.class);
 
     final private String lblHTML, btnOkText, btnCancelText;
     final public TGS_RunnableType1<TGC_PopLblYesNoPassBox> onEsc, onExe;
@@ -63,7 +62,7 @@ public class TGC_PopLblYesNoPassBox implements TGC_PopInterface {
     private TGC_Dimension dim;
 
     @Override
-    public void createWidgets() {
+    final public void createWidgets() {
         btnEsc = TGC_ButtonUtils.createIcon(iconClassEsc == null ? TGS_IconUtils.CLASS_CROSS() : iconClassEsc, btnCancelText);
         btnExe = TGC_ButtonUtils.createIcon(iconClassExe == null ? TGS_IconUtils.CLASS_CHECKMARK() : iconClassExe, btnOkText);
         label = new HTML(lblHTML);
@@ -71,15 +70,15 @@ public class TGC_PopLblYesNoPassBox implements TGC_PopInterface {
     }
 
     @Override
-    public void createPops() {
+    final public void createPops() {
     }
 
     @Override
-    public void configInit() {
+    final public void configInit() {
     }
 
     @Override
-    public void configActions() {
+   final  public void configActions() {
         TGC_ClickUtils.add(btnExe, () -> onExe.run(this));
         TGC_ClickUtils.add(btnEsc, () -> onEsc.run(this));
         TGC_KeyUtils.add(btnExe, () -> onExe.run(this), () -> onEsc.run(this));
@@ -88,14 +87,14 @@ public class TGC_PopLblYesNoPassBox implements TGC_PopInterface {
     }
 
     @Override
-    public void configFocus() {
+    final public void configFocus() {
         TGC_FocusUtils.addKeyDown(btnEsc, new TGS_FocusSides4(null, btnExe, null, passwordTextBox));
         TGC_FocusUtils.addKeyDown(btnExe, new TGS_FocusSides4(btnEsc, passwordTextBox, null, passwordTextBox));
         TGC_FocusUtils.addKeyDown(passwordTextBox, new TGS_FocusSides4(null, null, btnEsc, null));
     }
 
     @Override
-    public void configLayout() {
+   final public void configLayout() {
         var maxWidth = dim == null ? null : dim.getWidth();
         panelPopup = new TGC_Pop(
                 TGC_PanelLayoutUtils.createDockNorth(
@@ -112,7 +111,7 @@ public class TGC_PopLblYesNoPassBox implements TGC_PopInterface {
     }
 
     @Override
-    public TGC_Pop getPop() {
+    final public TGC_Pop getPop() {
         return panelPopup;
     }
 }

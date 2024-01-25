@@ -5,16 +5,13 @@ import com.google.gwt.dom.client.OptionElement;
 import com.google.gwt.user.client.ui.ListBox;
 import java.util.List;
 import java.util.stream.IntStream;
-import com.tugalsan.api.log.client.TGC_Log;
 import com.tugalsan.api.gui.client.dom.TGC_DOMUtils;
 import com.tugalsan.api.gui.client.browser.TGC_BrowserNavigatorUtils;
 import com.tugalsan.api.stream.client.*;
-import java.util.*;
-import java.util.stream.*;
 
 public class TGC_ListBoxUtils {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_ListBoxUtils.class);
+//    final private static TGC_Log d = TGC_Log.of(TGC_ListBoxUtils.class);
 
     public static ListBox create(boolean comboBox) {
         var listBox = new ListBox();
@@ -59,7 +56,7 @@ public class TGC_ListBoxUtils {
     }
 
     public static boolean hasSelectedIndex(ListBox w) {
-        for (int i = 0; i < w.getItemCount(); i++) {
+        for (var i = 0; i < w.getItemCount(); i++) {
             if (w.isItemSelected(i)) {
                 return true;
             }

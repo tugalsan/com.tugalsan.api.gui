@@ -1,7 +1,6 @@
 package com.tugalsan.api.gui.client.pop;
 
 import com.google.gwt.user.client.ui.TextArea;
-import com.tugalsan.api.log.client.TGC_Log;
 import com.tugalsan.api.gui.client.editable.TGC_EditableUtils;
 import com.tugalsan.api.gui.client.dim.TGC_Dimension;
 import com.tugalsan.api.gui.client.panel.TGC_PanelLayoutUtils;
@@ -9,7 +8,7 @@ import com.tugalsan.api.runnable.client.TGS_Runnable;
 
 public class TGC_PopTextArea implements TGC_PopInterface {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_PopTextArea.class);
+//    final private static TGC_Log d = TGC_Log.of(TGC_PopTextArea.class);
 
     final private String initText;
     final public TGS_Runnable onVisible;
@@ -29,33 +28,33 @@ public class TGC_PopTextArea implements TGC_PopInterface {
 
     private TGC_Pop panelPopup;
     public TextArea textArea;
-    private TGC_Dimension dim;
+    private final TGC_Dimension dim;
 
     @Override
-    public void createWidgets() {
+    final public void createWidgets() {
         textArea = new TextArea();
     }
 
     @Override
-    public void createPops() {
+    final public void createPops() {
     }
 
     @Override
-    public void configInit() {
+    final public void configInit() {
         TGC_EditableUtils.set(textArea, false);
         textArea.setText(initText);
     }
 
     @Override
-    public void configActions() {
+    final public void configActions() {
     }
 
     @Override
-    public void configFocus() {
+    final public void configFocus() {
     }
 
     @Override
-    public void configLayout() {
+    final public void configLayout() {
         panelPopup = new TGC_Pop(
                 TGC_PanelLayoutUtils.createDock(
                         textArea
@@ -65,7 +64,7 @@ public class TGC_PopTextArea implements TGC_PopInterface {
     }
 
     @Override
-    public TGC_Pop getPop() {
+    final public TGC_Pop getPop() {
         return panelPopup;
     }
 }

@@ -4,12 +4,11 @@ import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.tugalsan.api.runnable.client.TGS_Runnable;
 import com.tugalsan.api.gui.client.dim.TGC_Dimension;
-import com.tugalsan.api.log.client.TGC_Log;
 import com.tugalsan.api.thread.client.TGC_ThreadUtils;
 
 public class TGC_PopToast implements TGC_PopInterface {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_PopToast.class);
+//    final private static TGC_Log d = TGC_Log.of(TGC_PopToast.class);
 
     public TGC_PopToast(TGC_Dimension dim, TGS_Runnable onVisible_optional) {
         this.dim = dim;
@@ -21,33 +20,33 @@ public class TGC_PopToast implements TGC_PopInterface {
         configFocus();
         configLayout();
     }
-    private TGC_Dimension dim;
+    private final TGC_Dimension dim;
     public final TGS_Runnable onVisible;
 
     @Override
-    public void createWidgets() {
+    final public void createWidgets() {
         html = new HTML("");
     }
     private HTML html;
 
     @Override
-    public void createPops() {
+    final public void createPops() {
     }
 
     @Override
-    public void configInit() {
+    final public void configInit() {
     }
 
     @Override
-    public void configActions() {
+    final public void configActions() {
     }
 
     @Override
-    public void configFocus() {
+    final public void configFocus() {
     }
 
     @Override
-    public void configLayout() {
+    final public void configLayout() {
         panelPopup = new TGC_Pop(
                 html,
                 dim,
@@ -59,7 +58,7 @@ public class TGC_PopToast implements TGC_PopInterface {
     private TGC_Pop panelPopup;
 
     @Override
-    public TGC_Pop getPop() {
+    final public TGC_Pop getPop() {
         return panelPopup;
     }
 
