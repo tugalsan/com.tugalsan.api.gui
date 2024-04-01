@@ -1,5 +1,6 @@
 package com.tugalsan.api.gui.client.widget;
 
+import com.google.gwt.dom.client.Element;
 import com.google.gwt.dom.client.Node;
 import com.google.gwt.dom.client.OptionElement;
 import com.google.gwt.user.client.ui.ListBox;
@@ -7,14 +8,28 @@ import java.util.List;
 import java.util.stream.IntStream;
 import com.tugalsan.api.gui.client.dom.TGC_DOMUtils;
 import com.tugalsan.api.gui.client.browser.TGC_BrowserNavigatorUtils;
+import com.tugalsan.api.log.client.TGC_Log;
 import com.tugalsan.api.stream.client.*;
 
 public class TGC_ListBoxUtils {
 
-//    final private static TGC_Log d = TGC_Log.of(TGC_ListBoxUtils.class);
+    final private static TGC_Log d = TGC_Log.of(true, TGC_ListBoxUtils.class);
 
     public static ListBox create(boolean comboBox) {
-        var listBox = new ListBox();
+        var listBox = new ListBox() {
+
+            @Override
+            public void addItem(String item) {
+                super.addItem(item);
+                var childeren = super.getStyleElement().getChildNodes();
+                var lastChild = childeren.getItem(childeren.getLength() - 1);
+                if (lastChild.getNodeType() != Node.ELEMENT_NODE) {
+                    return;
+                }
+                var lastChildElement = (Element) lastChild;
+                lastChildElement.setTitle(item);
+            }
+        };
         listBox.setVisibleItemCount(TGC_BrowserNavigatorUtils.mobile() || comboBox ? 1 : 3);
         return listBox;
     }
