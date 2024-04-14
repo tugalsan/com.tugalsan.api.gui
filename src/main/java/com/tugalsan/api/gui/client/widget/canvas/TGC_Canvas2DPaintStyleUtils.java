@@ -8,7 +8,6 @@ import com.google.gwt.canvas.dom.client.CssColor;
 import com.google.gwt.user.client.ui.Image;
 import com.tugalsan.api.gui.client.widget.TGC_ImageUtils;
 import com.tugalsan.api.log.client.TGC_Log;
-import com.tugalsan.api.tuple.client.TGS_Tuple2;
 import com.tugalsan.api.shape.client.TGS_ShapeCircle;
 import com.tugalsan.api.shape.client.TGS_ShapeLocation;
 import java.util.List;
@@ -17,22 +16,26 @@ public class TGC_Canvas2DPaintStyleUtils {
 
     final private static TGC_Log d = TGC_Log.of(TGC_Canvas2DPaintStyleUtils.class);
 
+    public static record GradientConfig(Float offset, CssColor color) {
+
+    }
+
     public static CanvasGradient createGradiantLinear(Canvas canvas,
             TGS_ShapeLocation<Integer> locStart, TGS_ShapeLocation<Integer> locEnd,
-            List<TGS_Tuple2<Float, CssColor>> offset_color) {
+            List<GradientConfig> offset_color) {
         var c2d = TGC_Canvas2DUtils.toContext2d(canvas);
         var grad = c2d.createLinearGradient(locStart.x, locStart.y, locEnd.x, locEnd.y);
-        offset_color.stream().forEachOrdered(colorStop -> grad.addColorStop(colorStop.value0, colorStop.value1.value()));
+        offset_color.stream().forEachOrdered(colorStop -> grad.addColorStop(colorStop.offset(), colorStop.color().value()));
         d.ci("createGradiantLinear", grad);
         return grad;
     }
 
     public static CanvasGradient createGradiantRadial(Canvas canvas,
             TGS_ShapeCircle<Integer, Integer> locStart, TGS_ShapeCircle<Integer, Integer> locEnd,
-            List<TGS_Tuple2<Float, CssColor>> offset_color) {
+            List<GradientConfig> offset_color) {
         var c2d = TGC_Canvas2DUtils.toContext2d(canvas);
         var grad = c2d.createRadialGradient(locStart.x, locStart.y, locStart.radius, locEnd.x, locEnd.y, locEnd.radius);
-        offset_color.stream().forEachOrdered(colorStop -> grad.addColorStop(colorStop.value0, colorStop.value1.value()));
+        offset_color.stream().forEachOrdered(colorStop -> grad.addColorStop(colorStop.offset(), colorStop.color().value()));
         d.ci("createGradiantRadial", grad);
         return grad;
     }

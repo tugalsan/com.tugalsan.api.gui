@@ -7,6 +7,7 @@ import com.tugalsan.api.gui.client.dim.*;
 import com.tugalsan.api.gui.client.dom.*;
 import com.tugalsan.api.gui.client.focus.*;
 import com.tugalsan.api.log.client.*;
+import com.tugalsan.api.union.client.TGS_UnionExcuse;
 
 public class TGC_Pop {
 
@@ -46,10 +47,18 @@ public class TGC_Pop {
         TGC_DOMUtils.setSize(content.getElement(), dim2.getWidth(), dim2.getHeight());
     }
 
-    public boolean isFullScreen() {
-        var b = TGC_DOMUtils.getWidth(content.getElement()) == TGC_Dimension.FULLSCREEN.getWidth() && TGC_DOMUtils.getHeight(content.getElement()) == TGC_Dimension.FULLSCREEN.getHeight();
+    public TGS_UnionExcuse<Boolean> isFullScreen() {
+        var content_width = TGC_DOMUtils.getWidth(content.getElement());
+        if (content_width.isExcuse()) {
+            return content_width.toExcuse();
+        }
+        var content_height = TGC_DOMUtils.getHeight(content.getElement());
+        if (content_height.isExcuse()) {
+            return content_width.toExcuse();
+        }
+        var b = content_width.value() == TGC_Dimension.FULLSCREEN.getWidth() && content_height.value() == TGC_Dimension.FULLSCREEN.getHeight();
         d.ci("isFullScreen", b);
-        return b;
+        return TGS_UnionExcuse.of(b);
     }
 
     public void center() {

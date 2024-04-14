@@ -17,7 +17,6 @@ import com.tugalsan.api.thread.client.*;
 public class TGC_PopLblYesNoTextArea implements TGC_PopInterface {
 
 //    final private static TGC_Log d = TGC_Log.of(TGC_PopLblYesNoTextArea.class);
-
     public static int MAX_CHAR_SQL_STR() {
         return 254;
     }
@@ -135,7 +134,7 @@ public class TGC_PopLblYesNoTextArea implements TGC_PopInterface {
                         textArea
                 ),
                 dim,
-                () -> btnExtend.setVisible(!getPop().isFullScreen())
+                () -> btnExtend.setVisible(!getPop().isFullScreen().orElse(excuse -> false))
         );
 
     }

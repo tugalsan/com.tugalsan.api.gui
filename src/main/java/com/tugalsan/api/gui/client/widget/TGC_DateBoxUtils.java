@@ -3,6 +3,7 @@ package com.tugalsan.api.gui.client.widget;
 import com.google.gwt.user.datepicker.client.DateBox;
 import com.google.gwt.i18n.client.DateTimeFormat;
 import com.tugalsan.api.time.client.TGS_Time;
+import com.tugalsan.api.union.client.TGS_UnionExcuse;
 
 public class TGC_DateBoxUtils {
 
@@ -23,7 +24,7 @@ public class TGC_DateBoxUtils {
         w.getTextBox().setText(now.toString_dateOnly());
     }
 
-    public static TGS_Time getDate(DateBox w) {
+    public static TGS_UnionExcuse<TGS_Time> getDate(DateBox w) {
         return TGS_Time.ofDate(w.getTextBox().getText());
     }
 }

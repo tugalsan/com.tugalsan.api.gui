@@ -7,9 +7,7 @@ import com.tugalsan.api.gui.client.click.*;
 import com.tugalsan.api.gui.client.dim.*;
 import com.tugalsan.api.gui.client.pop.*;
 import com.tugalsan.api.gui.client.widget.*;
-import com.tugalsan.api.runnable.client.*;
 import com.tugalsan.api.list.client.*;
-import com.tugalsan.api.tuple.client.*;
 
 public class TGC_MenuMobile {
 
@@ -29,7 +27,7 @@ public class TGC_MenuMobile {
                         subMenus.get(si).run();
                     } else {
                         si -= subMenus.size();
-                        cmd.get(si).value1.run();
+                        cmd.get(si).run().run();
                     }
                 },
                 p -> p.getPop().setVisible(false),
@@ -51,10 +49,10 @@ public class TGC_MenuMobile {
             o.reinitialize();
             pop.listBox.addItem(o.label);
         });
-        cmd.stream().forEachOrdered(o -> pop.listBox.addItem(o.value0));
+        cmd.stream().forEachOrdered(o -> pop.listBox.addItem(o.name()));
         TGC_ListBoxUtils.selectNone(pop.listBox);
     }
 
     final public List<TGC_MenuMobileSub> subMenus = TGS_ListUtils.of();
-    final public List<TGS_Tuple2<String, TGS_Runnable>> cmd = TGS_ListUtils.of();
+    final public List<TGC_MenuMobileCmd> cmd = TGS_ListUtils.of();
 }

@@ -6,14 +6,12 @@ import com.tugalsan.api.gui.client.browser.*;
 import java.util.*;
 import java.util.stream.*;
 import com.tugalsan.api.gui.client.dom.*;
-import com.tugalsan.api.tuple.client.*;
 import com.tugalsan.api.shape.client.*;
 import com.tugalsan.api.string.client.*;
 
 public class TGC_PanelLayoutUtils {
 
 //    final private static TGC_Log d = TGC_Log.of(TGC_PanelLayoutUtils.class);
-
     public static int MAX_GRID_WIDTH() {
         return 500;
     }
@@ -75,25 +73,30 @@ public class TGC_PanelLayoutUtils {
         return dp;
     }
 
+    public static record WidgetConfig(Widget widget, Integer width) {
+
+    }
+
     public static HorizontalPanel createHorizontal(Widget childRest, Widget... childeren) {
-        TGS_Tuple2<Widget, Integer>[] childerenAndWidths = new TGS_Tuple2[childeren.length];
-        IntStream.range(0, childeren.length).forEachOrdered(i -> childerenAndWidths[i] = new TGS_Tuple2(childeren[i], null));
+        var childerenAndWidths = new WidgetConfig[childeren.length];
+        IntStream.range(0, childeren.length)
+                .forEachOrdered(i -> childerenAndWidths[i] = new WidgetConfig(childeren[i], null));
         return createHorizontal(10, false, childRest, childerenAndWidths);
     }
 
-    public static HorizontalPanel createHorizontal(Widget childRest, TGS_Tuple2<Widget, Integer>... childerenAndWidths) {
+    public static HorizontalPanel createHorizontal(Widget childRest, WidgetConfig... childerenAndWidths) {
         return createHorizontal(10, false, childRest, childerenAndWidths);
     }
 
-    public static HorizontalPanel createHorizontal(int spacingPx, boolean top, Widget childRest, TGS_Tuple2<Widget, Integer>... childerenAndWidths) {
+    public static HorizontalPanel createHorizontal(int spacingPx, boolean top, Widget childRest, WidgetConfig... childerenAndWidths) {
         var hp = new HorizontalPanel();
         hp.setWidth("100%");
         hp.setVerticalAlignment(top ? HasVerticalAlignment.ALIGN_TOP : HasVerticalAlignment.ALIGN_MIDDLE);
         hp.setSpacing(spacingPx);
         Arrays.stream(childerenAndWidths).forEachOrdered(w -> {
-            hp.add(w.value0);
-            if (w.value1 != null) {
-                hp.setCellWidth(w.value0, w.value1 + "px");
+            hp.add(w.widget());
+            if (w.widget() != null) {
+                hp.setCellWidth(w.widget(), w.widget() + "px");
             }
         });
         if (childRest != null) {

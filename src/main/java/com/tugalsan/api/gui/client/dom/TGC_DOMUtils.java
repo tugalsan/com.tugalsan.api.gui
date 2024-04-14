@@ -7,6 +7,7 @@ import com.google.gwt.user.client.ui.*;
 import com.tugalsan.api.cast.client.*;
 import com.tugalsan.api.shape.client.*;
 import com.tugalsan.api.string.client.*;
+import com.tugalsan.api.union.client.TGS_UnionExcuse;
 
 /*
 setCursor
@@ -124,15 +125,15 @@ public class TGC_DOMUtils {
         e.getStyle().setHeight(per, Style.Unit.PCT);
     }
 
-    public static Integer getWidth(Element e) {
+    public static TGS_UnionExcuse<Integer> getWidth(Element e) {
         return px2Int(e.getStyle().getWidth());
     }
 
-    public static Integer getHeight(Element e) {
+    public static TGS_UnionExcuse<Integer> getHeight(Element e) {
         return px2Int(e.getStyle().getHeight());
     }
 
-    public static Integer px2Int(CharSequence pxValue) {
+    public static TGS_UnionExcuse<Integer> px2Int(CharSequence pxValue) {
         return TGS_CastUtils.toInteger(pxValue.subSequence(0, pxValue.length() - 2));
     }
 
@@ -189,11 +190,11 @@ public class TGC_DOMUtils {
         e.getStyle().setLeft(px, Style.Unit.PX);
     }
 
-    public static Integer getTop(Element e) {
+    public static TGS_UnionExcuse<Integer> getTop(Element e) {
         return px2Int(e.getStyle().getTop());
     }
 
-    public static Integer getLeft(Element e) {
+    public static TGS_UnionExcuse<Integer> getLeft(Element e) {
         return px2Int(e.getStyle().getLeft());
     }
 
@@ -202,12 +203,28 @@ public class TGC_DOMUtils {
         e.setPropertyString("innerHTML", text.toString());
     }
 
-    public static int getRelativeLeft(Element parent, Element child) {
-        return getLeft(parent) - getLeft(child);
+    public static TGS_UnionExcuse<Integer> getRelativeLeft(Element parent, Element child) {
+        var left_parent = getLeft(parent);
+        if (left_parent.isExcuse()) {
+            return left_parent.toExcuse();
+        }
+        var left_child = getLeft(child);
+        if (left_child.isExcuse()) {
+            return left_child.toExcuse();
+        }
+        return TGS_UnionExcuse.of(left_parent.value() - left_child.value());
     }
 
-    public static int getRelativeTop(Element parent, Element child) {
-        return getTop(parent) - getTop(child);
+    public static TGS_UnionExcuse<Integer> getRelativeTop(Element parent, Element child) {
+        var top_parent = getTop(parent);
+        if (top_parent.isExcuse()) {
+            return top_parent.toExcuse();
+        }
+        var top_child = getTop(child);
+        if (top_child.isExcuse()) {
+            return top_child.toExcuse();
+        }
+        return TGS_UnionExcuse.of(top_parent.value() - top_child.value());
     }
 
     public static Element getElementById(CharSequence id) {

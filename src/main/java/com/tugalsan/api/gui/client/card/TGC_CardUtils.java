@@ -7,7 +7,6 @@ import com.tugalsan.api.runnable.client.*;
 import com.tugalsan.api.gui.client.widget.canvas.*;
 import com.tugalsan.api.list.client.*;
 import com.tugalsan.api.log.client.*;
-import com.tugalsan.api.tuple.client.*;
 import com.tugalsan.api.shape.client.*;
 import com.tugalsan.api.string.client.*;
 import java.util.*;
@@ -45,7 +44,7 @@ public class TGC_CardUtils {
         return TGC_Card.class.getSimpleName() + "_input";
     }
 
-    public static TGS_Tuple3<TextBox, FlowPanel, List<TGC_Card>> create(ScrollPanel optionalScroll, CharSequence optionalTitleHtml, CharSequence urlSearchIcon, TGS_RunnableType1<List<TGC_Card>> cards) {
+    public static Ball create(ScrollPanel optionalScroll, CharSequence optionalTitleHtml, CharSequence urlSearchIcon, TGS_RunnableType1<List<TGC_Card>> cards) {
         List<TGC_Card> cardsInner = TGS_ListUtils.of();
         cards.run(cardsInner);
 
@@ -147,6 +146,11 @@ public class TGC_CardUtils {
 
             divCards.add(cardFocus);
         });
-        return new TGS_Tuple3(tbInput, divCards, cardsInner);
+        return new Ball(tbInput, divCards, cardsInner);
     }
+
+    public static record Ball(TextBox tb, FlowPanel fp, List<TGC_Card> cards) {
+
+    }
+
 }

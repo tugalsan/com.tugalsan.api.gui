@@ -2,24 +2,27 @@ package com.tugalsan.api.gui.client.widget;
 
 import com.google.gwt.user.client.ui.*;
 import com.tugalsan.api.icon.client.*;
-import com.tugalsan.api.tuple.client.*;
 import com.tugalsan.api.string.client.*;
 
 public class TGC_ButtonUtils {
 
-    public static PushButton create(TGS_Tuple3<String, String, Boolean> urlImageUpDownVertical) {
-        return create(urlImageUpDownVertical, null);
+    public static record Config(String urlImageUp, String urlImageDown, boolean urlImageVertical) {
+
     }
 
-    public static PushButton create(TGS_Tuple3<String, String, Boolean> urlImageUpDownVertical, CharSequence label) {
+    public static PushButton create(Config config) {
+        return create(config, null);
+    }
+
+    public static PushButton create(Config config, CharSequence label) {
         PushButton pb;
-        if (urlImageUpDownVertical == null) {
+        if (config == null) {
             pb = new PushButton(label.toString());
         } else {
-            pb = new PushButton(new Image(urlImageUpDownVertical.value0), new Image(urlImageUpDownVertical.value1));
+            pb = new PushButton(new Image(config.urlImageUp), new Image(config.urlImageDown));
             if (label != null) {
                 var innerHtml = pb.getElement().getInnerHTML();
-                if (urlImageUpDownVertical.value2) {
+                if (config.urlImageVertical) {
                     innerHtml = TGS_StringUtils.concat("<div><center>", innerHtml, "</center><label style='cursor:pointer'><center>", label, "</center></label></div>");
                 } else {
                     innerHtml = TGS_StringUtils.concat("<table><tr><td>", innerHtml, "</td><td><label style='cursor:pointer'>", label, "</label></td></tr></table>");
