@@ -66,7 +66,7 @@ public class TGC_CardUtils {
             if (optionalScroll != null) {
                 optionalScroll.scrollToTop();
             }
-            var searchTagTrim = TGS_CharSetCast.toLocaleLowerCase(tbInput.getText().trim());
+            var searchTagTrim = TGS_CharSet.cmn().languageDefault().toLowerCase(tbInput.getText().trim());
             var searchTagIsEmpty = TGS_StringUtils.isNullOrEmpty(searchTagTrim);
             IntStream.range(0, cardsInner.size()).forEachOrdered(i -> {
                 var widget = divCards.getWidget(i);
@@ -84,8 +84,9 @@ public class TGC_CardUtils {
                     return;
                 }
 
-                var contentTrim = TGS_CharSetCast.toLocaleLowerCase(card.htmlContent.toString().trim());
-                var contains = TGS_CharSetCast.containsLocaleIgnoreCase(contentTrim, searchTagTrim);
+                var lang = TGS_CharSet.cmn().languageDefault();
+                var contentTrim = lang.toLowerCase(card.htmlContent.toString().trim());
+                var contains = lang.containsIgnoreCase(contentTrim, searchTagTrim);
 
                 if (widget.isVisible() && !contains) {
                     widget.setVisible(false);
