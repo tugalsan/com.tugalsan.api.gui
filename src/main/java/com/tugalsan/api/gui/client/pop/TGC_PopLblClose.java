@@ -18,18 +18,6 @@ public class TGC_PopLblClose implements TGC_PopInterface {
     public TGC_PopLblClose(TGC_Dimension dim,
             CharSequence lblHTML, CharSequence btnOkText,
             TGS_RunnableType1<TGC_PopLblClose> onExe,
-            TGS_RunnableType1<TGC_PopLblClose> onEsc,
-            TGS_Runnable onVisible_optional) {
-        this(dim,
-                lblHTML, btnOkText,
-                onExe, onVisible_optional,
-                null
-        );
-    }
-
-    public TGC_PopLblClose(TGC_Dimension dim,
-            CharSequence lblHTML, CharSequence btnOkText,
-            TGS_RunnableType1<TGC_PopLblClose> onExe,
             TGS_Runnable onVisible_optional, CharSequence iconClassExe_optional) {
         this.dim = dim;
         this.lblHTML = lblHTML.toString();
@@ -45,8 +33,8 @@ public class TGC_PopLblClose implements TGC_PopInterface {
         configLayout();
         panelPopup.setVisible_focus = btnExe;
     }
-    private String iconClassExe;
-    private TGC_Dimension dim;
+    private final String iconClassExe;
+    private final TGC_Dimension dim;
     final private String lblHTML, btnOkText;
     final public TGS_RunnableType1<TGC_PopLblClose> onExe;
     final private TGS_Runnable onVisible;
