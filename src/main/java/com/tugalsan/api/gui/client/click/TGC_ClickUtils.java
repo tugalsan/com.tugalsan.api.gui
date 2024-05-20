@@ -18,7 +18,7 @@ import java.util.List;
 public class TGC_ClickUtils {
 
     private final static TGC_Log d = TGC_Log.of(TGC_ClickUtils.class);
-    private final static long DOUBLE_CLICK_THRESHOLD_MS = 500;
+    private final static long DOUBLE_CLICK_THRESHOLD_MS = 300;
 
     public static void add(PushButton w, TGS_Runnable exe) {
         w.addClickHandler(e -> {
