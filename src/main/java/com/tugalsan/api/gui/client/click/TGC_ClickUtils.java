@@ -11,14 +11,14 @@ import com.google.gwt.user.client.ui.ToggleButton;
 import com.tugalsan.api.log.client.TGC_Log;
 import com.tugalsan.api.runnable.client.TGS_Runnable;
 import com.tugalsan.api.runnable.client.TGS_RunnableType1;
-import com.tugalsan.api.time.client.TGS_Time;
-import com.tugalsan.api.tuple.client.TGS_Tuple2;
+import com.tugalsan.api.tuple.client.TGS_Tuple3;
 import java.util.ArrayList;
 import java.util.List;
 
 public class TGC_ClickUtils {
 
     private final static TGC_Log d = TGC_Log.of(TGC_ClickUtils.class);
+    private final static long DOUBLE_CLICK_THRESHOLD_MS = 500;
 
     public static void add(PushButton w, TGS_Runnable exe) {
         w.addClickHandler(e -> {
@@ -30,29 +30,36 @@ public class TGC_ClickUtils {
 
     public static void add(ListBox w, TGS_Runnable singleClick, TGS_Runnable doubleClick) {
         w.addClickHandler(e -> {
-            var now = TGS_Time.of();
-            d.ci("add(ListBox)", "now", now.toString_timeOnly());
-            List<TGS_Tuple2<ListBox, TGS_Time>> lastClick = new ArrayList();
-            var found = lastClick.stream().filter(lc -> lc.value0.equals(w)).findAny().orElse(null);
+            var sourceWidget = (ListBox) e.getSource();
+            var sourceIdx = sourceWidget.getSelectedIndex();
+            var now = System.currentTimeMillis();
+            d.ci("add(ListBox)", "now", now);
+            var found = lastClik_ListBox_Time_Idx.stream().filter(lc -> lc.value0.equals(sourceWidget)).findAny().orElse(null);
             d.ci("add(ListBox)", "found", found);
             if (found == null) {
-                lastClick.add(TGS_Tuple2.of(w, now));
+                lastClik_ListBox_Time_Idx.add(TGS_Tuple3.of(sourceWidget, now, sourceIdx));
                 if (singleClick != null) {
                     d.ci("add(ListBox)", "run", "found not found");
                     singleClick.run();
                 }
             } else {
-                var now1SecondAgo = TGS_Time.ofSecondsAgo(1);
+                var now1SecondAgo = now - DOUBLE_CLICK_THRESHOLD_MS;
                 d.ci("add(ListBox)", "now1SecondAgo", now1SecondAgo);
-                if (found.value1.hasSmallerTimeThan(now1SecondAgo)) {
+                if (found.value1 < now1SecondAgo) {
                     if (singleClick != null) {
-                        d.ci("add(ListBox)", "run", found.value1.toString_timeOnly(), "found < 1seondAgo", now1SecondAgo.toString_timeOnly());
+                        d.ci("add(ListBox)", "run", found.value1, "found < 1seondAgo", now1SecondAgo);
                         singleClick.run();
                     }
                 } else {
-                    d.ci("add(ListBox)", "cancel", found.value1.toString_timeOnly(), "found < 1seondAgo", now1SecondAgo.toString_timeOnly());
+                    if (found.value2 != -1) {
+                        sourceWidget.setSelectedIndex(found.value2);
+                        d.ci("add(ListBox)", "compansate", found.value1, "found < 1seondAgo", now1SecondAgo);
+                    } else {
+                        d.ci("add(ListBox)", "cancel", found.value1, "found < 1seondAgo", now1SecondAgo);
+                    }
                 }
                 found.value1 = now;
+                found.value2 = sourceIdx;
             }
         });
         w.addDoubleClickHandler(e -> {
@@ -61,6 +68,7 @@ public class TGC_ClickUtils {
             }
         });
     }
+    final private static List<TGS_Tuple3<ListBox, Long, Integer>> lastClik_ListBox_Time_Idx = new ArrayList();
 
     public static void add(TextBox w, TGS_Runnable exe) {
         w.addClickHandler(e -> {
