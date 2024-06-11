@@ -9,13 +9,14 @@ import com.tugalsan.api.gui.client.dim.TGC_Dimension;
 import com.tugalsan.api.gui.client.panel.TGC_PanelLayoutUtils;
 import com.tugalsan.api.gui.client.widget.TGC_ButtonUtils;
 import com.tugalsan.api.icon.client.TGS_IconUtils;
+import com.tugalsan.api.log.client.TGC_Log;
 import com.tugalsan.api.runnable.client.TGS_Runnable;
 import com.tugalsan.api.runnable.client.TGS_RunnableType1;
 import com.tugalsan.api.url.client.TGS_Url;
 
 public class TGC_PopFrame implements TGC_PopInterface {
 
-//    final private static TGC_Log d = TGC_Log.of(TGC_PopFrame.class);
+    final private static TGC_Log d = TGC_Log.of(true, TGC_PopFrame.class);
 
     public TGC_PopFrame(TGC_Dimension dim,
             TGS_Url url_optional, CharSequence btnOkText, CharSequence btnTabText,
@@ -108,6 +109,7 @@ public class TGC_PopFrame implements TGC_PopInterface {
     }
 
     public void setUrl(TGS_Url newUrl) {
+        d.ci("setUrl", newUrl);
         url.setUrl(newUrl.getUrl());
         frame.setUrl(url.getUrl().toString());
     }
