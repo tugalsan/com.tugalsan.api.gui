@@ -1,7 +1,8 @@
 package com.tugalsan.api.gui.client.key;
 
 import com.google.gwt.user.client.Event;
-import com.tugalsan.api.runnable.client.TGS_Runnable;
+import com.tugalsan.api.callable.client.TGS_CallableType0Void;
+
 import com.tugalsan.api.gui.client.dom.TGC_DOMUtils;
 import com.tugalsan.api.list.client.*;
 import com.tugalsan.api.log.client.TGC_Log;
@@ -69,9 +70,9 @@ public class TGC_KeyTriggerUtils {
     public static boolean isPreShift = false;
     public static boolean isCtrl = false;
     public static boolean isShift = false;
-    final public static List<TGS_Runnable> onTrigger = TGS_ListUtils.of();
-    public static TGS_Runnable quickCtrlShift = null;
-    public static TGS_Runnable quickCtrl = null;
-    public static TGS_Runnable quickShift = null;
-    public static TGS_Runnable quickNull = null;
+    final public static List<TGS_CallableType0Void> onTrigger = TGS_ListUtils.of();
+    public static TGS_CallableType0Void quickCtrlShift = null;
+    public static TGS_CallableType0Void quickCtrl = null;
+    public static TGS_CallableType0Void quickShift = null;
+    public static TGS_CallableType0Void quickNull = null;
 }

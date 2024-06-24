@@ -8,9 +8,11 @@ import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.PushButton;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.ToggleButton;
+import com.tugalsan.api.callable.client.TGS_CallableType0Void;
+import com.tugalsan.api.callable.client.TGS_CallableType1Void;
 import com.tugalsan.api.log.client.TGC_Log;
-import com.tugalsan.api.runnable.client.TGS_Runnable;
-import com.tugalsan.api.runnable.client.TGS_RunnableType1;
+
+
 import com.tugalsan.api.tuple.client.TGS_Tuple3;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +22,7 @@ public class TGC_ClickUtils {
     private final static TGC_Log d = TGC_Log.of(TGC_ClickUtils.class);
     private final static long DOUBLE_CLICK_THRESHOLD_MS = 300;
 
-    public static void add(PushButton w, TGS_Runnable exe) {
+    public static void add(PushButton w, TGS_CallableType0Void exe) {
         w.addClickHandler(e -> {
             if (exe != null) {
                 exe.run();
@@ -28,7 +30,7 @@ public class TGC_ClickUtils {
         });
     }
 
-    public static void add(ListBox w, TGS_Runnable singleClick, TGS_Runnable doubleClick) {
+    public static void add(ListBox w, TGS_CallableType0Void singleClick, TGS_CallableType0Void doubleClick) {
         w.addClickHandler(e -> {
             var sourceWidget = (ListBox) e.getSource();
             var sourceIdx = sourceWidget.getSelectedIndex();
@@ -70,7 +72,7 @@ public class TGC_ClickUtils {
     }
     final private static List<TGS_Tuple3<ListBox, Long, Integer>> lastClik_ListBox_Time_Idx = new ArrayList();
 
-    public static void add(TextBox w, TGS_Runnable exe) {
+    public static void add(TextBox w, TGS_CallableType0Void exe) {
         w.addClickHandler(e -> {
             if (exe != null) {
                 exe.run();
@@ -78,7 +80,7 @@ public class TGC_ClickUtils {
         });
     }
 
-    public static void add(CheckBox w, TGS_Runnable exe) {
+    public static void add(CheckBox w, TGS_CallableType0Void exe) {
         w.addClickHandler(e -> {
             if (exe != null) {
                 exe.run();
@@ -86,7 +88,7 @@ public class TGC_ClickUtils {
         });
     }
 
-    public static void add(ToggleButton w, TGS_RunnableType1<Boolean> exe) {
+    public static void add(ToggleButton w, TGS_CallableType1Void<Boolean> exe) {
         w.addClickHandler(e -> {
             if (exe != null) {
                 var tb = (ToggleButton) e.getSource();
@@ -95,7 +97,7 @@ public class TGC_ClickUtils {
         });
     }
 
-    public static void add(Image w, TGS_Runnable exe) {
+    public static void add(Image w, TGS_CallableType0Void exe) {
         w.addClickHandler(e -> {
             if (exe != null) {
 //                var image = (Image) e.getSource();
@@ -104,7 +106,7 @@ public class TGC_ClickUtils {
         });
     }
 
-    public static void add(HTML html, TGS_Runnable exe) {
+    public static void add(HTML html, TGS_CallableType0Void exe) {
         html.addClickHandler(e -> {
             if (exe != null) {
                 exe.run();
@@ -112,7 +114,7 @@ public class TGC_ClickUtils {
         });
     }
 
-    public static void add(Canvas canvas, TGS_Runnable exe) {
+    public static void add(Canvas canvas, TGS_CallableType0Void exe) {
         canvas.addClickHandler(e -> {
             if (exe != null) {
                 exe.run();

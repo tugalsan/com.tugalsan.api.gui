@@ -3,6 +3,8 @@ package com.tugalsan.api.gui.client.pop;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.PushButton;
 import com.google.gwt.user.client.ui.PasswordTextBox;
+import com.tugalsan.api.callable.client.TGS_CallableType0Void;
+import com.tugalsan.api.callable.client.TGS_CallableType1Void;
 import com.tugalsan.api.gui.client.click.TGC_ClickUtils;
 import com.tugalsan.api.gui.client.focus.TGC_FocusUtils;
 import com.tugalsan.api.gui.client.focus.TGS_FocusSides4;
@@ -11,31 +13,31 @@ import com.tugalsan.api.gui.client.dim.TGC_Dimension;
 import com.tugalsan.api.gui.client.panel.TGC_PanelLayoutUtils;
 import com.tugalsan.api.gui.client.widget.TGC_ButtonUtils;
 import com.tugalsan.api.icon.client.TGS_IconUtils;
-import com.tugalsan.api.runnable.client.TGS_Runnable;
-import com.tugalsan.api.runnable.client.TGS_RunnableType1;
+
+
 
 public class TGC_PopLblYesNoPassBox implements TGC_PopInterface {
 
 //    final private static TGC_Log d = TGC_Log.of(TGC_PopLblYesNoPassBox.class);
 
     final private String lblHTML, btnOkText, btnCancelText;
-    final public TGS_RunnableType1<TGC_PopLblYesNoPassBox> onEsc, onExe;
-    final public TGS_Runnable onVisible;
+    final public TGS_CallableType1Void<TGC_PopLblYesNoPassBox> onEsc, onExe;
+    final public TGS_CallableType0Void onVisible;
 
     public TGC_PopLblYesNoPassBox(TGC_Dimension dim,
             CharSequence lblHTML, CharSequence btnOkText, CharSequence btnCancelText,
-            TGS_RunnableType1<TGC_PopLblYesNoPassBox> onExe,
-            TGS_RunnableType1<TGC_PopLblYesNoPassBox> onEsc,
-            TGS_Runnable onVisible_optional) {
+            TGS_CallableType1Void<TGC_PopLblYesNoPassBox> onExe,
+            TGS_CallableType1Void<TGC_PopLblYesNoPassBox> onEsc,
+            TGS_CallableType0Void onVisible_optional) {
         this(dim, lblHTML, btnOkText, btnCancelText,
                 onExe, onEsc, onVisible_optional, null, null);
     }
 
     public TGC_PopLblYesNoPassBox(TGC_Dimension dim,
             CharSequence lblHTML, CharSequence btnOkText, CharSequence btnCancelText,
-            TGS_RunnableType1<TGC_PopLblYesNoPassBox> onExe,
-            TGS_RunnableType1<TGC_PopLblYesNoPassBox> onEsc,
-            TGS_Runnable onVisible_optional, CharSequence iconClassExe_optional, CharSequence iconClassEsc_optional) {
+            TGS_CallableType1Void<TGC_PopLblYesNoPassBox> onExe,
+            TGS_CallableType1Void<TGC_PopLblYesNoPassBox> onEsc,
+            TGS_CallableType0Void onVisible_optional, CharSequence iconClassExe_optional, CharSequence iconClassEsc_optional) {
         this.dim = dim;
         this.lblHTML = lblHTML.toString();
         this.btnOkText = btnOkText.toString();

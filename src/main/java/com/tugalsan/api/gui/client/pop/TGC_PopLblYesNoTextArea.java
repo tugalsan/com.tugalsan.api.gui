@@ -1,6 +1,8 @@
 package com.tugalsan.api.gui.client.pop;
 
 import com.google.gwt.user.client.ui.*;
+import com.tugalsan.api.callable.client.TGS_CallableType0Void;
+import com.tugalsan.api.callable.client.TGS_CallableType1Void;
 import com.tugalsan.api.gui.client.click.*;
 import com.tugalsan.api.gui.client.focus.*;
 import com.tugalsan.api.gui.client.key.*;
@@ -8,7 +10,7 @@ import com.tugalsan.api.gui.client.dim.*;
 import com.tugalsan.api.gui.client.widget.*;
 import com.tugalsan.api.gui.client.panel.*;
 import com.tugalsan.api.icon.client.*;
-import com.tugalsan.api.runnable.client.*;
+
 import com.tugalsan.api.gui.client.browser.*;
 import com.tugalsan.api.network.client.*;
 import com.tugalsan.api.string.client.*;
@@ -27,8 +29,8 @@ public class TGC_PopLblYesNoTextArea implements TGC_PopInterface {
     }
 
     final private String btnOkText, btnCancelText;
-    final public TGS_RunnableType1<TGC_PopLblYesNoTextArea> onEsc, onExe;
-    final public TGS_Runnable onVisible;
+    final public TGS_CallableType1Void<TGC_PopLblYesNoTextArea> onEsc, onExe;
+    final public TGS_CallableType0Void onVisible;
 
     public void setLabelHTML(String html) {
         lblHtml = TGS_NetworkHTMLUtils.HTML_SPACE() + html;
@@ -38,9 +40,9 @@ public class TGC_PopLblYesNoTextArea implements TGC_PopInterface {
 
     public TGC_PopLblYesNoTextArea(TGC_Dimension dim,
             CharSequence lblHtml, CharSequence btnOkText, CharSequence btnCancelText,
-            TGS_RunnableType1<TGC_PopLblYesNoTextArea> onExe,
-            TGS_RunnableType1<TGC_PopLblYesNoTextArea> onEsc,
-            TGS_Runnable onVisible_optional) {
+            TGS_CallableType1Void<TGC_PopLblYesNoTextArea> onExe,
+            TGS_CallableType1Void<TGC_PopLblYesNoTextArea> onEsc,
+            TGS_CallableType0Void onVisible_optional) {
         this(dim,
                 lblHtml, btnOkText, btnCancelText,
                 onExe, onEsc, onVisible_optional,
@@ -50,9 +52,9 @@ public class TGC_PopLblYesNoTextArea implements TGC_PopInterface {
 
     public TGC_PopLblYesNoTextArea(TGC_Dimension dim,
             CharSequence lblHtml, CharSequence btnOkText, CharSequence btnCancelText,
-            TGS_RunnableType1<TGC_PopLblYesNoTextArea> onExe,
-            TGS_RunnableType1<TGC_PopLblYesNoTextArea> onEsc,
-            TGS_Runnable onVisible_optional, CharSequence iconClassExe_optional, CharSequence iconClassEsc_optional) {
+            TGS_CallableType1Void<TGC_PopLblYesNoTextArea> onExe,
+            TGS_CallableType1Void<TGC_PopLblYesNoTextArea> onEsc,
+            TGS_CallableType0Void onVisible_optional, CharSequence iconClassExe_optional, CharSequence iconClassEsc_optional) {
         maxCharCount = MAX_CHAR_SQL_BLOB();
         this.dim = dim;
         this.lblHtml = TGS_NetworkHTMLUtils.HTML_SPACE() + lblHtml;

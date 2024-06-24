@@ -2,10 +2,10 @@ package com.tugalsan.api.gui.client.browser;
 
 import com.google.gwt.dom.client.Document;
 import com.google.gwt.user.client.Window;
+import com.tugalsan.api.callable.client.TGS_CallableType0Void;
+import com.tugalsan.api.callable.client.TGS_CallableType1Void;
 import com.tugalsan.api.charset.client.TGS_CharSet;
 import java.util.List;
-import com.tugalsan.api.runnable.client.TGS_Runnable;
-import com.tugalsan.api.runnable.client.TGS_RunnableType1;
 import com.tugalsan.api.list.client.*;
 import com.tugalsan.api.log.client.TGC_Log;
 import com.tugalsan.api.shape.client.TGS_ShapeDimension;
@@ -61,7 +61,7 @@ public class TGC_BrowserWindowUtils {
         });
         d.ci("addResizeHandler", "init");
     }
-    final public static List<TGS_RunnableType1<TGS_ShapeDimension<Integer>>> exe_resizeHandlers = TGS_ListUtils.of();
+    final public static List<TGS_CallableType1Void<TGS_ShapeDimension<Integer>>> exe_resizeHandlers = TGS_ListUtils.of();
     volatile private static long SYNC_lastResizeRequestMillis = 0;
 
     public static native void close()/*-{
@@ -75,7 +75,7 @@ public class TGC_BrowserWindowUtils {
         };
     }-*/;
 
-    public static void onClosing(TGS_Runnable exe) {
+    public static void onClosing(TGS_CallableType0Void exe) {
         Window.addWindowClosingHandler(e -> exe.run());
     }
 

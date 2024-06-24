@@ -1,9 +1,10 @@
 package com.tugalsan.api.gui.client.card;
 
 import com.google.gwt.user.client.ui.*;
+import com.tugalsan.api.callable.client.TGS_CallableType1Void;
 import com.tugalsan.api.charset.client.*;
 import com.tugalsan.api.color.client.*;
-import com.tugalsan.api.runnable.client.*;
+
 import com.tugalsan.api.gui.client.widget.canvas.*;
 import com.tugalsan.api.list.client.*;
 import com.tugalsan.api.log.client.*;
@@ -45,7 +46,7 @@ public class TGC_CardUtils {
         return TGC_Card.class.getSimpleName() + "_input";
     }
 
-    public static TGS_Tuple3<TextBox, FlowPanel, List<TGC_Card>> create(ScrollPanel optionalScroll, CharSequence optionalTitleHtml, CharSequence urlSearchIcon, TGS_RunnableType1<List<TGC_Card>> cards) {
+    public static TGS_Tuple3<TextBox, FlowPanel, List<TGC_Card>> create(ScrollPanel optionalScroll, CharSequence optionalTitleHtml, CharSequence urlSearchIcon, TGS_CallableType1Void<List<TGC_Card>> cards) {
         List<TGC_Card> cardsInner = TGS_ListUtils.of();
         cards.run(cardsInner);
 

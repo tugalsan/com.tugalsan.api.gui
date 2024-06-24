@@ -2,11 +2,12 @@ package com.tugalsan.api.gui.client.widget;
 
 import com.google.gwt.event.logical.shared.*;
 import com.google.gwt.user.client.ui.*;
-import com.tugalsan.api.runnable.client.*;
+import com.tugalsan.api.callable.client.TGS_CallableType0Void;
+
 
 public class TGC_TextBoxUtils {
 
-    public static void onChange(TextBox tb, TGS_Runnable exe) {
+    public static void onChange(TextBox tb, TGS_CallableType0Void exe) {
         tb.addValueChangeHandler((ValueChangeEvent<String> event) -> {
             exe.run();
         });

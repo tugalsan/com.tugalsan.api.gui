@@ -2,6 +2,8 @@ package com.tugalsan.api.gui.client.pop;
 
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.PushButton;
+import com.tugalsan.api.callable.client.TGS_CallableType0Void;
+import com.tugalsan.api.callable.client.TGS_CallableType1Void;
 import com.tugalsan.api.gui.client.click.TGC_ClickUtils;
 import com.tugalsan.api.gui.client.focus.TGC_FocusUtils;
 import com.tugalsan.api.gui.client.focus.TGS_FocusSides4;
@@ -10,8 +12,8 @@ import com.tugalsan.api.gui.client.dim.TGC_Dimension;
 import com.tugalsan.api.gui.client.panel.TGC_PanelLayoutUtils;
 import com.tugalsan.api.gui.client.widget.TGC_ButtonUtils;
 import com.tugalsan.api.icon.client.TGS_IconUtils;
-import com.tugalsan.api.runnable.client.TGS_Runnable;
-import com.tugalsan.api.runnable.client.TGS_RunnableType1;
+
+
 
 public class TGC_PopLblYesNo implements TGC_PopInterface {
 
@@ -19,9 +21,9 @@ public class TGC_PopLblYesNo implements TGC_PopInterface {
 
     public TGC_PopLblYesNo(TGC_Dimension dim,
             CharSequence lblHTML, CharSequence btnOkText, CharSequence btnCancelText,
-            TGS_RunnableType1<TGC_PopLblYesNo> onExe,
-            TGS_RunnableType1<TGC_PopLblYesNo> onEsc,
-            TGS_Runnable onVisible_optional) {
+            TGS_CallableType1Void<TGC_PopLblYesNo> onExe,
+            TGS_CallableType1Void<TGC_PopLblYesNo> onEsc,
+            TGS_CallableType0Void onVisible_optional) {
         this(dim,
                 lblHTML, btnOkText, btnCancelText,
                 onExe, onEsc, onVisible_optional,
@@ -31,9 +33,9 @@ public class TGC_PopLblYesNo implements TGC_PopInterface {
 
     public TGC_PopLblYesNo(TGC_Dimension dim,
             CharSequence lblHTML, CharSequence btnOkText, CharSequence btnCancelText,
-            TGS_RunnableType1<TGC_PopLblYesNo> onExe,
-            TGS_RunnableType1<TGC_PopLblYesNo> onEsc,
-            TGS_Runnable onVisible_optional, CharSequence iconClassExe_optional, CharSequence iconClassEsc_optional) {
+            TGS_CallableType1Void<TGC_PopLblYesNo> onExe,
+            TGS_CallableType1Void<TGC_PopLblYesNo> onEsc,
+            TGS_CallableType0Void onVisible_optional, CharSequence iconClassExe_optional, CharSequence iconClassEsc_optional) {
         this.dim = dim;
         this.lblHTML = lblHTML.toString();
         this.btnOkText = btnOkText.toString();
@@ -54,8 +56,8 @@ public class TGC_PopLblYesNo implements TGC_PopInterface {
     private String iconClassExe, iconClassEsc;
     private TGC_Dimension dim;
     final private String lblHTML, btnOkText, btnCancelText;
-    final public TGS_RunnableType1<TGC_PopLblYesNo> onEsc, onExe;
-    final private TGS_Runnable onVisible;
+    final public TGS_CallableType1Void<TGC_PopLblYesNo> onEsc, onExe;
+    final private TGS_CallableType0Void onVisible;
 
     @Override
     final public void createWidgets() {

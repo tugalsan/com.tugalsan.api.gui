@@ -3,6 +3,8 @@ package com.tugalsan.api.gui.client.pop;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.PushButton;
 import com.google.gwt.user.client.ui.TextBox;
+import com.tugalsan.api.callable.client.TGS_CallableType0Void;
+import com.tugalsan.api.callable.client.TGS_CallableType1Void;
 import com.tugalsan.api.log.client.TGC_Log;
 import com.tugalsan.api.gui.client.click.TGC_ClickUtils;
 import com.tugalsan.api.gui.client.focus.TGC_FocusUtils;
@@ -12,8 +14,8 @@ import com.tugalsan.api.gui.client.dim.TGC_Dimension;
 import com.tugalsan.api.gui.client.widget.TGC_ButtonUtils;
 import com.tugalsan.api.gui.client.panel.TGC_PanelLayoutUtils;
 import com.tugalsan.api.icon.client.TGS_IconUtils;
-import com.tugalsan.api.runnable.client.TGS_Runnable;
-import com.tugalsan.api.runnable.client.TGS_RunnableType1;
+
+
 import com.tugalsan.api.network.client.*;
 import com.tugalsan.api.string.client.TGS_StringUtils;
 
@@ -29,9 +31,9 @@ public class TGC_PopLblYesNoTextBoxExtraBtn2 implements TGC_PopInterface {
 
     public TGC_PopLblYesNoTextBoxExtraBtn2(TGC_Dimension dim,
             CharSequence lblText, CharSequence btnOkText, CharSequence btnCancelText,
-            TGS_RunnableType1<TGC_PopLblYesNoTextBoxExtraBtn2> onExe,
-            TGS_RunnableType1<TGC_PopLblYesNoTextBoxExtraBtn2> onEsc,
-            TGS_Runnable onVisible_optional) {
+            TGS_CallableType1Void<TGC_PopLblYesNoTextBoxExtraBtn2> onExe,
+            TGS_CallableType1Void<TGC_PopLblYesNoTextBoxExtraBtn2> onEsc,
+            TGS_CallableType0Void onVisible_optional) {
         this(dim,
                 lblText, btnOkText, btnCancelText,
                 onExe, onEsc, onVisible_optional,
@@ -39,14 +41,14 @@ public class TGC_PopLblYesNoTextBoxExtraBtn2 implements TGC_PopInterface {
         );
     }
     final private String btnOkText, btnCancelText;
-    final public TGS_RunnableType1<TGC_PopLblYesNoTextBoxExtraBtn2> onEsc, onExe;
-    final public TGS_Runnable onVisible;
+    final public TGS_CallableType1Void<TGC_PopLblYesNoTextBoxExtraBtn2> onEsc, onExe;
+    final public TGS_CallableType0Void onVisible;
 
     public TGC_PopLblYesNoTextBoxExtraBtn2(TGC_Dimension dim,
             CharSequence lblHtml, CharSequence btnOkText, CharSequence btnCancelText,
-            TGS_RunnableType1<TGC_PopLblYesNoTextBoxExtraBtn2> onExe,
-            TGS_RunnableType1<TGC_PopLblYesNoTextBoxExtraBtn2> onEsc,
-            TGS_Runnable onVisible_optional, CharSequence iconClassExe_optional, CharSequence iconClassEsc_optional) {
+            TGS_CallableType1Void<TGC_PopLblYesNoTextBoxExtraBtn2> onExe,
+            TGS_CallableType1Void<TGC_PopLblYesNoTextBoxExtraBtn2> onEsc,
+            TGS_CallableType0Void onVisible_optional, CharSequence iconClassExe_optional, CharSequence iconClassEsc_optional) {
         this.dim = dim;
         this.lblHtml = lblHtml.toString();
         this.btnOkText = btnOkText.toString();
@@ -181,9 +183,9 @@ public class TGC_PopLblYesNoTextBoxExtraBtn2 implements TGC_PopInterface {
         btnAddHide(optional_iconClass1Name.isEmpty() && optional_AddBtn1Text.isEmpty(), optional_iconClass2Name.isEmpty() && optional_AddBtn2Text.isEmpty());
     }
 
-    public void btnAddSet(TGS_RunnableType1<TGC_PopLblYesNoTextBoxExtraBtn2> onAdd1, TGS_RunnableType1<TGC_PopLblYesNoTextBoxExtraBtn2> onAdd2) {
+    public void btnAddSet(TGS_CallableType1Void<TGC_PopLblYesNoTextBoxExtraBtn2> onAdd1, TGS_CallableType1Void<TGC_PopLblYesNoTextBoxExtraBtn2> onAdd2) {
         this.onAdd1 = onAdd1;
         this.onAdd2 = onAdd2;
     }
-    private TGS_RunnableType1<TGC_PopLblYesNoTextBoxExtraBtn2> onAdd1, onAdd2;
+    private TGS_CallableType1Void<TGC_PopLblYesNoTextBoxExtraBtn2> onAdd1, onAdd2;
 }

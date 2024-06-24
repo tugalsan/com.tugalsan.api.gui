@@ -4,6 +4,8 @@ import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.PushButton;
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.Widget;
+import com.tugalsan.api.callable.client.TGS_CallableType0Void;
+import com.tugalsan.api.callable.client.TGS_CallableType1Void;
 import java.util.List;
 import com.tugalsan.api.gui.client.click.TGC_ClickUtils;
 import com.tugalsan.api.gui.client.focus.TGC_FocusUtils;
@@ -15,24 +17,24 @@ import com.tugalsan.api.gui.client.browser.TGC_BrowserNavigatorUtils;
 import com.tugalsan.api.gui.client.dim.TGC_Dimension;
 import com.tugalsan.api.gui.client.widget.TGC_ButtonUtils;
 import com.tugalsan.api.icon.client.TGS_IconUtils;
-import com.tugalsan.api.runnable.client.TGS_Runnable;
-import com.tugalsan.api.runnable.client.TGS_RunnableType1;
+
+
 
 public class TGC_PopLblYesNoListBox implements TGC_PopInterface {
 
 //    final private static TGC_Log d = TGC_Log.of(TGC_PopLblYesNoListBox.class);
 
     final private String lblHTML, btnOkText, btnCancelText;
-    final public TGS_RunnableType1<TGC_PopLblYesNoListBox> onEsc, onExe;
+    final public TGS_CallableType1Void<TGC_PopLblYesNoListBox> onEsc, onExe;
     final public List<String> listBoxContent;
-    final private TGS_Runnable onVisible;
+    final private TGS_CallableType0Void onVisible;
 
     public TGC_PopLblYesNoListBox(TGC_Dimension dim,
             List<String> listBoxContent_optional,
             CharSequence lblHTML, CharSequence btnOkText, CharSequence btnCancelText,
-            TGS_RunnableType1<TGC_PopLblYesNoListBox> onExe,
-            TGS_RunnableType1<TGC_PopLblYesNoListBox> onEsc,
-            TGS_Runnable onVisible_optional) {
+            TGS_CallableType1Void<TGC_PopLblYesNoListBox> onExe,
+            TGS_CallableType1Void<TGC_PopLblYesNoListBox> onEsc,
+            TGS_CallableType0Void onVisible_optional) {
         this(dim, listBoxContent_optional,
                 lblHTML, btnOkText, btnCancelText,
                 onExe, onEsc, onVisible_optional, null, null);
@@ -41,9 +43,9 @@ public class TGC_PopLblYesNoListBox implements TGC_PopInterface {
     public TGC_PopLblYesNoListBox(TGC_Dimension dim,
             List<String> listBoxContent_optional,
             CharSequence lblHTML, CharSequence btnOkText, CharSequence btnCancelText,
-            TGS_RunnableType1<TGC_PopLblYesNoListBox> onExe,
-            TGS_RunnableType1<TGC_PopLblYesNoListBox> onEsc,
-            TGS_Runnable onVisible_optional, CharSequence iconClassExe_optional, CharSequence iconClassEsc_optional) {
+            TGS_CallableType1Void<TGC_PopLblYesNoListBox> onExe,
+            TGS_CallableType1Void<TGC_PopLblYesNoListBox> onEsc,
+            TGS_CallableType0Void onVisible_optional, CharSequence iconClassExe_optional, CharSequence iconClassEsc_optional) {
         this.dim = dim;
         this.lblHTML = lblHTML.toString();
         this.btnOkText = btnOkText.toString();

@@ -6,7 +6,8 @@ import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.TextArea;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.ValueBoxBase;
-import com.tugalsan.api.runnable.client.TGS_RunnableType1;
+import com.tugalsan.api.callable.client.TGS_CallableType1Void;
+
 import com.tugalsan.api.log.client.TGC_Log;
 import com.tugalsan.api.thread.client.TGC_ThreadUtils;
 
@@ -132,7 +133,7 @@ public class TGC_FocusUtils {
     }
 
     @Deprecated //problem on textFields
-    public static void addKeyUp(FocusWidget fw, TGS_RunnableType1<Integer> exe) {
+    public static void addKeyUp(FocusWidget fw, TGS_CallableType1Void<Integer> exe) {
         fw.addKeyUpHandler(e -> {
             var curKeyCode = e.getNativeKeyCode();
             d.ci("KeyUpHandler", "curKeyCode", curKeyCode);
@@ -140,7 +141,7 @@ public class TGC_FocusUtils {
         });
     }
 
-    public static void addKeyDown(FocusWidget fw, TGS_RunnableType1<Integer> exe) {
+    public static void addKeyDown(FocusWidget fw, TGS_CallableType1Void<Integer> exe) {
         fw.addKeyDownHandler(e -> {
             var curKeyCode = e.getNativeKeyCode();
             d.ci("KeyUpHandler", "curKeyCode", curKeyCode);
@@ -148,7 +149,7 @@ public class TGC_FocusUtils {
         });
     }
 
-    public static void addKey(ListBox lb, TGS_FocusSides4 sides, TGS_RunnableType1<Integer> exe) {
+    public static void addKey(ListBox lb, TGS_FocusSides4 sides, TGS_CallableType1Void<Integer> exe) {
         var sideUp = sides.up;
         var sideDown = sides.down;
         sides.up = sides.down = null;
