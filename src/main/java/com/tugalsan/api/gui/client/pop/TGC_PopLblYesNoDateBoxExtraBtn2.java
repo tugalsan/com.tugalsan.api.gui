@@ -3,8 +3,8 @@ package com.tugalsan.api.gui.client.pop;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.PushButton;
 import com.google.gwt.user.datepicker.client.DateBox;
-import com.tugalsan.api.callable.client.TGS_CallableType0Void;
-import com.tugalsan.api.callable.client.TGS_CallableType1Void;
+import com.tugalsan.api.callable.client.TGS_CallableType0_Run;
+import com.tugalsan.api.callable.client.TGS_CallableType1_Run;
 import com.tugalsan.api.log.client.TGC_Log;
 import com.tugalsan.api.gui.client.click.TGC_ClickUtils;
 import com.tugalsan.api.gui.client.focus.TGC_FocusUtils;
@@ -45,9 +45,9 @@ public class TGC_PopLblYesNoDateBoxExtraBtn2 implements TGC_PopInterface {
 
     public TGC_PopLblYesNoDateBoxExtraBtn2(TGC_Dimension dim,
             CharSequence lblText, CharSequence btnOkText, CharSequence btnCancelText,
-            TGS_CallableType1Void<TGC_PopLblYesNoDateBoxExtraBtn2> onExe,
-            TGS_CallableType1Void<TGC_PopLblYesNoDateBoxExtraBtn2> onEsc,
-            TGS_CallableType0Void onVisible_optional) {
+            TGS_CallableType1_Run<TGC_PopLblYesNoDateBoxExtraBtn2> onExe,
+            TGS_CallableType1_Run<TGC_PopLblYesNoDateBoxExtraBtn2> onEsc,
+            TGS_CallableType0_Run onVisible_optional) {
         this(dim,
                 lblText, btnOkText, btnCancelText,
                 onExe, onEsc, onVisible_optional,
@@ -57,9 +57,9 @@ public class TGC_PopLblYesNoDateBoxExtraBtn2 implements TGC_PopInterface {
 
     public TGC_PopLblYesNoDateBoxExtraBtn2(TGC_Dimension dim,
             CharSequence lblHtml, CharSequence btnOkText, CharSequence btnCancelText,
-            TGS_CallableType1Void<TGC_PopLblYesNoDateBoxExtraBtn2> onExe,
-            TGS_CallableType1Void<TGC_PopLblYesNoDateBoxExtraBtn2> onEsc,
-            TGS_CallableType0Void onVisible_optional, CharSequence iconClassExe_optional, CharSequence iconClassEsc_optional) {
+            TGS_CallableType1_Run<TGC_PopLblYesNoDateBoxExtraBtn2> onExe,
+            TGS_CallableType1_Run<TGC_PopLblYesNoDateBoxExtraBtn2> onEsc,
+            TGS_CallableType0_Run onVisible_optional, CharSequence iconClassExe_optional, CharSequence iconClassEsc_optional) {
         this.dim = dim;
         this.lblHtml = lblHtml.toString();
         this.btnOkText = btnOkText.toString();
@@ -85,8 +85,8 @@ public class TGC_PopLblYesNoDateBoxExtraBtn2 implements TGC_PopInterface {
     private TGC_Dimension dim;
     private String iconClassExe, iconClassEsc;
     final private String btnOkText, btnCancelText;
-    final public TGS_CallableType1Void<TGC_PopLblYesNoDateBoxExtraBtn2> onEsc, onExe;
-    final public TGS_CallableType0Void onVisible;
+    final public TGS_CallableType1_Run<TGC_PopLblYesNoDateBoxExtraBtn2> onEsc, onExe;
+    final public TGS_CallableType0_Run onVisible;
 
     @Override
     final public void createWidgets() {
@@ -200,9 +200,9 @@ public class TGC_PopLblYesNoDateBoxExtraBtn2 implements TGC_PopInterface {
         TGC_ButtonUtils.setIcon(btnAdd2, optional_iconClass2Name, optional_AddBtn2Text);
     }
 
-    public void btnAddSet(TGS_CallableType1Void<TGC_PopLblYesNoDateBoxExtraBtn2> onAdd1, TGS_CallableType1Void<TGC_PopLblYesNoDateBoxExtraBtn2> onAdd2) {
+    public void btnAddSet(TGS_CallableType1_Run<TGC_PopLblYesNoDateBoxExtraBtn2> onAdd1, TGS_CallableType1_Run<TGC_PopLblYesNoDateBoxExtraBtn2> onAdd2) {
         this.onAdd1 = onAdd1;
         this.onAdd2 = onAdd2;
     }
-    private TGS_CallableType1Void<TGC_PopLblYesNoDateBoxExtraBtn2> onAdd1, onAdd2;
+    private TGS_CallableType1_Run<TGC_PopLblYesNoDateBoxExtraBtn2> onAdd1, onAdd2;
 }

@@ -2,8 +2,8 @@ package com.tugalsan.api.gui.client.pop;
 
 import com.google.gwt.user.client.ui.Frame;
 import com.google.gwt.user.client.ui.PushButton;
-import com.tugalsan.api.callable.client.TGS_CallableType0Void;
-import com.tugalsan.api.callable.client.TGS_CallableType1Void;
+import com.tugalsan.api.callable.client.TGS_CallableType0_Run;
+import com.tugalsan.api.callable.client.TGS_CallableType1_Run;
 import com.tugalsan.api.gui.client.browser.TGC_BrowserWindowUtils;
 import com.tugalsan.api.gui.client.click.TGC_ClickUtils;
 import com.tugalsan.api.gui.client.key.TGC_KeyUtils;
@@ -22,8 +22,8 @@ public class TGC_PopFrame implements TGC_PopInterface {
 
     public TGC_PopFrame(TGC_Dimension dim,
             TGS_Url url_optional, CharSequence btnOkText, CharSequence btnTabText,
-            TGS_CallableType1Void<TGC_PopFrame> onExe,
-            TGS_CallableType0Void onVisible_optional) {
+            TGS_CallableType1_Run<TGC_PopFrame> onExe,
+            TGS_CallableType0_Run onVisible_optional) {
         this(dim,
                 url_optional, btnOkText, btnTabText,
                 onExe, onVisible_optional,
@@ -33,8 +33,8 @@ public class TGC_PopFrame implements TGC_PopInterface {
 
     public TGC_PopFrame(TGC_Dimension dim,
             TGS_Url url_optional, CharSequence btnOkText, CharSequence btnTabText,
-            TGS_CallableType1Void<TGC_PopFrame> onExe,
-            TGS_CallableType0Void onVisible_optional, CharSequence iconClassExe_optional) {
+            TGS_CallableType1_Run<TGC_PopFrame> onExe,
+            TGS_CallableType0_Run onVisible_optional, CharSequence iconClassExe_optional) {
         this.dim = dim;
         this.url = url_optional == null ? new TGS_Url("") : url_optional;
         this.btnOkText = btnOkText.toString();
@@ -55,8 +55,8 @@ public class TGC_PopFrame implements TGC_PopInterface {
     final private TGS_Url url;
     final private String btnOkText;
     final private String btnTabText;
-    final public TGS_CallableType1Void<TGC_PopFrame> onExe;
-    final private TGS_CallableType0Void onVisible;
+    final public TGS_CallableType1_Run<TGC_PopFrame> onExe;
+    final private TGS_CallableType0_Run onVisible;
 
     @Override
     final public void createWidgets() {
@@ -79,7 +79,7 @@ public class TGC_PopFrame implements TGC_PopInterface {
     final public void configActions() {
         TGC_ClickUtils.add(btnExe, () -> onExe.run(this));
         TGC_KeyUtils.add(btnExe, () -> onExe.run(this), () -> onExe.run(this));
-        TGS_CallableType0Void onTab = () -> {
+        TGS_CallableType0_Run onTab = () -> {
             TGC_BrowserWindowUtils.openNew(url);
             onExe.run(this);
         };

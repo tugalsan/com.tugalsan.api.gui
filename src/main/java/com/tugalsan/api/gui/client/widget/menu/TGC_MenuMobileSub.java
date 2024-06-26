@@ -1,6 +1,6 @@
 package com.tugalsan.api.gui.client.widget.menu;
 
-import com.tugalsan.api.callable.client.TGS_CallableType0Void;
+import com.tugalsan.api.callable.client.TGS_CallableType0_Run;
 import java.util.*;
 import com.tugalsan.api.log.client.*;
 import com.tugalsan.api.gui.client.dim.*;
@@ -10,7 +10,7 @@ import com.tugalsan.api.gui.client.widget.*;
 import com.tugalsan.api.list.client.*;
 import com.tugalsan.api.tuple.client.*;
 
-public class TGC_MenuMobileSub implements TGS_CallableType0Void {
+public class TGC_MenuMobileSub implements TGS_CallableType0_Run {
 
     final private static TGC_Log d = TGC_Log.of(TGC_MenuMobileSub.class);
 
@@ -49,7 +49,7 @@ public class TGC_MenuMobileSub implements TGS_CallableType0Void {
         TGC_ListBoxUtils.selectNone(pop.listBox);
     }
     final public List<TGC_MenuMobileSub> subMenus = TGS_ListUtils.of();
-    final public List<TGS_Tuple2<String, TGS_CallableType0Void>> cmd = TGS_ListUtils.of();
+    final public List<TGS_Tuple2<String, TGS_CallableType0_Run>> cmd = TGS_ListUtils.of();
 
     @Override
     public void run() {

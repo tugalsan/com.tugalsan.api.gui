@@ -1,7 +1,7 @@
 package com.tugalsan.api.gui.client.pop;
 
 import com.google.gwt.user.client.ui.TextArea;
-import com.tugalsan.api.callable.client.TGS_CallableType0Void;
+import com.tugalsan.api.callable.client.TGS_CallableType0_Run;
 import com.tugalsan.api.gui.client.editable.TGC_EditableUtils;
 import com.tugalsan.api.gui.client.dim.TGC_Dimension;
 import com.tugalsan.api.gui.client.panel.TGC_PanelLayoutUtils;
@@ -12,9 +12,9 @@ public class TGC_PopTextArea implements TGC_PopInterface {
 //    final private static TGC_Log d = TGC_Log.of(TGC_PopTextArea.class);
 
     final private String initText;
-    final public TGS_CallableType0Void onVisible;
+    final public TGS_CallableType0_Run onVisible;
 
-    public TGC_PopTextArea(TGC_Dimension dim, CharSequence initText, TGS_CallableType0Void onVisible_optional) {
+    public TGC_PopTextArea(TGC_Dimension dim, CharSequence initText, TGS_CallableType0_Run onVisible_optional) {
         this.dim = dim;
         this.initText = initText.toString();
         this.onVisible = onVisible_optional;

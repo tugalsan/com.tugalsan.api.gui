@@ -2,8 +2,8 @@ package com.tugalsan.api.gui.client.pop;
 
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.PushButton;
-import com.tugalsan.api.callable.client.TGS_CallableType0Void;
-import com.tugalsan.api.callable.client.TGS_CallableType1Void;
+import com.tugalsan.api.callable.client.TGS_CallableType0_Run;
+import com.tugalsan.api.callable.client.TGS_CallableType1_Run;
 import com.tugalsan.api.gui.client.click.TGC_ClickUtils;
 import com.tugalsan.api.gui.client.key.TGC_KeyUtils;
 import com.tugalsan.api.gui.client.dim.TGC_Dimension;
@@ -19,8 +19,8 @@ public class TGC_PopLblClose implements TGC_PopInterface {
 
     public TGC_PopLblClose(TGC_Dimension dim,
             CharSequence lblHTML, CharSequence btnOkText,
-            TGS_CallableType1Void<TGC_PopLblClose> onExe,
-            TGS_CallableType0Void onVisible_optional, CharSequence iconClassExe_optional) {
+            TGS_CallableType1_Run<TGC_PopLblClose> onExe,
+            TGS_CallableType0_Run onVisible_optional, CharSequence iconClassExe_optional) {
         this.dim = dim;
         this.lblHTML = lblHTML.toString();
         this.btnOkText = btnOkText.toString();
@@ -38,8 +38,8 @@ public class TGC_PopLblClose implements TGC_PopInterface {
     private final String iconClassExe;
     private final TGC_Dimension dim;
     final private String lblHTML, btnOkText;
-    final public TGS_CallableType1Void<TGC_PopLblClose> onExe;
-    final private TGS_CallableType0Void onVisible;
+    final public TGS_CallableType1_Run<TGC_PopLblClose> onExe;
+    final private TGS_CallableType0_Run onVisible;
 
     @Override
     final public void createWidgets() {

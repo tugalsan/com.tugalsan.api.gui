@@ -2,7 +2,7 @@ package com.tugalsan.api.gui.client.pop;
 
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.RootPanel;
-import com.tugalsan.api.callable.client.TGS_CallableType0Void;
+import com.tugalsan.api.callable.client.TGS_CallableType0_Run;
 
 import com.tugalsan.api.gui.client.dim.TGC_Dimension;
 import com.tugalsan.api.thread.client.TGC_ThreadUtils;
@@ -11,7 +11,7 @@ public class TGC_PopToast implements TGC_PopInterface {
 
 //    final private static TGC_Log d = TGC_Log.of(TGC_PopToast.class);
 
-    public TGC_PopToast(TGC_Dimension dim, TGS_CallableType0Void onVisible_optional) {
+    public TGC_PopToast(TGC_Dimension dim, TGS_CallableType0_Run onVisible_optional) {
         this.dim = dim;
         this.onVisible = onVisible_optional;
         createWidgets();
@@ -22,7 +22,7 @@ public class TGC_PopToast implements TGC_PopInterface {
         configLayout();
     }
     private final TGC_Dimension dim;
-    public final TGS_CallableType0Void onVisible;
+    public final TGS_CallableType0_Run onVisible;
 
     @Override
     final public void createWidgets() {
