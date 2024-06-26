@@ -53,7 +53,7 @@ abstract public class TGC_WidgetAbstract<T extends Widget> {
     }
 
     public TGC_WidgetAbstract setSize(TGS_ShapeDimension<Integer> dimPx) {
-        widget.setSize(TGS_StringUtils.concat(String.valueOf(dimPx.width), "px"), TGS_StringUtils.concat(String.valueOf(dimPx.height), "px"));
+        widget.setSize(TGS_StringUtils.cmn().concat(String.valueOf(dimPx.width), "px"), TGS_StringUtils.cmn().concat(String.valueOf(dimPx.height), "px"));
         return this;
     }
 

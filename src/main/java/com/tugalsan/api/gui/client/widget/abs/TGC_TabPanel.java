@@ -34,7 +34,7 @@ public class TGC_TabPanel extends TGC_WidgetAbstract<TabPanel> {
         if (optional_tooltip == null) {
             widget.add(w, tabText.toString());
         } else {
-            widget.add(w, TGS_StringUtils.concat("<span title='", optional_tooltip, "'>", tabText, "</span>"), true);
+            widget.add(w, TGS_StringUtils.cmn().concat("<span title='", optional_tooltip, "'>", tabText, "</span>"), true);
         }
         showLast();
         return this;

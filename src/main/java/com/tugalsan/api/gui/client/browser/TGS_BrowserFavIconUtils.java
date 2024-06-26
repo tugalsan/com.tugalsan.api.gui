@@ -12,6 +12,6 @@ public class TGS_BrowserFavIconUtils {
         var filenamePrefix = filePrefix.toString().replace(" ", "_");
         var fileNameTheme = dark ? "light" : "dark";
         var fileNamePixel = String.valueOf(pixel);
-        return TGS_StringUtils.concat(filenamePrefix, "-", fileNameTheme, "-", fileNamePixel, "x", fileNamePixel, ".", type);
+        return TGS_StringUtils.cmn().concat(filenamePrefix, "-", fileNameTheme, "-", fileNamePixel, "x", fileNamePixel, ".", type);
     }
 }

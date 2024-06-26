@@ -172,10 +172,10 @@ public class TGC_PopLblYesNoTextBoxExtraBtn2 implements TGC_PopInterface {
 
     public void btnAddShowAs(String optional_iconClass1Name, String optional_AddBtn1Text, String optional_iconClass2Name, String optional_AddBtn2Text) {
         d.ci("btnAddShowAs", "#0", optional_iconClass1Name, optional_AddBtn1Text, optional_iconClass2Name, optional_AddBtn2Text);
-        optional_iconClass1Name = TGS_StringUtils.toEmptyIfNull(optional_iconClass1Name);
-        optional_AddBtn1Text = TGS_StringUtils.toEmptyIfNull(optional_AddBtn1Text);
-        optional_iconClass2Name = TGS_StringUtils.toEmptyIfNull(optional_iconClass2Name);
-        optional_AddBtn2Text = TGS_StringUtils.toEmptyIfNull(optional_AddBtn2Text);
+        optional_iconClass1Name = TGS_StringUtils.cmn().toEmptyIfNull(optional_iconClass1Name);
+        optional_AddBtn1Text = TGS_StringUtils.cmn().toEmptyIfNull(optional_AddBtn1Text);
+        optional_iconClass2Name = TGS_StringUtils.cmn().toEmptyIfNull(optional_iconClass2Name);
+        optional_AddBtn2Text = TGS_StringUtils.cmn().toEmptyIfNull(optional_AddBtn2Text);
         d.ci("btnAddShowAs", "#1", optional_iconClass1Name, optional_AddBtn1Text, optional_iconClass2Name, optional_AddBtn2Text);
         TGC_ButtonUtils.setIcon(btnAdd1, optional_iconClass1Name, optional_AddBtn1Text);
         TGC_ButtonUtils.setIcon(btnAdd2, optional_iconClass2Name, optional_AddBtn2Text);

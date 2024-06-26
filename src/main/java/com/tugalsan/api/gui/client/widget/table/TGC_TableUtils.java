@@ -54,7 +54,7 @@ public class TGC_TableUtils {
 
     public static void setColumnWidthsPx(CellTable cellTable, int[] widths) {
         cellTable.setWidth("100%", true);
-        IntStream.range(0, widths.length).forEachOrdered(ci -> cellTable.setColumnWidth(ci, TGS_StringUtils.concat(String.valueOf(widths[ci]), "px")));
+        IntStream.range(0, widths.length).forEachOrdered(ci -> cellTable.setColumnWidth(ci, TGS_StringUtils.cmn().concat(String.valueOf(widths[ci]), "px")));
     }
 
     public static void setColumnWidthsPx(CellTable cellTable, int widthsCommon) {

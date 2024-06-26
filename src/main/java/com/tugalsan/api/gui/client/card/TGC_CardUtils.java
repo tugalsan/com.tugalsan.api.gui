@@ -68,7 +68,7 @@ public class TGC_CardUtils {
                 optionalScroll.scrollToTop();
             }
             var searchTagTrim = TGS_CharSetCast.current().toLowerCase(tbInput.getText().trim());
-            var searchTagIsEmpty = TGS_StringUtils.isNullOrEmpty(searchTagTrim);
+            var searchTagIsEmpty = TGS_StringUtils.cmn().isNullOrEmpty(searchTagTrim);
             IntStream.range(0, cardsInner.size()).forEachOrdered(i -> {
                 var widget = divCards.getWidget(i);
                 if (searchTagIsEmpty) {
@@ -115,7 +115,7 @@ public class TGC_CardUtils {
             if (!card.span_nocolor) {
                 var imgFg = card.optional_urlImgForeground;
                 var imgBg = card.optional_urlImgBackground;
-                if (TGS_StringUtils.isNullOrEmpty(card.optional_urlImgForeground)) {
+                if (TGS_StringUtils.cmn().isNullOrEmpty(card.optional_urlImgForeground)) {
                     img.getElement().getStyle().setBackgroundImage("url(" + imgBg + ")");
                     img.addStyleName("backgroundCenterRepeat");
                 } else {

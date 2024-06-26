@@ -23,7 +23,7 @@ public class TGC_PanelLayoutUtils {
     }
 
     public static void setSizePx(Widget widget, int width, int height) {
-        widget.setSize(TGS_StringUtils.concat(String.valueOf(width), "px"), TGS_StringUtils.concat(String.valueOf(height), "px"));
+        widget.setSize(TGS_StringUtils.cmn().concat(String.valueOf(width), "px"), TGS_StringUtils.cmn().concat(String.valueOf(height), "px"));
     }
 
     public static void setSizePx(Widget widget, TGS_ShapeDimension<Integer> dimension) {

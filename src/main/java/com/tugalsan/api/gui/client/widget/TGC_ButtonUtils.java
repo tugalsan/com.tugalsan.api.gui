@@ -20,9 +20,9 @@ public class TGC_ButtonUtils {
             if (label != null) {
                 var innerHtml = pb.getElement().getInnerHTML();
                 if (urlImageUpDownVertical.value2) {
-                    innerHtml = TGS_StringUtils.concat("<div><center>", innerHtml, "</center><label style='cursor:pointer'><center>", label, "</center></label></div>");
+                    innerHtml = TGS_StringUtils.cmn().concat("<div><center>", innerHtml, "</center><label style='cursor:pointer'><center>", label, "</center></label></div>");
                 } else {
-                    innerHtml = TGS_StringUtils.concat("<table><tr><td>", innerHtml, "</td><td><label style='cursor:pointer'>", label, "</label></td></tr></table>");
+                    innerHtml = TGS_StringUtils.cmn().concat("<table><tr><td>", innerHtml, "</td><td><label style='cursor:pointer'>", label, "</label></td></tr></table>");
                 }
                 pb.getElement().setInnerHTML(innerHtml);
             }
@@ -34,7 +34,7 @@ public class TGC_ButtonUtils {
     public static PushButton create(HTML label) {
         var pb = new PushButton();
 //        var innerHtml = pb.getElement().getInnerHTML();
-//        innerHtml = TGS_StringUtils.concat("<table><tr><td>", innerHtml, "</td><td><label style='cursor:pointer'>", label.getHTML(), "</label></td></tr></table>");
+//        innerHtml = TGS_StringUtils.cmn().concat("<table><tr><td>", innerHtml, "</td><td><label style='cursor:pointer'>", label.getHTML(), "</label></td></tr></table>");
         var innerHtml = label.getHTML();
         pb.getElement().setInnerHTML(innerHtml);
         return pb;

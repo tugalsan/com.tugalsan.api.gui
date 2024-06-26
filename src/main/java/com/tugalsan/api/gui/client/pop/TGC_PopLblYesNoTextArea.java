@@ -174,8 +174,8 @@ public class TGC_PopLblYesNoTextArea implements TGC_PopInterface {
             var suffix = isBlob ? SUF_BLOB() : SUF_STR();
             var per = Math.floor(100 * cc / max);
             var warningLabel = TGS_NetworkHTMLUtils.HTML_SPACE() + "Uyarı: ";
-            var warningValue = TGS_StringUtils.concat(String.valueOf(cc), "/", String.valueOf(max), " karakter, %", String.valueOf(per), suffix);
-            footer.setHTML(TGS_StringUtils.concat("<span style=\"float:left;\">", hint, "</span>", "<br/>", "<span style=\"float:left;\"><i><b>", warningLabel, "</b>", warningValue, "</i></span>"));
+            var warningValue = TGS_StringUtils.cmn().concat(String.valueOf(cc), "/", String.valueOf(max), " karakter, %", String.valueOf(per), suffix);
+            footer.setHTML(TGS_StringUtils.cmn().concat("<span style=\"float:left;\">", hint, "</span>", "<br/>", "<span style=\"float:left;\"><i><b>", warningLabel, "</b>", warningValue, "</i></span>"));
             if (getPop().isVisible()) {
                 t.run_afterSeconds(delayInSec);
             } else {

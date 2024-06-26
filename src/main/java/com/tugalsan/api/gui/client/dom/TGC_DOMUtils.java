@@ -87,7 +87,7 @@ public class TGC_DOMUtils {
     }
 
     public static void setBackGroundImageUrl(Element e, CharSequence backImageUrl) {
-        e.getStyle().setBackgroundImage(TGS_StringUtils.concat("url('", backImageUrl, "')"));
+        e.getStyle().setBackgroundImage(TGS_StringUtils.cmn().concat("url('", backImageUrl, "')"));
     }
 
     public static void setOverflowHidden(Element e) {
