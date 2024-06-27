@@ -10,7 +10,7 @@ import com.google.gwt.user.client.ui.PushButton;
 import com.google.gwt.user.client.ui.RadioButton;
 import com.google.gwt.user.client.ui.TextArea;
 import com.google.gwt.user.client.ui.TextBox;
-import com.tugalsan.api.callable.client.TGS_CallableType0_Run;
+import com.tugalsan.api.function.client.TGS_Func;
 
 import com.tugalsan.api.list.client.*;
 
@@ -18,7 +18,7 @@ public class TGC_KeyUtils {
 
 //    final private static TGC_Log d = TGC_Log.of(TGC_KeyUtils.class);
 
-    public static void addEsc(TGS_CallableType0_Run exe, FocusWidget... w) {
+    public static void addEsc(TGS_Func exe, FocusWidget... w) {
         TGS_ListUtils.of(w).forEach(wi -> wi.addKeyDownHandler(e -> {
             if (e.isAnyModifierKeyDown()) {
                 return;
@@ -31,7 +31,7 @@ public class TGC_KeyUtils {
         }));
     }
 
-    public static void addCtrlEnter(TGS_CallableType0_Run exe, FocusWidget... w) {
+    public static void addCtrlEnter(TGS_Func exe, FocusWidget... w) {
         TGS_ListUtils.of(w).forEach(wi -> wi.addKeyDownHandler(e -> {
             if (e.isControlKeyDown() && e.getNativeKeyCode() == KeyCodes.KEY_ENTER) {
                 if (exe != null) {
@@ -41,7 +41,7 @@ public class TGC_KeyUtils {
         }));
     }
 
-    public static void addCtrlUp(TGS_CallableType0_Run exe, FocusWidget... w) {
+    public static void addCtrlUp(TGS_Func exe, FocusWidget... w) {
         TGS_ListUtils.of(w).forEach(wi -> wi.addKeyDownHandler(e -> {
             if (e.isControlKeyDown() && e.getNativeKeyCode() == KeyCodes.KEY_UP) {
                 if (exe != null) {
@@ -51,7 +51,7 @@ public class TGC_KeyUtils {
         }));
     }
 
-    public static void addCtrlDown(TGS_CallableType0_Run exe, FocusWidget... w) {
+    public static void addCtrlDown(TGS_Func exe, FocusWidget... w) {
         TGS_ListUtils.of(w).forEach(wi -> wi.addKeyDownHandler(e -> {
             if (e.isControlKeyDown() && e.getNativeKeyCode() == KeyCodes.KEY_DOWN) {
                 if (exe != null) {
@@ -61,7 +61,7 @@ public class TGC_KeyUtils {
         }));
     }
 
-    public static void addCtrlLeft(TGS_CallableType0_Run exe, FocusWidget... w) {
+    public static void addCtrlLeft(TGS_Func exe, FocusWidget... w) {
         TGS_ListUtils.of(w).forEach(wi -> wi.addKeyDownHandler(e -> {
             if (e.isControlKeyDown() && e.getNativeKeyCode() == KeyCodes.KEY_LEFT) {
                 if (exe != null) {
@@ -71,7 +71,7 @@ public class TGC_KeyUtils {
         }));
     }
 
-    public static void addCtrlRight(TGS_CallableType0_Run exe, FocusWidget... w) {
+    public static void addCtrlRight(TGS_Func exe, FocusWidget... w) {
         TGS_ListUtils.of(w).forEach(wi -> wi.addKeyDownHandler(e -> {
             if (e.isControlKeyDown() && e.getNativeKeyCode() == KeyCodes.KEY_RIGHT) {
                 if (exe != null) {
@@ -81,7 +81,7 @@ public class TGC_KeyUtils {
         }));
     }
 
-    public static void addDel(TGS_CallableType0_Run exe, FocusWidget... w) {
+    public static void addDel(TGS_Func exe, FocusWidget... w) {
         TGS_ListUtils.of(w).forEach(wi -> wi.addKeyDownHandler(e -> {
             if (e.getNativeKeyCode() == KeyCodes.KEY_DELETE) {
                 if (exe != null) {
@@ -91,7 +91,7 @@ public class TGC_KeyUtils {
         }));
     }
 
-    public static void add(PushButton btn, TGS_CallableType0_Run space, TGS_CallableType0_Run esc) {
+    public static void add(PushButton btn, TGS_Func space, TGS_Func esc) {
         btn.addKeyDownHandler(e -> {
             if (e.isAnyModifierKeyDown()) {
                 return;
@@ -114,7 +114,7 @@ public class TGC_KeyUtils {
         });
     }
 
-    public static void add(TextBox btn, TGS_CallableType0_Run enter, TGS_CallableType0_Run esc) {
+    public static void add(TextBox btn, TGS_Func enter, TGS_Func esc) {
         btn.addKeyDownHandler(e -> {
             if (e.isAnyModifierKeyDown()) {
                 return;
@@ -137,7 +137,7 @@ public class TGC_KeyUtils {
         });
     }
 
-    public static void add(ListBox btn, TGS_CallableType0_Run enter, TGS_CallableType0_Run esc) {
+    public static void add(ListBox btn, TGS_Func enter, TGS_Func esc) {
         btn.addKeyDownHandler(e -> {
             if (e.isAnyModifierKeyDown()) {
                 return;
@@ -160,7 +160,7 @@ public class TGC_KeyUtils {
         });
     }
 
-    public static void add(CheckBox btn, TGS_CallableType0_Run enter, TGS_CallableType0_Run esc) {
+    public static void add(CheckBox btn, TGS_Func enter, TGS_Func esc) {
         btn.addKeyDownHandler(e -> {
             if (e.isControlKeyDown() || e.isShiftKeyDown() || e.isAltKeyDown()) {
                 return;
@@ -188,11 +188,11 @@ public class TGC_KeyUtils {
         });
     }
 
-    public static void add(RadioButton btn, TGS_CallableType0_Run enter, TGS_CallableType0_Run esc) {
+    public static void add(RadioButton btn, TGS_Func enter, TGS_Func esc) {
         add((CheckBox) btn, enter, esc);
     }
 
-    public static void add(TextArea btn, TGS_CallableType0_Run controlEnter, TGS_CallableType0_Run esc) {
+    public static void add(TextArea btn, TGS_Func controlEnter, TGS_Func esc) {
         btn.addKeyDownHandler(e -> {
             var b = false;
             if (e.getNativeKeyCode() == KeyCodes.KEY_ESCAPE) {

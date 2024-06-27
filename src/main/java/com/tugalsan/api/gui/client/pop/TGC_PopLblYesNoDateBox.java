@@ -3,8 +3,8 @@ package com.tugalsan.api.gui.client.pop;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.PushButton;
 import com.google.gwt.user.datepicker.client.DateBox;
-import com.tugalsan.api.callable.client.TGS_CallableType0_Run;
-import com.tugalsan.api.callable.client.TGS_CallableType1_Run;
+import com.tugalsan.api.function.client.TGS_Func;
+import com.tugalsan.api.function.client.TGS_Func_In1;
 import com.tugalsan.api.log.client.TGC_Log;
 import com.tugalsan.api.gui.client.click.TGC_ClickUtils;
 import com.tugalsan.api.gui.client.focus.TGC_FocusUtils;
@@ -44,9 +44,9 @@ public class TGC_PopLblYesNoDateBox implements TGC_PopInterface {
 
     public TGC_PopLblYesNoDateBox(TGC_Dimension dim,
             CharSequence lblHtml, CharSequence btnOkText, CharSequence btnCancelText,
-            TGS_CallableType1_Run<TGC_PopLblYesNoDateBox> onExe,
-            TGS_CallableType1_Run<TGC_PopLblYesNoDateBox> onEsc,
-            TGS_CallableType0_Run onVisible_optional) {
+            TGS_Func_In1<TGC_PopLblYesNoDateBox> onExe,
+            TGS_Func_In1<TGC_PopLblYesNoDateBox> onEsc,
+            TGS_Func onVisible_optional) {
         this(dim,
                 lblHtml, btnOkText, btnCancelText,
                 onExe, onEsc, onVisible_optional,
@@ -56,9 +56,9 @@ public class TGC_PopLblYesNoDateBox implements TGC_PopInterface {
 
     public TGC_PopLblYesNoDateBox(TGC_Dimension dim,
             CharSequence lblHtml, CharSequence btnOkText, CharSequence btnCancelText,
-            TGS_CallableType1_Run<TGC_PopLblYesNoDateBox> onExe,
-            TGS_CallableType1_Run<TGC_PopLblYesNoDateBox> onEsc,
-            TGS_CallableType0_Run onVisible_optional, CharSequence iconClassExe_optional, CharSequence iconClassEsc_optional) {
+            TGS_Func_In1<TGC_PopLblYesNoDateBox> onExe,
+            TGS_Func_In1<TGC_PopLblYesNoDateBox> onEsc,
+            TGS_Func onVisible_optional, CharSequence iconClassExe_optional, CharSequence iconClassEsc_optional) {
         this.dim = dim;
         this.lblHtml = lblHtml.toString();
         this.btnOkText = btnOkText.toString();
@@ -84,8 +84,8 @@ public class TGC_PopLblYesNoDateBox implements TGC_PopInterface {
     private String iconClassExe, iconClassEsc;
     private TGC_Dimension dim;
     final private String btnOkText, btnCancelText;
-    final public TGS_CallableType1_Run<TGC_PopLblYesNoDateBox> onEsc, onExe;
-    final public TGS_CallableType0_Run onVisible;
+    final public TGS_Func_In1<TGC_PopLblYesNoDateBox> onEsc, onExe;
+    final public TGS_Func onVisible;
 
     @Override
     final public void createWidgets() {

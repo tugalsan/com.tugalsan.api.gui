@@ -5,7 +5,7 @@ import com.google.gwt.dom.client.*;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.PushButton;
-import com.tugalsan.api.callable.client.TGS_CallableType1_Run;
+import com.tugalsan.api.function.client.TGS_Func_In1;
 import java.util.stream.IntStream;
 import com.tugalsan.api.log.client.TGC_Log;
 import com.tugalsan.api.thread.client.TGC_ThreadUtils;
@@ -109,5 +109,5 @@ public class TGC_ThemeUtils {
         onChangeAddon.run(si);
     }
     
-    public static TGS_CallableType1_Run<Integer> onChangeAddon = null;
+    public static TGS_Func_In1<Integer> onChangeAddon = null;
 }

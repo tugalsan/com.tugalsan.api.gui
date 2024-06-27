@@ -1,8 +1,8 @@
 package com.tugalsan.api.gui.client.pop.options;
 
 import com.google.gwt.user.client.ui.*;
-import com.tugalsan.api.callable.client.TGS_CallableType0_Run;
-import com.tugalsan.api.callable.client.TGS_CallableType1_Run;
+import com.tugalsan.api.function.client.TGS_Func;
+import com.tugalsan.api.function.client.TGS_Func_In1;
 import com.tugalsan.api.gui.client.pop.*;
 import com.tugalsan.api.gui.client.click.TGC_ClickUtils;
 import com.tugalsan.api.gui.client.focus.TGC_FocusUtils;
@@ -20,23 +20,23 @@ public class TGC_PopYesNoOptions implements TGC_PopInterface {
 //    final private static TGC_Log d = TGC_Log.of(TGC_PopYesNoOptions.class);
 
     final private String btnOkText, btnCancelText;
-    final public TGS_CallableType1_Run<TGC_PopYesNoOptions> onEsc, onExe;
-    final private TGS_CallableType0_Run onVisible;
+    final public TGS_Func_In1<TGC_PopYesNoOptions> onEsc, onExe;
+    final private TGS_Func onVisible;
 
     public TGC_PopYesNoOptions(TGC_Dimension dim,
             CharSequence btnOkText, CharSequence btnCancelText,
-            TGS_CallableType1_Run<TGC_PopYesNoOptions> onExe,
-            TGS_CallableType1_Run<TGC_PopYesNoOptions> onEsc,
-            TGS_CallableType0_Run onVisible_optional) {
+            TGS_Func_In1<TGC_PopYesNoOptions> onExe,
+            TGS_Func_In1<TGC_PopYesNoOptions> onEsc,
+            TGS_Func onVisible_optional) {
         this(dim, btnOkText, btnCancelText,
                 onExe, onEsc, onVisible_optional, null, null);
     }
 
     public TGC_PopYesNoOptions(TGC_Dimension dim,
             CharSequence btnOkText, CharSequence btnCancelText,
-            TGS_CallableType1_Run<TGC_PopYesNoOptions> onExe,
-            TGS_CallableType1_Run<TGC_PopYesNoOptions> onEsc,
-            TGS_CallableType0_Run onVisible_optional, CharSequence iconClassExe_optional, CharSequence iconClassEsc_optional) {
+            TGS_Func_In1<TGC_PopYesNoOptions> onExe,
+            TGS_Func_In1<TGC_PopYesNoOptions> onEsc,
+            TGS_Func onVisible_optional, CharSequence iconClassExe_optional, CharSequence iconClassEsc_optional) {
         this.dim = dim;
         this.btnOkText = btnOkText.toString();
         this.btnCancelText = btnCancelText.toString();

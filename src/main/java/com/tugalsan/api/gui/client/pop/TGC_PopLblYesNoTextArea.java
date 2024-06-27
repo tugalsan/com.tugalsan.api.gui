@@ -1,8 +1,8 @@
 package com.tugalsan.api.gui.client.pop;
 
 import com.google.gwt.user.client.ui.*;
-import com.tugalsan.api.callable.client.TGS_CallableType0_Run;
-import com.tugalsan.api.callable.client.TGS_CallableType1_Run;
+import com.tugalsan.api.function.client.TGS_Func;
+import com.tugalsan.api.function.client.TGS_Func_In1;
 import com.tugalsan.api.gui.client.click.*;
 import com.tugalsan.api.gui.client.focus.*;
 import com.tugalsan.api.gui.client.key.*;
@@ -29,8 +29,8 @@ public class TGC_PopLblYesNoTextArea implements TGC_PopInterface {
     }
 
     final private String btnOkText, btnCancelText;
-    final public TGS_CallableType1_Run<TGC_PopLblYesNoTextArea> onEsc, onExe;
-    final public TGS_CallableType0_Run onVisible;
+    final public TGS_Func_In1<TGC_PopLblYesNoTextArea> onEsc, onExe;
+    final public TGS_Func onVisible;
 
     public void setLabelHTML(String html) {
         lblHtml = TGS_NetworkHTMLUtils.HTML_SPACE() + html;
@@ -40,9 +40,9 @@ public class TGC_PopLblYesNoTextArea implements TGC_PopInterface {
 
     public TGC_PopLblYesNoTextArea(TGC_Dimension dim,
             CharSequence lblHtml, CharSequence btnOkText, CharSequence btnCancelText,
-            TGS_CallableType1_Run<TGC_PopLblYesNoTextArea> onExe,
-            TGS_CallableType1_Run<TGC_PopLblYesNoTextArea> onEsc,
-            TGS_CallableType0_Run onVisible_optional) {
+            TGS_Func_In1<TGC_PopLblYesNoTextArea> onExe,
+            TGS_Func_In1<TGC_PopLblYesNoTextArea> onEsc,
+            TGS_Func onVisible_optional) {
         this(dim,
                 lblHtml, btnOkText, btnCancelText,
                 onExe, onEsc, onVisible_optional,
@@ -52,9 +52,9 @@ public class TGC_PopLblYesNoTextArea implements TGC_PopInterface {
 
     public TGC_PopLblYesNoTextArea(TGC_Dimension dim,
             CharSequence lblHtml, CharSequence btnOkText, CharSequence btnCancelText,
-            TGS_CallableType1_Run<TGC_PopLblYesNoTextArea> onExe,
-            TGS_CallableType1_Run<TGC_PopLblYesNoTextArea> onEsc,
-            TGS_CallableType0_Run onVisible_optional, CharSequence iconClassExe_optional, CharSequence iconClassEsc_optional) {
+            TGS_Func_In1<TGC_PopLblYesNoTextArea> onExe,
+            TGS_Func_In1<TGC_PopLblYesNoTextArea> onEsc,
+            TGS_Func onVisible_optional, CharSequence iconClassExe_optional, CharSequence iconClassEsc_optional) {
         maxCharCount = MAX_CHAR_SQL_BLOB();
         this.dim = dim;
         this.lblHtml = TGS_NetworkHTMLUtils.HTML_SPACE() + lblHtml;

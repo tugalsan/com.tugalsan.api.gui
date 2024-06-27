@@ -6,7 +6,7 @@ public class TGC_BrowserTabUtils {
 
 //    final private static TGC_Log d = TGC_Log.of(TGC_BrowserTabUtils.class);
 
-//    public static BroadcastChannel addBroadCastChannel(CharSequence channelName, TGS_CallableType1_Run<MessageEvent<Object>> exe) {
+//    public static BroadcastChannel addBroadCastChannel(CharSequence channelName, TGS_Func_In1<MessageEvent<Object>> exe) {
 //        var bc = new BroadcastChannel(channelName.toString());
 //        d.cr("onModuleLoad", "bc.name", bc.name);
 //        bc.onmessage = (MessageEvent<Object> e) -> {

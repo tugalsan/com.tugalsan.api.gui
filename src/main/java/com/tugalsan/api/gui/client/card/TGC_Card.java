@@ -1,13 +1,13 @@
 package com.tugalsan.api.gui.client.card;
 
-import com.tugalsan.api.callable.client.TGS_CallableType0_Run;
+import com.tugalsan.api.function.client.TGS_Func;
 
 public class TGC_Card {
 
     public CharSequence optional_urlImgForeground;
     public CharSequence optional_urlImgBackground;
     public CharSequence htmlContent;
-    public TGS_CallableType0_Run optionalAction;
+    public TGS_Func optionalAction;
     public boolean span_nocolor = false;
 
     public TGC_Card() {
@@ -20,7 +20,7 @@ public class TGC_Card {
         this.htmlContent = htmlContent;
     }
 
-    public TGC_Card(CharSequence optional_urlImgForeground, CharSequence optional_urlImgBackground, CharSequence htmlContent, TGS_CallableType0_Run optionalAction) {
+    public TGC_Card(CharSequence optional_urlImgForeground, CharSequence optional_urlImgBackground, CharSequence htmlContent, TGS_Func optionalAction) {
         this(optional_urlImgForeground, optional_urlImgBackground, htmlContent);
         this.optionalAction = optionalAction;
     }
