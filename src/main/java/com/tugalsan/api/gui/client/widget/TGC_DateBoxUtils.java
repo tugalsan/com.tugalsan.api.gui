@@ -24,6 +24,6 @@ public class TGC_DateBoxUtils {
     }
 
     public static TGS_Time getDate(DateBox w) {
-        return TGS_Time.ofDate(w.getTextBox().getText());
+        return TGS_Time.ofDate_D_M_Y(w.getTextBox().getText());
     }
 }
