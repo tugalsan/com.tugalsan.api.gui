@@ -175,7 +175,7 @@ public class TGC_PopLblYesNoDateBoxExtraBtn4 implements TGC_PopInterface {
                 onAdd4.run(this);
             }
         },
-                 () -> onEsc.run(this)
+                () -> onEsc.run(this)
         );
     }
 
@@ -259,9 +259,16 @@ public class TGC_PopLblYesNoDateBoxExtraBtn4 implements TGC_PopInterface {
         TGC_ButtonUtils.setIcon(btnAdd4, optional_iconClass4Name, optional_AddBtn4Text);
     }
 
-    public void btnAddSet(TGS_Func_In1<TGC_PopLblYesNoDateBoxExtraBtn4> onAdd1, TGS_Func_In1<TGC_PopLblYesNoDateBoxExtraBtn4> onAdd2) {
+    public void btnAddSet(
+            TGS_Func_In1<TGC_PopLblYesNoDateBoxExtraBtn4> onAdd1,
+            TGS_Func_In1<TGC_PopLblYesNoDateBoxExtraBtn4> onAdd2,
+            TGS_Func_In1<TGC_PopLblYesNoDateBoxExtraBtn4> onAdd3,
+            TGS_Func_In1<TGC_PopLblYesNoDateBoxExtraBtn4> onAdd4
+    ) {
         this.onAdd1 = onAdd1;
         this.onAdd2 = onAdd2;
+        this.onAdd3 = onAdd3;
+        this.onAdd4 = onAdd4;
     }
     private TGS_Func_In1<TGC_PopLblYesNoDateBoxExtraBtn4> onAdd1, onAdd2, onAdd3, onAdd4;
 }
