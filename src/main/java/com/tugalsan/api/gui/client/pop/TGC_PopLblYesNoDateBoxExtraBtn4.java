@@ -19,9 +19,9 @@ import com.tugalsan.api.network.client.TGS_NetworkHTMLUtils;
 import com.tugalsan.api.string.client.TGS_StringUtils;
 import com.tugalsan.api.thread.client.TGC_ThreadUtils;
 
-public class TGC_PopLblYesNoDateBoxExtraBtn2 implements TGC_PopInterface {
+public class TGC_PopLblYesNoDateBoxExtraBtn4 implements TGC_PopInterface {
 
-    final private static TGC_Log d = TGC_Log.of(TGC_PopLblYesNoDateBoxExtraBtn2.class);
+    final private static TGC_Log d = TGC_Log.of(TGC_PopLblYesNoDateBoxExtraBtn4.class);
 
     public void setLabelHTML(String html) {
         lblHtml = TGS_NetworkHTMLUtils.HTML_SPACE() + html;
@@ -41,10 +41,10 @@ public class TGC_PopLblYesNoDateBoxExtraBtn2 implements TGC_PopInterface {
 //        TGC_DOMUtils.setVisible(dateBox.getDatePicker().getElement(), visible);//TODO CAUSES A GLASS PANEL ON LEFT TOP
     }
 
-    public TGC_PopLblYesNoDateBoxExtraBtn2(TGC_Dimension dim,
+    public TGC_PopLblYesNoDateBoxExtraBtn4(TGC_Dimension dim,
             CharSequence lblText, CharSequence btnOkText, CharSequence btnCancelText,
-            TGS_Func_In1<TGC_PopLblYesNoDateBoxExtraBtn2> onExe,
-            TGS_Func_In1<TGC_PopLblYesNoDateBoxExtraBtn2> onEsc,
+            TGS_Func_In1<TGC_PopLblYesNoDateBoxExtraBtn4> onExe,
+            TGS_Func_In1<TGC_PopLblYesNoDateBoxExtraBtn4> onEsc,
             TGS_Func onVisible_optional) {
         this(dim,
                 lblText, btnOkText, btnCancelText,
@@ -53,10 +53,10 @@ public class TGC_PopLblYesNoDateBoxExtraBtn2 implements TGC_PopInterface {
         );
     }
 
-    public TGC_PopLblYesNoDateBoxExtraBtn2(TGC_Dimension dim,
+    public TGC_PopLblYesNoDateBoxExtraBtn4(TGC_Dimension dim,
             CharSequence lblHtml, CharSequence btnOkText, CharSequence btnCancelText,
-            TGS_Func_In1<TGC_PopLblYesNoDateBoxExtraBtn2> onExe,
-            TGS_Func_In1<TGC_PopLblYesNoDateBoxExtraBtn2> onEsc,
+            TGS_Func_In1<TGC_PopLblYesNoDateBoxExtraBtn4> onExe,
+            TGS_Func_In1<TGC_PopLblYesNoDateBoxExtraBtn4> onEsc,
             TGS_Func onVisible_optional, CharSequence iconClassExe_optional, CharSequence iconClassEsc_optional) {
         this.dim = dim;
         this.lblHtml = lblHtml.toString();
@@ -83,7 +83,7 @@ public class TGC_PopLblYesNoDateBoxExtraBtn2 implements TGC_PopInterface {
     private TGC_Dimension dim;
     private String iconClassExe, iconClassEsc;
     final private String btnOkText, btnCancelText;
-    final public TGS_Func_In1<TGC_PopLblYesNoDateBoxExtraBtn2> onEsc, onExe;
+    final public TGS_Func_In1<TGC_PopLblYesNoDateBoxExtraBtn4> onEsc, onExe;
     final public TGS_Func onVisible;
 
     @Override
@@ -94,11 +94,13 @@ public class TGC_PopLblYesNoDateBoxExtraBtn2 implements TGC_PopInterface {
         dateBox = TGC_DateBoxUtils.create();
         btnAdd1 = TGC_ButtonUtils.createIcon(TGS_IconUtils.CLASS_HOUR_GLASS(), "btnAdd1");
         btnAdd2 = TGC_ButtonUtils.createIcon(TGS_IconUtils.CLASS_HOUR_GLASS(), "btnAdd2");
+        btnAdd3 = TGC_ButtonUtils.createIcon(TGS_IconUtils.CLASS_HOUR_GLASS(), "btnAdd3");
+        btnAdd4 = TGC_ButtonUtils.createIcon(TGS_IconUtils.CLASS_HOUR_GLASS(), "btnAdd4");
     }
     public PushButton btnEsc, btnExe;
     public HTML label;
     public DateBox dateBox;
-    private PushButton btnAdd1, btnAdd2;
+    private PushButton btnAdd1, btnAdd2, btnAdd3, btnAdd4;
 
     @Override
     final public void createPops() {
@@ -127,6 +129,20 @@ public class TGC_PopLblYesNoDateBoxExtraBtn2 implements TGC_PopInterface {
                 onAdd2.run(this);
             }
         });
+        TGC_ClickUtils.add(btnAdd3, () -> {
+            if (onAdd3 == null) {
+                d.ce("configActions", "Did you forget to set Action for onAdd3?");
+            } else {
+                onAdd3.run(this);
+            }
+        });
+        TGC_ClickUtils.add(btnAdd4, () -> {
+            if (onAdd4 == null) {
+                d.ce("configActions", "Did you forget to set Action for onAdd4?");
+            } else {
+                onAdd4.run(this);
+            }
+        });
         TGC_KeyUtils.add(btnExe, () -> onExe.run(this), () -> onEsc.run(this));
         TGC_KeyUtils.add(btnEsc, () -> onEsc.run(this), () -> onEsc.run(this));
         TGC_KeyUtils.add(dateBox.getTextBox(), () -> onExe.run(this), () -> onEsc.run(this));
@@ -144,28 +160,52 @@ public class TGC_PopLblYesNoDateBoxExtraBtn2 implements TGC_PopInterface {
                 onAdd2.run(this);
             }
         }, () -> onEsc.run(this));
+        TGC_KeyUtils.add(btnAdd3, () -> {
+            if (onAdd3 == null) {
+                d.ce("configActions", "Did you forget to set Action for onAdd3?");
+            } else {
+                onAdd3.run(this);
+            }
+        }, () -> onEsc.run(this));
+        TGC_KeyUtils.add(btnAdd4, ()
+                -> {
+            if (onAdd4 == null) {
+                d.ce("configActions", "Did you forget to set Action for onAdd4?");
+            } else {
+                onAdd4.run(this);
+            }
+        },
+                 () -> onEsc.run(this)
+        );
     }
 
     @Override
     final public void configFocus() {
-        TGC_FocusUtils.addKeyDown(btnEsc, new TGS_FocusSides4(btnExe, btnExe, btnAdd1, dateBox.getTextBox()));
-        TGC_FocusUtils.addKeyDown(btnExe, new TGS_FocusSides4(btnEsc, btnEsc, btnAdd2, dateBox.getTextBox()));
+        TGC_FocusUtils.addKeyDown(btnEsc, new TGS_FocusSides4(btnExe, btnExe, btnAdd3, dateBox.getTextBox()));
+        TGC_FocusUtils.addKeyDown(btnExe, new TGS_FocusSides4(btnEsc, btnEsc, btnAdd4, dateBox.getTextBox()));
         TGC_FocusUtils.addKeyDown(dateBox.getTextBox(), new TGS_FocusSides4(null, null, btnEsc, btnAdd1));
-        TGC_FocusUtils.addKeyDown(btnAdd1, new TGS_FocusSides4(btnAdd2, btnAdd2, dateBox.getTextBox(), btnEsc));
-        TGC_FocusUtils.addKeyDown(btnAdd2, new TGS_FocusSides4(btnAdd1, btnAdd1, dateBox.getTextBox(), btnExe));
+        TGC_FocusUtils.addKeyDown(btnAdd1, new TGS_FocusSides4(btnAdd2, btnAdd2, dateBox.getTextBox(), btnAdd3));
+        TGC_FocusUtils.addKeyDown(btnAdd2, new TGS_FocusSides4(btnAdd1, btnAdd2, dateBox.getTextBox(), btnAdd4));
+        TGC_FocusUtils.addKeyDown(btnAdd3, new TGS_FocusSides4(btnAdd4, btnAdd4, btnAdd1, btnEsc));
+        TGC_FocusUtils.addKeyDown(btnAdd4, new TGS_FocusSides4(btnAdd3, btnAdd3, btnAdd2, btnExe));
     }
 
     @Override
     final public void configLayout() {
         btnAdd1.setVisible(false);
         btnAdd2.setVisible(false);
+        btnAdd3.setVisible(false);
+        btnAdd4.setVisible(false);
         var maxWidth = dim == null ? null : dim.getWidth();
         panelPopup = new TGC_Pop(
                 TGC_PanelLayoutUtils.createDockNorth(4,
                         TGC_PanelLayoutUtils.createVertical(TGC_PanelLayoutUtils.createGridPair(maxWidth, 50, btnEsc, btnExe),
                                 label,
                                 dateBox,
-                                TGC_PanelLayoutUtils.createGridPair(maxWidth, 50, btnAdd1, btnAdd2)
+                                TGC_PanelLayoutUtils.createVertical(
+                                        TGC_PanelLayoutUtils.createGridPair(maxWidth, 50, btnAdd1, btnAdd2),
+                                        TGC_PanelLayoutUtils.createGridPair(maxWidth, 50, btnAdd3, btnAdd4)
+                                )
                         ),
                         new HTML("")
                 ),
@@ -180,27 +220,48 @@ public class TGC_PopLblYesNoDateBoxExtraBtn2 implements TGC_PopInterface {
     }
 
     //EXTRA BUTTON
-    public void btnAddHide(boolean hide1, boolean hide2) {
-        d.ci("btnAddHide", hide1, hide2);
+    public void btnAddHide(boolean hide1, boolean hide2, boolean hide3, boolean hide4) {
+//        d.ci("btnAddHide", hide1, hide2);
         btnAdd1.setVisible(!hide1);
         btnAdd2.setVisible(!hide2);
+        btnAdd3.setVisible(!hide3);
+        btnAdd4.setVisible(!hide4);
     }
 
-    public void btnAddShowAs(String optional_iconClass1Name, String optional_AddBtn1Text, String optional_iconClass2Name, String optional_AddBtn2Text) {
-        d.ci("btnAddShowAs", "#0", optional_iconClass1Name, optional_AddBtn1Text, optional_iconClass2Name, optional_AddBtn2Text);
+    public void btnAddShowAs(
+            String optional_iconClass1Name, String optional_AddBtn1Text,
+            String optional_iconClass2Name, String optional_AddBtn2Text,
+            String optional_iconClass3Name, String optional_AddBtn3Text,
+            String optional_iconClass4Name, String optional_AddBtn4Text
+    ) {
+        //d.ci("btnAddShowAs", "#0", optional_iconClass1Name, optional_AddBtn1Text, optional_iconClass2Name, optional_AddBtn2Text);
         optional_iconClass1Name = TGS_StringUtils.cmn().toEmptyIfNull(optional_iconClass1Name);
         optional_AddBtn1Text = TGS_StringUtils.cmn().toEmptyIfNull(optional_AddBtn1Text);
+
         optional_iconClass2Name = TGS_StringUtils.cmn().toEmptyIfNull(optional_iconClass2Name);
         optional_AddBtn2Text = TGS_StringUtils.cmn().toEmptyIfNull(optional_AddBtn2Text);
-        d.ci("btnAddShowAs", "#1", optional_iconClass1Name, optional_AddBtn1Text, optional_iconClass2Name, optional_AddBtn2Text);
-        btnAddHide(optional_iconClass1Name.isEmpty() && optional_AddBtn1Text.isEmpty(), optional_iconClass2Name.isEmpty() && optional_AddBtn2Text.isEmpty());
+
+        optional_iconClass3Name = TGS_StringUtils.cmn().toEmptyIfNull(optional_iconClass3Name);
+        optional_AddBtn3Text = TGS_StringUtils.cmn().toEmptyIfNull(optional_AddBtn3Text);
+
+        optional_iconClass4Name = TGS_StringUtils.cmn().toEmptyIfNull(optional_iconClass4Name);
+        optional_AddBtn4Text = TGS_StringUtils.cmn().toEmptyIfNull(optional_AddBtn4Text);
+        //d.ci("btnAddShowAs", "#1", optional_iconClass1Name, optional_AddBtn1Text, optional_iconClass2Name, optional_AddBtn2Text);
+        btnAddHide(
+                optional_iconClass1Name.isEmpty() && optional_AddBtn1Text.isEmpty(),
+                optional_iconClass2Name.isEmpty() && optional_AddBtn2Text.isEmpty(),
+                optional_iconClass3Name.isEmpty() && optional_AddBtn3Text.isEmpty(),
+                optional_iconClass4Name.isEmpty() && optional_AddBtn4Text.isEmpty()
+        );
         TGC_ButtonUtils.setIcon(btnAdd1, optional_iconClass1Name, optional_AddBtn1Text);
         TGC_ButtonUtils.setIcon(btnAdd2, optional_iconClass2Name, optional_AddBtn2Text);
+        TGC_ButtonUtils.setIcon(btnAdd3, optional_iconClass3Name, optional_AddBtn3Text);
+        TGC_ButtonUtils.setIcon(btnAdd4, optional_iconClass4Name, optional_AddBtn4Text);
     }
 
-    public void btnAddSet(TGS_Func_In1<TGC_PopLblYesNoDateBoxExtraBtn2> onAdd1, TGS_Func_In1<TGC_PopLblYesNoDateBoxExtraBtn2> onAdd2) {
+    public void btnAddSet(TGS_Func_In1<TGC_PopLblYesNoDateBoxExtraBtn4> onAdd1, TGS_Func_In1<TGC_PopLblYesNoDateBoxExtraBtn4> onAdd2) {
         this.onAdd1 = onAdd1;
         this.onAdd2 = onAdd2;
     }
-    private TGS_Func_In1<TGC_PopLblYesNoDateBoxExtraBtn2> onAdd1, onAdd2;
+    private TGS_Func_In1<TGC_PopLblYesNoDateBoxExtraBtn4> onAdd1, onAdd2, onAdd3, onAdd4;
 }
