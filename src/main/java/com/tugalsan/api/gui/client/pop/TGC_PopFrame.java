@@ -18,7 +18,7 @@ import com.tugalsan.api.url.client.TGS_Url;
 
 public class TGC_PopFrame implements TGC_PopInterface {
 
-    final private static TGC_Log d = TGC_Log.of(true, TGC_PopFrame.class);
+    final private static TGC_Log d = TGC_Log.of(TGC_PopFrame.class);
 
     public TGC_PopFrame(TGC_Dimension dim,
             TGS_Url url_optional, CharSequence btnOkText, CharSequence btnTabText,

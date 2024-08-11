@@ -8,12 +8,11 @@ import java.util.List;
 import java.util.stream.IntStream;
 import com.tugalsan.api.gui.client.dom.TGC_DOMUtils;
 import com.tugalsan.api.gui.client.browser.TGC_BrowserNavigatorUtils;
-import com.tugalsan.api.log.client.TGC_Log;
 import com.tugalsan.api.stream.client.*;
 
 public class TGC_ListBoxUtils {
 
-    final private static TGC_Log d = TGC_Log.of(true, TGC_ListBoxUtils.class);
+//    final private static TGC_Log d = TGC_Log.of(TGC_ListBoxUtils.class);
 
     public static ListBox create(boolean comboBox) {
         var listBox = new ListBox() {
