@@ -214,12 +214,11 @@ public class TGC_PopLblYesNoDateBoxExtraBtn4Status implements TGC_PopInterface {
         btnAdd4.setVisible(false);
         var maxWidth = dim == null ? null : dim.getWidth();
         panelPopup = new TGC_Pop(
-                TGC_PanelLayoutUtils.createDockNorth(6,
+                TGC_PanelLayoutUtils.createDockNorth(5,
                         TGC_PanelLayoutUtils.createVertical(
                                 TGC_PanelLayoutUtils.createGridPair(maxWidth, 50, btnEsc, btnExe),
                                 label,
-                                dateBox,
-                                status,
+                                TGC_PanelLayoutUtils.createGridPair(maxWidth, 50, dateBox, status),
                                 TGC_PanelLayoutUtils.createGridPair(maxWidth, 50, btnAdd1, btnAdd2),
                                 TGC_PanelLayoutUtils.createGridPair(maxWidth, 50, btnAdd3, btnAdd4)
                         ),
