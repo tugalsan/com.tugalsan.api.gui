@@ -106,7 +106,7 @@ public class TGC_PopLblYesNoDateBoxExtraBtn4Status implements TGC_PopInterface {
         btnEsc = TGC_ButtonUtils.createIcon(iconClassEsc == null ? TGS_IconUtils.CLASS_CROSS() : iconClassEsc, btnCancelText);
         btnExe = TGC_ButtonUtils.createIcon(iconClassExe == null ? TGS_IconUtils.CLASS_CHECKMARK() : iconClassExe, btnOkText);
         label = new HTML(lblHtml);
-        dateBox = TGC_DateBoxUtils.create();
+        dateBox = TGC_DateBoxUtils.create(dateBox -> reProcessStatus());
         btnAdd1 = TGC_ButtonUtils.createIcon(TGS_IconUtils.CLASS_HOUR_GLASS(), "btnAdd1");
         btnAdd2 = TGC_ButtonUtils.createIcon(TGS_IconUtils.CLASS_HOUR_GLASS(), "btnAdd2");
         btnAdd3 = TGC_ButtonUtils.createIcon(TGS_IconUtils.CLASS_HOUR_GLASS(), "btnAdd3");
@@ -226,7 +226,7 @@ public class TGC_PopLblYesNoDateBoxExtraBtn4Status implements TGC_PopInterface {
                 ),
                 dim, onVisible
         );
-        
+
     }
     private TGC_Pop panelPopup;
 

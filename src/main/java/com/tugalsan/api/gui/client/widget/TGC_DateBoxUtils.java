@@ -2,6 +2,7 @@ package com.tugalsan.api.gui.client.widget;
 
 import com.google.gwt.user.datepicker.client.DateBox;
 import com.google.gwt.i18n.client.DateTimeFormat;
+import com.tugalsan.api.function.client.TGS_Func_In1;
 import com.tugalsan.api.time.client.TGS_Time;
 
 public class TGC_DateBoxUtils {
@@ -10,13 +11,20 @@ public class TGC_DateBoxUtils {
         return 80;
     }
 
-    public static DateBox create() {
+    public static DateBox create(TGS_Func_In1<DateBox> onSelect) {
         var w = new DateBox();
         w.setFormat(new DateBox.DefaultFormat(DateTimeFormat.getFormat("dd.MM.yyyy")));
         w.getDatePicker().setYearAndMonthDropdownVisible(true);
         w.getDatePicker().setYearArrowsVisible(true);
         w.setWidth(minWidth() + "px");
+        if (onSelect != null) {
+            w.addValueChangeHandler(__ -> onSelect.run(w));
+        }
         return w;
+    }
+
+    public static DateBox create() {
+        return create(null);
     }
 
     public static void setDate(DateBox w, TGS_Time now) {
