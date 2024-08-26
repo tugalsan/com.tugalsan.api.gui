@@ -5,7 +5,6 @@ import com.google.gwt.user.client.ui.PushButton;
 import com.google.gwt.user.datepicker.client.DateBox;
 import com.tugalsan.api.function.client.TGS_Func;
 import com.tugalsan.api.function.client.TGS_Func_In1;
-import com.tugalsan.api.function.client.TGS_Func_OutTyped;
 import com.tugalsan.api.function.client.TGS_Func_OutTyped_In1;
 import com.tugalsan.api.log.client.TGC_Log;
 import com.tugalsan.api.gui.client.click.TGC_ClickUtils;
@@ -112,6 +111,7 @@ public class TGC_PopLblYesNoDateBoxExtraBtn4Status implements TGC_PopInterface {
         btnAdd2 = TGC_ButtonUtils.createIcon(TGS_IconUtils.CLASS_HOUR_GLASS(), "btnAdd2");
         btnAdd3 = TGC_ButtonUtils.createIcon(TGS_IconUtils.CLASS_HOUR_GLASS(), "btnAdd3");
         btnAdd4 = TGC_ButtonUtils.createIcon(TGS_IconUtils.CLASS_HOUR_GLASS(), "btnAdd4");
+        status = new HTML();
     }
     public PushButton btnEsc, btnExe;
     public HTML label, status;
@@ -219,9 +219,9 @@ public class TGC_PopLblYesNoDateBoxExtraBtn4Status implements TGC_PopInterface {
                                 TGC_PanelLayoutUtils.createGridPair(maxWidth, 50, btnEsc, btnExe),
                                 label,
                                 dateBox,
+                                status,
                                 TGC_PanelLayoutUtils.createGridPair(maxWidth, 50, btnAdd1, btnAdd2),
-                                TGC_PanelLayoutUtils.createGridPair(maxWidth, 50, btnAdd3, btnAdd4),
-                                status
+                                TGC_PanelLayoutUtils.createGridPair(maxWidth, 50, btnAdd3, btnAdd4)
                         ),
                         new HTML("")
                 ),
