@@ -13,7 +13,6 @@ import com.tugalsan.api.string.client.*;
 public class TGC_PanelLayoutUtils {
 
 //    final private static TGC_Log d = TGC_Log.of(TGC_PanelLayoutUtils.class);
-
     public static int MAX_GRID_WIDTH() {
         return 500;
     }
@@ -122,11 +121,15 @@ public class TGC_PanelLayoutUtils {
     }
 
     public static Grid createGridPair(Integer maxWidth, Integer percentLeft, Widget wLeft, Widget wRight) {
+        return createGridPair(maxWidth, percentLeft, wLeft, wRight, true);
+    }
+
+    public static Grid createGridPair(Integer maxWidth, Integer percentLeft, Widget wLeft, Widget wRight, boolean makeLabelsAllignRight) {
         var widthPercents = new Integer[2];
         widthPercents[0] = percentLeft == null || percentLeft < 0 ? 50 : percentLeft;
         widthPercents[1] = 100 - widthPercents[0];
         Widget[] widgets = {wLeft, wRight};
-        return TGC_PanelLayoutUtils.createGrid(maxWidth, widthPercents, widgets, true);
+        return TGC_PanelLayoutUtils.createGrid(maxWidth, widthPercents, widgets, makeLabelsAllignRight);
     }
 
     public static LayoutPanel createLayoutPair(Widget wLeft, Widget wRight) {
