@@ -18,14 +18,11 @@ import com.tugalsan.api.gui.client.dim.TGC_Dimension;
 import com.tugalsan.api.gui.client.widget.TGC_ButtonUtils;
 import com.tugalsan.api.icon.client.TGS_IconUtils;
 
-
-
 public class TGC_PopLblYesNoComboListBox implements TGC_PopInterface {
 
 //    final private static TGC_Log d = TGC_Log.of(TGC_PopLblYesNoComboListBox.class);
-
     final private String lblListBoxHTML, btnOkText, btnCancelText, lblComboBoxHTML;
-    final public TGS_Func_In1<TGC_PopLblYesNoComboListBox> onEsc, onExe;
+    final public TGS_Func_In1<TGC_PopLblYesNoComboListBox> onEsc, onExe, onListChange;
     final public List<String> listBoxContent, comboBoxContent;
     final private TGS_Func onVisible;
 
@@ -34,10 +31,11 @@ public class TGC_PopLblYesNoComboListBox implements TGC_PopInterface {
             CharSequence lblListBoxHTML, CharSequence lblComboBoxHTML, CharSequence btnOkText, CharSequence btnCancelText,
             TGS_Func_In1<TGC_PopLblYesNoComboListBox> onExe,
             TGS_Func_In1<TGC_PopLblYesNoComboListBox> onEsc,
+            TGS_Func_In1<TGC_PopLblYesNoComboListBox> onListChange,
             TGS_Func onVisible_optional) {
         this(dim, listBoxContent_optional, comboBoxContent_optional,
                 lblListBoxHTML, lblComboBoxHTML, btnOkText, btnCancelText,
-                onExe, onEsc, onVisible_optional, null, null);
+                onExe, onEsc, onListChange, onVisible_optional, null, null);
     }
 
     public TGC_PopLblYesNoComboListBox(TGC_Dimension dim,
@@ -45,6 +43,7 @@ public class TGC_PopLblYesNoComboListBox implements TGC_PopInterface {
             CharSequence lblListBoxHTML, CharSequence lblComboBoxHTML, CharSequence btnOkText, CharSequence btnCancelText,
             TGS_Func_In1<TGC_PopLblYesNoComboListBox> onExe,
             TGS_Func_In1<TGC_PopLblYesNoComboListBox> onEsc,
+            TGS_Func_In1<TGC_PopLblYesNoComboListBox> onListChange,
             TGS_Func onVisible_optional, CharSequence iconClassExe_optional, CharSequence iconClassEsc_optional) {
         this.dim = dim;
         this.lblListBoxHTML = lblListBoxHTML.toString();
@@ -53,6 +52,7 @@ public class TGC_PopLblYesNoComboListBox implements TGC_PopInterface {
         this.lblComboBoxHTML = lblComboBoxHTML.toString();
         this.onEsc = onEsc;
         this.onExe = onExe;
+        this.onListChange = onListChange;
         this.listBoxContent = listBoxContent_optional;
         this.comboBoxContent = comboBoxContent_optional;
         this.onVisible = onVisible_optional;
@@ -109,10 +109,10 @@ public class TGC_PopLblYesNoComboListBox implements TGC_PopInterface {
     final public void configActions() {
         TGC_ClickUtils.add(btnEsc, () -> onEsc.run(this));
         TGC_ClickUtils.add(btnExe, () -> onExe.run(this));
-        TGC_ClickUtils.add(listBox, null, () -> onExe.run(this));
+        TGC_ClickUtils.add(listBox, () -> onListChange.run(this), () -> onExe.run(this));
         TGC_KeyUtils.add(btnExe, () -> onExe.run(this), () -> onEsc.run(this));
         TGC_KeyUtils.add(btnEsc, () -> onEsc.run(this), () -> onEsc.run(this));
-        TGC_KeyUtils.add(listBox, () -> onExe.run(this), () -> onEsc.run(this));
+        TGC_KeyUtils.add(listBox, () -> onExe.run(this), () -> onEsc.run(this), () -> onListChange.run(this), () -> onListChange.run(this));
     }
 
     @Override

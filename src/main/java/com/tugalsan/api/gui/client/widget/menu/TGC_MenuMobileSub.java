@@ -33,7 +33,7 @@ public class TGC_MenuMobileSub implements TGS_Func {
                     }
                 },
                 p -> p.getPop().setVisible(false),
-                null
+                null, null
         );
     }
     final TGC_PopLblYesNoListBox pop;

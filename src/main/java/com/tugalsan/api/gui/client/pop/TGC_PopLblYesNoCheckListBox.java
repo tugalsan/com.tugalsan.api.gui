@@ -22,7 +22,6 @@ import com.tugalsan.api.gui.client.widget.TGC_ButtonUtils;
 import com.tugalsan.api.gui.client.widget.TGC_CheckBoxUtils;
 import com.tugalsan.api.icon.client.TGS_IconUtils;
 
-
 import com.tugalsan.api.list.client.*;
 import com.tugalsan.api.tuple.client.TGS_Tuple2;
 import com.tugalsan.api.stream.client.*;
@@ -30,9 +29,8 @@ import com.tugalsan.api.stream.client.*;
 public class TGC_PopLblYesNoCheckListBox implements TGC_PopInterface {
 
 //    final private static TGC_Log d = TGC_Log.of(TGC_PopLblYesNoCheckListBox.class);
-
     final private String lblListBoxHTML, btnOkText, btnCancelText, lblCheckBoxHTML;
-    final public TGS_Func_In1<TGC_PopLblYesNoCheckListBox> onEsc, onExe;
+    final public TGS_Func_In1<TGC_PopLblYesNoCheckListBox> onEsc, onExe, onListChange;
     final public List<String> listBoxContent;
     final public List<TGS_Tuple2<String, String>> checkBoxIconAndLabels;
     final private TGS_Func onVisible;
@@ -42,10 +40,11 @@ public class TGC_PopLblYesNoCheckListBox implements TGC_PopInterface {
             CharSequence lblListBoxHTML, CharSequence lblCheckBoxHTML, CharSequence btnOkText, CharSequence btnCancelText,
             TGS_Func_In1<TGC_PopLblYesNoCheckListBox> onExe,
             TGS_Func_In1<TGC_PopLblYesNoCheckListBox> onEsc,
+            TGS_Func_In1<TGC_PopLblYesNoCheckListBox> onListChange,
             TGS_Func onVisible_optional) {
         this(dim, listBoxContent_optional, checkBoxIconAndLabels,
                 lblListBoxHTML, lblCheckBoxHTML, btnOkText, btnCancelText,
-                onExe, onEsc, onVisible_optional, null, null);
+                onExe, onEsc, onListChange, onVisible_optional, null, null);
     }
 
     public TGC_PopLblYesNoCheckListBox(TGC_Dimension dim,
@@ -53,6 +52,7 @@ public class TGC_PopLblYesNoCheckListBox implements TGC_PopInterface {
             CharSequence lblListBoxHTML, CharSequence lblCheckBoxHTML, CharSequence btnOkText, CharSequence btnCancelText,
             TGS_Func_In1<TGC_PopLblYesNoCheckListBox> onExe,
             TGS_Func_In1<TGC_PopLblYesNoCheckListBox> onEsc,
+            TGS_Func_In1<TGC_PopLblYesNoCheckListBox> onListChange,
             TGS_Func onVisible_optional, CharSequence iconClassExe_optional, CharSequence iconClassEsc_optional) {
         this.dim = dim;
         this.lblListBoxHTML = lblListBoxHTML.toString();
@@ -61,6 +61,7 @@ public class TGC_PopLblYesNoCheckListBox implements TGC_PopInterface {
         this.lblCheckBoxHTML = lblCheckBoxHTML.toString();
         this.onEsc = onEsc;
         this.onExe = onExe;
+        this.onListChange = onListChange;
         this.listBoxContent = listBoxContent_optional;
         this.checkBoxIconAndLabels = checkBoxIconAndLabels;
         this.onVisible = onVisible_optional;
@@ -100,7 +101,7 @@ public class TGC_PopLblYesNoCheckListBox implements TGC_PopInterface {
     public List<CheckBox> checkBoxes;
 
     @Override
-   final  public void createPops() {
+    final public void createPops() {
     }
     private TGC_Pop panelPopup;
 
@@ -116,10 +117,10 @@ public class TGC_PopLblYesNoCheckListBox implements TGC_PopInterface {
     final public void configActions() {
         TGC_ClickUtils.add(btnEsc, () -> onEsc.run(this));
         TGC_ClickUtils.add(btnExe, () -> onExe.run(this));
-        TGC_ClickUtils.add(listBox, null, () -> onExe.run(this));
+        TGC_ClickUtils.add(listBox, () -> onListChange.run(this), () -> onExe.run(this));
         TGC_KeyUtils.add(btnExe, () -> onExe.run(this), () -> onEsc.run(this));
         TGC_KeyUtils.add(btnEsc, () -> onEsc.run(this), () -> onEsc.run(this));
-        TGC_KeyUtils.add(listBox, () -> onExe.run(this), () -> onEsc.run(this));
+        TGC_KeyUtils.add(listBox, () -> onExe.run(this), () -> onEsc.run(this), () -> onListChange.run(this), () -> onListChange.run(this));
         checkBoxes.stream().forEachOrdered(cb -> TGC_KeyUtils.add(cb, null, () -> onEsc.run(this)));
     }
 

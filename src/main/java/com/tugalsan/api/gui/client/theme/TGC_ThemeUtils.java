@@ -88,7 +88,7 @@ public class TGC_ThemeUtils {
                     TGC_ThemeUtils.onChange(p.listBox);
                 },
                 p -> p.getPop().setVisible(false),
-                null
+                null, null
         );
         IntStream.range(0, themeSelector.getItemCount()).forEachOrdered(i -> pop.listBox.addItem(themeSelector.getItemText(i)));
         pop.listBox.setSelectedIndex(TGC_ThemeUtils.getThemeIdxStored());
@@ -103,11 +103,11 @@ public class TGC_ThemeUtils {
         var si = themeSelector.getSelectedIndex();
         d.ci("onChange", "themeSelector.getSelectedIndex()", si);
         TGC_ThemeUtils.setThemeIdx(si);
-        if (onChangeAddon == null){
+        if (onChangeAddon == null) {
             return;
         }
         onChangeAddon.run(si);
     }
-    
+
     public static TGS_Func_In1<Integer> onChangeAddon = null;
 }
