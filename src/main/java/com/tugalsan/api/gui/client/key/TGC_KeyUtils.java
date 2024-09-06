@@ -183,6 +183,39 @@ public class TGC_KeyUtils {
         });
     }
 
+    public static void add(ListBox lb, TGS_Func enter, TGS_Func esc, TGS_Func up, TGS_Func down) {
+        lb.addKeyDownHandler(e -> {
+            if (e.isAnyModifierKeyDown()) {
+                return;
+            }
+            switch (e.getNativeKeyCode()) {
+                case KeyCodes.KEY_ENTER:
+                case KeyCodes.KEY_SPACE:
+                    if (enter != null) {
+                        enter.run();
+                    }
+                    break;
+                case KeyCodes.KEY_ESCAPE:
+                    if (esc != null) {
+                        esc.run();
+                    }
+                    break;
+                case KeyCodes.KEY_UP:
+                    if (up != null) {
+                        up.run();
+                    }
+                    break;
+                case KeyCodes.KEY_DOWN:
+                    if (down != null) {
+                        down.run();
+                    }
+                    break;
+                default:
+                    break;
+            }
+        });
+    }
+
     public static void add(CheckBox cb, TGS_Func enter, TGS_Func esc) {
         cb.addKeyDownHandler(e -> {
             if (e.isControlKeyDown() || e.isShiftKeyDown() || e.isAltKeyDown()) {
