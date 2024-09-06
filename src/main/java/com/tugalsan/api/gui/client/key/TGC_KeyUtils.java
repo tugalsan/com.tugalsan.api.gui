@@ -160,29 +160,6 @@ public class TGC_KeyUtils {
         });
     }
 
-    public static void add(ListBox lb, TGS_Func enter, TGS_Func esc) {
-        lb.addKeyDownHandler(e -> {
-            if (e.isAnyModifierKeyDown()) {
-                return;
-            }
-            switch (e.getNativeKeyCode()) {
-                case KeyCodes.KEY_ENTER:
-                case KeyCodes.KEY_SPACE:
-                    if (enter != null) {
-                        enter.run();
-                    }
-                    break;
-                case KeyCodes.KEY_ESCAPE:
-                    if (esc != null) {
-                        esc.run();
-                    }
-                    break;
-                default:
-                    break;
-            }
-        });
-    }
-
     public static void add(ListBox lb, TGS_Func enter, TGS_Func esc, TGS_Func up, TGS_Func down) {
         lb.addKeyDownHandler(e -> {
             if (e.isAnyModifierKeyDown()) {
