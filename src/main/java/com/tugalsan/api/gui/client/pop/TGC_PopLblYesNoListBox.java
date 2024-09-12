@@ -53,7 +53,7 @@ public class TGC_PopLblYesNoListBox implements TGC_PopInterface {
         this.btnCancelText = btnCancelText.toString();
         this.onEsc = onEsc;
         this.onExe = onExe;
-        this.onListChange = onListChange;
+        this.onListChange = onListChange == null ? TGS_Func_In1.empty : onListChange;
         this.listBoxContent = listBoxContent_optional;
         this.onVisible = onVisible_optional;
         this.iconClassExe = iconClassExe_optional == null ? null : iconClassExe_optional.toString();

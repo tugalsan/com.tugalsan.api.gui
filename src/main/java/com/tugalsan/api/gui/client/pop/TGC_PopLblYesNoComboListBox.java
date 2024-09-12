@@ -52,7 +52,7 @@ public class TGC_PopLblYesNoComboListBox implements TGC_PopInterface {
         this.lblComboBoxHTML = lblComboBoxHTML.toString();
         this.onEsc = onEsc;
         this.onExe = onExe;
-        this.onListChange = onListChange;
+        this.onListChange = onListChange == null ? TGS_Func_In1.empty : onListChange;
         this.listBoxContent = listBoxContent_optional;
         this.comboBoxContent = comboBoxContent_optional;
         this.onVisible = onVisible_optional;

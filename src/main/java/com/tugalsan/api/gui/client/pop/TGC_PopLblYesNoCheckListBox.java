@@ -61,7 +61,7 @@ public class TGC_PopLblYesNoCheckListBox implements TGC_PopInterface {
         this.lblCheckBoxHTML = lblCheckBoxHTML.toString();
         this.onEsc = onEsc;
         this.onExe = onExe;
-        this.onListChange = onListChange;
+        this.onListChange = onListChange == null ? TGS_Func_In1.empty : onListChange;
         this.listBoxContent = listBoxContent_optional;
         this.checkBoxIconAndLabels = checkBoxIconAndLabels;
         this.onVisible = onVisible_optional;
