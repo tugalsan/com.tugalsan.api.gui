@@ -45,6 +45,10 @@ public class TGS_PopYesNoOptionCodes {
     public static String VAL_YEAR_CUR() {
         return "VAL_YEAR_CUR";
     }
+    
+    public static String VAL_TODAY() {
+        return "VAL_TODAY";
+    }
 
     public static String VAL_YEAR_PREV() {
         return "VAL_YEAR_PREV";
