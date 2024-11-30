@@ -1,5 +1,6 @@
 package com.tugalsan.api.gui.client.pop;
 
+import com.google.gwt.event.dom.client.KeyCodes;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.PushButton;
 import com.google.gwt.user.datepicker.client.DateBox;
@@ -116,7 +117,7 @@ public class TGC_PopLblYesNoDateBoxExtraBtn4Status implements TGC_PopInterface {
     public PushButton btnEsc, btnExe;
     public HTML label, status;
     public DateBox dateBox;
-    public PushButton btnAdd1, btnAdd2, btnAdd3, btnAdd4;
+    private PushButton btnAdd1, btnAdd2, btnAdd3, btnAdd4;
 
     @Override
     final public void createPops() {
@@ -129,6 +130,28 @@ public class TGC_PopLblYesNoDateBoxExtraBtn4Status implements TGC_PopInterface {
 
     @Override
     final public void configActions() {
+        dateBox.getTextBox().addKeyDownHandler(e -> {
+            if (e.isShiftKeyDown()) {
+                e.preventDefault();
+                e.stopPropagation();
+                switch (e.getNativeKeyCode()) {
+                    case KeyCodes.KEY_Q:
+                        onAdd1.run(this);
+                        break;
+                    case KeyCodes.KEY_W:
+                        onAdd2.run(this);
+                        break;
+                    case KeyCodes.KEY_A:
+                        onAdd3.run(this);
+                        break;
+                    case KeyCodes.KEY_S:
+                        onAdd4.run(this);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
         TGC_ClickUtils.add(btnExe, () -> onExe.run(this));
         TGC_ClickUtils.add(btnEsc, () -> onEsc.run(this));
         TGC_ClickUtils.add(btnAdd1, () -> {
