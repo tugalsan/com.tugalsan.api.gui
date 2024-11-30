@@ -10,8 +10,10 @@ import com.google.gwt.user.client.ui.PushButton;
 import com.google.gwt.user.client.ui.RadioButton;
 import com.google.gwt.user.client.ui.TextArea;
 import com.google.gwt.user.client.ui.TextBox;
+import com.google.gwt.user.client.ui.ToggleButton;
 import com.google.gwt.user.client.ui.ValueBoxBase;
 import com.tugalsan.api.function.client.TGS_Func;
+import com.tugalsan.api.function.client.TGS_Func_In1;
 
 import com.tugalsan.api.list.client.*;
 
@@ -89,6 +91,30 @@ public class TGC_KeyUtils {
                 }
             }
         }));
+    }
+
+    public static void add(ToggleButton btn, TGS_Func_In1<Boolean> space, TGS_Func esc) {
+        btn.addKeyDownHandler(e -> {
+            if (e.isAnyModifierKeyDown()) {
+                return;
+            }
+            var b = false;
+            if (e.getNativeKeyCode() == KeyCodes.KEY_SPACE) {
+                if (space != null) {
+                    var tb = (ToggleButton) e.getSource();
+                    space.run(tb.isDown());
+                    b = true;
+                }
+            } else if (e.getNativeKeyCode() == KeyCodes.KEY_ESCAPE) {
+                if (esc != null) {
+                    esc.run();
+                    b = true;
+                }
+            }
+            if (b) {
+                e.preventDefault();
+            }
+        });
     }
 
     public static void add(PushButton btn, TGS_Func space, TGS_Func esc) {
