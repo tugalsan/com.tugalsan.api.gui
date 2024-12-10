@@ -17,6 +17,9 @@ public class TGC_FocusUtils {
 
     public static void setFocusAfterGUIUpdate(FocusWidget fw) {
         TGC_ThreadUtils.run_afterGUIUpdate(() -> {
+            if (fw == null) {//FIX
+                return;
+            }
             fw.setFocus(true);
             if (fw instanceof TextArea) {
                 //DO NOTHING
@@ -31,7 +34,10 @@ public class TGC_FocusUtils {
 
     //SIDES LOGIC DRIVER
     public static void focusSideLeft(FocusWidget fw, TGS_FocusSides4 sides) {
-        if (fw instanceof TextBox) {//SKIP - inclusdes PasswordTextBox and DateBox
+        if (fw == null) {//FIX
+            return;
+        }
+        if (fw instanceof TextBox) {//SKIP - includes PasswordTextBox and DateBox
             var tb = (TextBox) fw;
             if (tb.getText().length() != 0 && tb.getCursorPos() != 0) {
                 return;
@@ -43,6 +49,9 @@ public class TGC_FocusUtils {
     }
 
     public static void focusSideRight(FocusWidget fw, TGS_FocusSides4 sides) {
+        if (fw == null) {//FIX
+            return;
+        }
         if (fw instanceof TextBox) {//SKIP - inclusdes PasswordTextBox and DateBox
             var tb = (TextBox) fw;
             if (tb.getText().length() != 0 && tb.getCursorPos() != tb.getText().length()) {
@@ -55,6 +64,9 @@ public class TGC_FocusUtils {
     }
 
     public static void focusSideUp(FocusWidget fw, TGS_FocusSides4 sides) {
+        if (fw == null) {//FIX
+            return;
+        }
         if (fw instanceof ListBox) {//SKIP
             var tb = (ListBox) fw;
             if (tb.getItemCount() != 0 && tb.getSelectedIndex() != -1 && tb.getSelectedIndex() != 0) {
@@ -67,6 +79,9 @@ public class TGC_FocusUtils {
     }
 
     public static void focusSideDown(FocusWidget fw, TGS_FocusSides4 sides) {
+        if (fw == null) {//FIX
+            return;
+        }
         if (fw instanceof ListBox) {//SKIP
             var tb = (ListBox) fw;
             if (tb.getItemCount() != 0 && tb.getSelectedIndex() != -1 && tb.getSelectedIndex() != tb.getItemCount() - 1) {
@@ -79,6 +94,9 @@ public class TGC_FocusUtils {
     }
 
     public static void focusSide(FocusWidget fw, TGS_FocusSides4 sides, int nativeKeyCode) {
+        if (fw == null) {//FIX
+            return;
+        }
         switch (nativeKeyCode) {
             case KeyCodes.KEY_UP:
                 d.ci("KeyUpHandler", "KeyCodes.KEY_UP");
@@ -117,6 +135,9 @@ public class TGC_FocusUtils {
 
     @Deprecated //problem on textFields
     public static void addKeyUp(FocusWidget fw, TGS_FocusSides4 sides) {
+        if (fw == null) {//FIX
+            return;
+        }
         fw.addKeyUpHandler(e -> {
             var curKeyCode = e.getNativeKeyCode();
             d.ci("KeyUpHandler", "curKeyCode", curKeyCode);
@@ -125,6 +146,9 @@ public class TGC_FocusUtils {
     }
 
     public static void addKeyDown(FocusWidget fw, TGS_FocusSides4 sides) {
+        if (fw == null) {//FIX
+            return;
+        }
         fw.addKeyDownHandler(e -> {
             var curKeyCode = e.getNativeKeyCode();
             d.ci("KeyUpHandler", "curKeyCode", curKeyCode);
@@ -134,6 +158,9 @@ public class TGC_FocusUtils {
 
     @Deprecated //problem on textFields
     public static void addKeyUp(FocusWidget fw, TGS_Func_In1<Integer> exe) {
+        if (fw == null) {//FIX
+            return;
+        }
         fw.addKeyUpHandler(e -> {
             var curKeyCode = e.getNativeKeyCode();
             d.ci("KeyUpHandler", "curKeyCode", curKeyCode);
@@ -142,6 +169,9 @@ public class TGC_FocusUtils {
     }
 
     public static void addKeyDown(FocusWidget fw, TGS_Func_In1<Integer> exe) {
+        if (fw == null) {//FIX
+            return;
+        }
         fw.addKeyDownHandler(e -> {
             var curKeyCode = e.getNativeKeyCode();
             d.ci("KeyUpHandler", "curKeyCode", curKeyCode);
@@ -150,6 +180,9 @@ public class TGC_FocusUtils {
     }
 
     public static void addKey(ListBox lb, TGS_FocusSides4 sides, TGS_Func_In1<Integer> exe) {
+        if (lb == null) {//FIX
+            return;
+        }
         var sideUp = sides.up;
         var sideDown = sides.down;
         sides.up = sides.down = null;
