@@ -7,11 +7,6 @@ public class TGC_BrowserTabUtils {
     public static native void addEventListener_visibilitychange() /*-{
         $doc.addEventListener("visibilitychange", () => {
             var tabIsVisible = !document.hidden
-            if (document.hidden) {
-                tabIsVisible = false;
-            } else {
-              tabIsVisible = true;
-            }
             console.log("tabIsVisible:" + tabIsVisible)
         });   
     }-*/;
