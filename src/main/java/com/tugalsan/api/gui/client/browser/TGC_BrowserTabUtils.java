@@ -4,12 +4,19 @@ package com.tugalsan.api.gui.client.browser;
 
 public class TGC_BrowserTabUtils {
 
-    public static native void addEventListener_visibilitychange() /*-{
-        $doc.addEventListener("visibilitychange", () => {
-            var tabIsVisible = !document.hidden;
-            console.log("tabIsVisible:" + tabIsVisible);
-        });   
-    }-*/;
+//    public static native void addEventListener_visibilitychange() /*-{
+//        $doc.addEventListener("visibilitychange", () => {
+//            var tabIsVisible = !document.hidden;
+//            console.log("tabIsVisible:" + tabIsVisible);
+//        });   
+//    }-*/;
+//    /*
+//    Compiling module com.tugalsan.app.table.App
+//   Tracing compile failure path for type 'com.tugalsan.api.gui.client.browser.TGC_BrowserTabUtils'
+//      [ERROR] Errors in 'jar:file:/C:/Users/me/.m2/repository/com/tugalsan/com.tugalsan.api.gui/1.0-SNAPSHOT/com.tugalsan.api.gui-1.0-SNAPSHOT.jar!/com/tugalsan/api/gui/client/browser/TGC_BrowserTabUtils.java'
+//         [ERROR] Line 8: syntax error
+//>         $doc.addEventListener("visibilitychange", () => {
+//    */
 
 //@Deprecated //TODO BroadCast NOT WORKING, no need add another dep for it
 //    final private static TGC_Log d = TGC_Log.of(TGC_BrowserTabUtils.class);
