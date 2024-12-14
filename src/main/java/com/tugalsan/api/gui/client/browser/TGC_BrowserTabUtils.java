@@ -1,9 +1,18 @@
 package com.tugalsan.api.gui.client.browser;
 //import elemental2.dom.MessageEvent;
 
-
 public class TGC_BrowserTabUtils {
 
+    public static native boolean tab_visible() /*-{
+      return !$doc.hidden;
+    }-*/;
+
+    /* solution: https://stackoverflow.com/questions/79270394/how-to-implement-browser-tab-visibility-in-gwt/79277077?noredirect=1#comment139800438_79277077
+DomGlobal.document.addEventListener("visibilitychange", event -> {
+  var tabIsVisible = !DomGlobal.document.hidden;
+  DomGlobal.console.log("tabIsVisible: " + tabIsVisible);   
+});    
+     */
 //    public static native void addEventListener_visibilitychange() /*-{
 //        $doc.addEventListener("visibilitychange", () => {
 //            var tabIsVisible = !document.hidden;
@@ -17,7 +26,6 @@ public class TGC_BrowserTabUtils {
 //         [ERROR] Line 8: syntax error
 //>         $doc.addEventListener("visibilitychange", () => {
 //    */
-
 //@Deprecated //TODO BroadCast NOT WORKING, no need add another dep for it
 //    final private static TGC_Log d = TGC_Log.of(TGC_BrowserTabUtils.class);
 //    public static BroadcastChannel addBroadCastChannel(CharSequence channelName, TGS_Func_In1<MessageEvent<Object>> exe) {
