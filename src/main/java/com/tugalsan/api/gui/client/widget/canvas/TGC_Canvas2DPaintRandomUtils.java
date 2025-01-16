@@ -9,13 +9,34 @@ import com.tugalsan.api.shape.client.TGS_ShapeDimension;
 import com.tugalsan.api.shape.client.TGS_ShapeDimensionUtils;
 import com.tugalsan.api.shape.client.TGS_ShapeLocation;
 import com.tugalsan.api.shape.client.TGS_ShapeMargin;
-import com.tugalsan.api.stream.client.*; 
+import com.tugalsan.api.stream.client.*;
+import com.tugalsan.api.url.client.TGS_Url;
 import java.util.stream.*;
 
 public class TGC_Canvas2DPaintRandomUtils {
 
-//    final private static TGC_Log d = TGC_Log.of(TGC_Canvas2DPaintFillStyleUtils.class);
+    //img url TGS_LibResourceUtils.common.res.image.search.icon_png().toString()
+    public static Canvas drawSomethingNew(Canvas canvas, TGS_ShapeDimension<Integer> canvasSize, TGS_Url url) {
+        var previousImageDataScaled = TGC_Canvas2DImageUtils.toImageDataScaled(canvas, 0.20f, 0.20f);
+        TGC_Canvas2DUtils.clear(canvas);
+        TGC_Canvas2DPaintImageUtils.paint(canvas, previousImageDataScaled, new TGS_ShapeLocation(0, 0));
+        var img = new Image();
+        img.setUrl(url.toString());
+        paintFillList(canvas, img);
+        paintFillArc(canvas, img);
+        paintFillRect(canvas, img);
+        paintFillRectRadius(canvas, img);
+        paintImage(canvas, img);
+        paintText(canvas, canvasSize);
+        return canvas;
+    }
 
+    public static Canvas paintText(Canvas canvas, TGS_ShapeDimension<Integer> canvasSize) {
+        TGC_Canvas2DPaintTextUtils.paint(canvas, TGS_RandomUtils.nextLoc(canvasSize), TGS_RandomUtils.nextString(8, "ABCD"));
+        return canvas;
+    }
+
+//    final private static TGC_Log d = TGC_Log.of(TGC_Canvas2DPaintFillStyleUtils.class);
     public static Canvas styleDrawRandom(Canvas canvas) {
         switch (TGS_RandomUtils.nextInt(0, 2)) {
             case 0:

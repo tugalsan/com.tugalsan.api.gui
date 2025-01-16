@@ -23,6 +23,7 @@ public class TGC_Canvas2DPaintImageUtils {
 
     public static Canvas paint(Canvas canvas, ImageElement imageElement, TGS_ShapeLocation<Integer> loc) {
         var c2d = TGC_Canvas2DUtils.toContext2d(canvas);
+        imageElement.setAttribute("crossOrigin", "''");
         c2d.drawImage(imageElement, loc.x, loc.y);
         return canvas;
     }

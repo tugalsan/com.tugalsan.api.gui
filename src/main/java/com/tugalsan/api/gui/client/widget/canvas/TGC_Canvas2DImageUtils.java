@@ -27,14 +27,24 @@ public class TGC_Canvas2DImageUtils {
     }
 
     public static ImageData toImageDataScaled(Canvas canvasSource, float scaleX, float scaleY) {
+        d.cr("toImageDataScaled", "#1");
         var dimSource = TGC_CanvasUtils.getDimension(canvasSource);
+        d.cr("toImageDataScaled", "#2");
         var dimScaled = dimSource.cloneIt();
+        d.cr("toImageDataScaled", "#3");
         dimScaled.set(Math.round(dimSource.width * scaleX), Math.round(dimSource.height * scaleY));
+        d.cr("toImageDataScaled", "#4");
         var canvasScaled = TGC_CanvasUtils.createCanvas();
+        d.cr("toImageDataScaled", "#5");
         TGC_CanvasUtils.setResolution(canvasScaled, dimScaled);
+        d.cr("toImageDataScaled", "#6");
         TGC_Canvas2DMatrixUtils.scale(canvasScaled, scaleX, scaleY);
+        d.cr("toImageDataScaled", "#7");
         TGC_Canvas2DPaintImageUtils.paint(canvasScaled, canvasSource, new TGS_ShapeLocation(0, 0));
-        return TGC_Canvas2DImageUtils.toImageData(canvasScaled, new TGS_ShapeRectangle(0, 0, dimSource.width, dimSource.height));
+        d.cr("toImageDataScaled", "#8");
+        var id = TGC_Canvas2DImageUtils.toImageData(canvasScaled, new TGS_ShapeRectangle(0, 0, dimSource.width, dimSource.height));
+        d.cr("toImageDataScaled", "#9");
+        return id;
     }
 
     @Deprecated//NOT WORKING, IT ONLY CROPS
