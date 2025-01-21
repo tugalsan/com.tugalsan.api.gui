@@ -4,7 +4,6 @@ import com.google.gwt.event.logical.shared.*;
 import com.google.gwt.user.client.ui.*;
 import com.tugalsan.api.function.client.TGS_Func;
 
-
 public class TGC_TextBoxUtils {
 
     public static void onChange(TextBox tb, TGS_Func exe) {
@@ -15,5 +14,9 @@ public class TGC_TextBoxUtils {
 
     public static void setTypeNumber(TextBox tb) {
         tb.getElement().setAttribute("type", "number");
+    }
+
+    public static void setTypeColor(TextBox tb) {
+        tb.getElement().setAttribute("type", "color");
     }
 }
