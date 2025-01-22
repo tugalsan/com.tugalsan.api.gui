@@ -6,12 +6,12 @@ import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.PushButton;
+import com.google.gwt.user.client.ui.RadioButton;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.ToggleButton;
 import com.tugalsan.api.function.client.TGS_Func;
 import com.tugalsan.api.function.client.TGS_Func_In1;
 import com.tugalsan.api.log.client.TGC_Log;
-
 
 import com.tugalsan.api.tuple.client.TGS_Tuple3;
 import java.util.ArrayList;
@@ -93,6 +93,15 @@ public class TGC_ClickUtils {
             if (exe != null) {
                 var tb = (ToggleButton) e.getSource();
                 exe.run(tb.isDown());
+            }
+        });
+    }
+
+    public static void add(RadioButton w, TGS_Func_In1<Boolean> exe) {
+        w.addClickHandler(e -> {
+            if (exe != null) {
+                var rb = (RadioButton) e.getSource();
+                exe.run(rb.getValue());
             }
         });
     }
