@@ -6,6 +6,6 @@ import com.tugalsan.api.icon.client.TGS_IconUtils;
 public class TGC_RadioButtonUtils {
 
     public static RadioButton createIcon(CharSequence radioGroup, CharSequence iconClassName, CharSequence text) {
-        return new RadioButton(radioGroup.toString(), TGS_IconUtils.createSpan(TGS_IconUtils.CLASS_CLOCK(), text, true, false), true);
+        return new RadioButton(radioGroup.toString(), TGS_IconUtils.createSpan(iconClassName, text, true, false), true);
     }
 }
