@@ -2,14 +2,14 @@ package com.tugalsan.api.gui.client.pop;
 
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.PushButton;
-import com.tugalsan.api.function.client.TGS_Func;
-import com.tugalsan.api.function.client.TGS_Func_In1;
+import com.tugalsan.api.function.client.maythrow.uncheckedexceptions.TGS_FuncMTUCE_In1;
 import com.tugalsan.api.gui.client.click.TGC_ClickUtils;
 import com.tugalsan.api.gui.client.key.TGC_KeyUtils;
 import com.tugalsan.api.gui.client.dim.TGC_Dimension;
 import com.tugalsan.api.gui.client.panel.TGC_PanelLayoutUtils;
 import com.tugalsan.api.gui.client.widget.TGC_ButtonUtils;
 import com.tugalsan.api.icon.client.TGS_IconUtils;
+import com.tugalsan.api.function.client.maythrow.uncheckedexceptions.TGS_FuncMTUCE;
 
 
 
@@ -19,8 +19,8 @@ public class TGC_PopLblClose implements TGC_PopInterface {
 
     public TGC_PopLblClose(TGC_Dimension dim,
             CharSequence lblHTML, CharSequence btnOkText,
-            TGS_Func_In1<TGC_PopLblClose> onExe,
-            TGS_Func onVisible_optional, CharSequence iconClassExe_optional) {
+            TGS_FuncMTUCE_In1<TGC_PopLblClose> onExe,
+            TGS_FuncMTUCE onVisible_optional, CharSequence iconClassExe_optional) {
         this.dim = dim;
         this.lblHTML = lblHTML.toString();
         this.btnOkText = btnOkText.toString();
@@ -38,8 +38,8 @@ public class TGC_PopLblClose implements TGC_PopInterface {
     private final String iconClassExe;
     private final TGC_Dimension dim;
     final private String lblHTML, btnOkText;
-    final public TGS_Func_In1<TGC_PopLblClose> onExe;
-    final private TGS_Func onVisible;
+    final public TGS_FuncMTUCE_In1<TGC_PopLblClose> onExe;
+    final private TGS_FuncMTUCE onVisible;
 
     @Override
     final public void createWidgets() {

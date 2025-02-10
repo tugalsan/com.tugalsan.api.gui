@@ -1,7 +1,6 @@
 package com.tugalsan.api.gui.client.widget.menu;
 
 import com.google.gwt.user.client.ui.*;
-import com.tugalsan.api.function.client.TGS_Func;
 import java.util.*;
 import com.tugalsan.api.log.client.*;
 import com.tugalsan.api.gui.client.click.*;
@@ -11,6 +10,7 @@ import com.tugalsan.api.gui.client.widget.*;
 
 import com.tugalsan.api.list.client.*;
 import com.tugalsan.api.tuple.client.*;
+import com.tugalsan.api.function.client.maythrow.uncheckedexceptions.TGS_FuncMTUCE;
 
 public class TGC_MenuMobile {
 
@@ -57,5 +57,5 @@ public class TGC_MenuMobile {
     }
 
     final public List<TGC_MenuMobileSub> subMenus = TGS_ListUtils.of();
-    final public List<TGS_Tuple2<String, TGS_Func>> cmd = TGS_ListUtils.of();
+    final public List<TGS_Tuple2<String, TGS_FuncMTUCE>> cmd = TGS_ListUtils.of();
 }

@@ -1,12 +1,12 @@
 package com.tugalsan.api.gui.client.key;
 
 import com.google.gwt.user.client.Event;
-import com.tugalsan.api.function.client.TGS_Func;
 
 import com.tugalsan.api.gui.client.dom.TGC_DOMUtils;
 import com.tugalsan.api.list.client.*;
 import com.tugalsan.api.log.client.TGC_Log;
 import java.util.*;
+import com.tugalsan.api.function.client.maythrow.uncheckedexceptions.TGS_FuncMTUCE;
 
 public class TGC_KeyTriggerUtils {
 
@@ -70,9 +70,9 @@ public class TGC_KeyTriggerUtils {
     public static boolean isPreShift = false;
     public static boolean isCtrl = false;
     public static boolean isShift = false;
-    final public static List<TGS_Func> onTrigger = TGS_ListUtils.of();
-    public static TGS_Func quickCtrlShift = null;
-    public static TGS_Func quickCtrl = null;
-    public static TGS_Func quickShift = null;
-    public static TGS_Func quickNull = null;
+    final public static List<TGS_FuncMTUCE> onTrigger = TGS_ListUtils.of();
+    public static TGS_FuncMTUCE quickCtrlShift = null;
+    public static TGS_FuncMTUCE quickCtrl = null;
+    public static TGS_FuncMTUCE quickShift = null;
+    public static TGS_FuncMTUCE quickNull = null;
 }

@@ -1,13 +1,13 @@
 package com.tugalsan.api.gui.client.pop;
 
 import com.google.gwt.user.client.ui.*;
-import com.tugalsan.api.function.client.TGS_Func;
 
 import com.tugalsan.api.gui.client.browser.*;
 import com.tugalsan.api.gui.client.dim.*;
 import com.tugalsan.api.gui.client.dom.*;
 import com.tugalsan.api.gui.client.focus.*;
 import com.tugalsan.api.log.client.*;
+import com.tugalsan.api.function.client.maythrow.uncheckedexceptions.TGS_FuncMTUCE;
 
 public class TGC_Pop {
 
@@ -17,7 +17,7 @@ public class TGC_Pop {
         //LOOK CSS
     }
 
-    public TGC_Pop(Widget content, TGC_Dimension dim, TGS_Func onVisible_optional) {
+    public TGC_Pop(Widget content, TGC_Dimension dim, TGS_FuncMTUCE onVisible_optional) {
         this.onVisible = onVisible_optional;
         this.content = content;
         this.dim = dim == null ? new TGC_Dimension(null, null, true) : dim;
@@ -28,7 +28,7 @@ public class TGC_Pop {
         widget.setGlassStyleName(TGC_PopGlassStyle.class.getSimpleName());
         widget.setWidget(content);
     }
-    public final TGS_Func onVisible;
+    public final TGS_FuncMTUCE onVisible;
     public final PopupPanel widget;
     private final TGC_Dimension dim;
     private final Widget content;

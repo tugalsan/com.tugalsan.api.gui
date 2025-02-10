@@ -1,10 +1,10 @@
 package com.tugalsan.api.gui.client.pop;
 
 import com.google.gwt.user.client.ui.TextArea;
-import com.tugalsan.api.function.client.TGS_Func;
 import com.tugalsan.api.gui.client.editable.TGC_EditableUtils;
 import com.tugalsan.api.gui.client.dim.TGC_Dimension;
 import com.tugalsan.api.gui.client.panel.TGC_PanelLayoutUtils;
+import com.tugalsan.api.function.client.maythrow.uncheckedexceptions.TGS_FuncMTUCE;
 
 
 public class TGC_PopTextArea implements TGC_PopInterface {
@@ -12,9 +12,9 @@ public class TGC_PopTextArea implements TGC_PopInterface {
 //    final private static TGC_Log d = TGC_Log.of(TGC_PopTextArea.class);
 
     final private String initText;
-    final public TGS_Func onVisible;
+    final public TGS_FuncMTUCE onVisible;
 
-    public TGC_PopTextArea(TGC_Dimension dim, CharSequence initText, TGS_Func onVisible_optional) {
+    public TGC_PopTextArea(TGC_Dimension dim, CharSequence initText, TGS_FuncMTUCE onVisible_optional) {
         this.dim = dim;
         this.initText = initText.toString();
         this.onVisible = onVisible_optional;

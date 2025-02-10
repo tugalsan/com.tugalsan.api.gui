@@ -4,8 +4,7 @@ import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.PushButton;
 import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.Widget;
-import com.tugalsan.api.function.client.TGS_Func;
-import com.tugalsan.api.function.client.TGS_Func_In1;
+import com.tugalsan.api.function.client.maythrow.uncheckedexceptions.TGS_FuncMTUCE_In1;
 import java.util.List;
 import com.tugalsan.api.gui.client.click.TGC_ClickUtils;
 import com.tugalsan.api.gui.client.focus.TGC_FocusUtils;
@@ -17,22 +16,23 @@ import com.tugalsan.api.gui.client.browser.TGC_BrowserNavigatorUtils;
 import com.tugalsan.api.gui.client.dim.TGC_Dimension;
 import com.tugalsan.api.gui.client.widget.TGC_ButtonUtils;
 import com.tugalsan.api.icon.client.TGS_IconUtils;
+import com.tugalsan.api.function.client.maythrow.uncheckedexceptions.TGS_FuncMTUCE;
 
 public class TGC_PopLblYesNoComboListBox implements TGC_PopInterface {
 
 //    final private static TGC_Log d = TGC_Log.of(TGC_PopLblYesNoComboListBox.class);
     final private String lblListBoxHTML, btnOkText, btnCancelText, lblComboBoxHTML;
-    final public TGS_Func_In1<TGC_PopLblYesNoComboListBox> onEsc, onExe, onListChange;
+    final public TGS_FuncMTUCE_In1<TGC_PopLblYesNoComboListBox> onEsc, onExe, onListChange;
     final public List<String> listBoxContent, comboBoxContent;
-    final private TGS_Func onVisible;
+    final private TGS_FuncMTUCE onVisible;
 
     public TGC_PopLblYesNoComboListBox(TGC_Dimension dim,
             List<String> listBoxContent_optional, List<String> comboBoxContent_optional,
             CharSequence lblListBoxHTML, CharSequence lblComboBoxHTML, CharSequence btnOkText, CharSequence btnCancelText,
-            TGS_Func_In1<TGC_PopLblYesNoComboListBox> onExe,
-            TGS_Func_In1<TGC_PopLblYesNoComboListBox> onEsc,
-            TGS_Func_In1<TGC_PopLblYesNoComboListBox> onListChange,
-            TGS_Func onVisible_optional) {
+            TGS_FuncMTUCE_In1<TGC_PopLblYesNoComboListBox> onExe,
+            TGS_FuncMTUCE_In1<TGC_PopLblYesNoComboListBox> onEsc,
+            TGS_FuncMTUCE_In1<TGC_PopLblYesNoComboListBox> onListChange,
+            TGS_FuncMTUCE onVisible_optional) {
         this(dim, listBoxContent_optional, comboBoxContent_optional,
                 lblListBoxHTML, lblComboBoxHTML, btnOkText, btnCancelText,
                 onExe, onEsc, onListChange, onVisible_optional, null, null);
@@ -41,10 +41,10 @@ public class TGC_PopLblYesNoComboListBox implements TGC_PopInterface {
     public TGC_PopLblYesNoComboListBox(TGC_Dimension dim,
             List<String> listBoxContent_optional, List<String> comboBoxContent_optional,
             CharSequence lblListBoxHTML, CharSequence lblComboBoxHTML, CharSequence btnOkText, CharSequence btnCancelText,
-            TGS_Func_In1<TGC_PopLblYesNoComboListBox> onExe,
-            TGS_Func_In1<TGC_PopLblYesNoComboListBox> onEsc,
-            TGS_Func_In1<TGC_PopLblYesNoComboListBox> onListChange,
-            TGS_Func onVisible_optional, CharSequence iconClassExe_optional, CharSequence iconClassEsc_optional) {
+            TGS_FuncMTUCE_In1<TGC_PopLblYesNoComboListBox> onExe,
+            TGS_FuncMTUCE_In1<TGC_PopLblYesNoComboListBox> onEsc,
+            TGS_FuncMTUCE_In1<TGC_PopLblYesNoComboListBox> onListChange,
+            TGS_FuncMTUCE onVisible_optional, CharSequence iconClassExe_optional, CharSequence iconClassEsc_optional) {
         this.dim = dim;
         this.lblListBoxHTML = lblListBoxHTML.toString();
         this.btnOkText = btnOkText.toString();
@@ -52,7 +52,7 @@ public class TGC_PopLblYesNoComboListBox implements TGC_PopInterface {
         this.lblComboBoxHTML = lblComboBoxHTML.toString();
         this.onEsc = onEsc;
         this.onExe = onExe;
-        this.onListChange = onListChange == null ? TGS_Func_In1.empty : onListChange;
+        this.onListChange = onListChange == null ? TGS_FuncMTUCE_In1.empty : onListChange;
         this.listBoxContent = listBoxContent_optional;
         this.comboBoxContent = comboBoxContent_optional;
         this.onVisible = onVisible_optional;

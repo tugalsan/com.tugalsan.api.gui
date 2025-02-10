@@ -3,8 +3,7 @@ package com.tugalsan.api.gui.client.pop;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.PushButton;
 import com.google.gwt.user.datepicker.client.DateBox;
-import com.tugalsan.api.function.client.TGS_Func;
-import com.tugalsan.api.function.client.TGS_Func_In1;
+import com.tugalsan.api.function.client.maythrow.uncheckedexceptions.TGS_FuncMTUCE_In1;
 import com.tugalsan.api.log.client.TGC_Log;
 import com.tugalsan.api.gui.client.click.TGC_ClickUtils;
 import com.tugalsan.api.gui.client.focus.TGC_FocusUtils;
@@ -18,6 +17,7 @@ import com.tugalsan.api.gui.client.widget.TGC_DateBoxUtils;
 import com.tugalsan.api.network.client.TGS_NetworkHTMLUtils;
 import com.tugalsan.api.string.client.TGS_StringUtils;
 import com.tugalsan.api.thread.client.TGC_ThreadUtils;
+import com.tugalsan.api.function.client.maythrow.uncheckedexceptions.TGS_FuncMTUCE;
 
 public class TGC_PopLblYesNoDateBoxExtraBtn4 implements TGC_PopInterface {
 
@@ -43,9 +43,9 @@ public class TGC_PopLblYesNoDateBoxExtraBtn4 implements TGC_PopInterface {
 
     public TGC_PopLblYesNoDateBoxExtraBtn4(TGC_Dimension dim,
             CharSequence lblText, CharSequence btnOkText, CharSequence btnCancelText,
-            TGS_Func_In1<TGC_PopLblYesNoDateBoxExtraBtn4> onExe,
-            TGS_Func_In1<TGC_PopLblYesNoDateBoxExtraBtn4> onEsc,
-            TGS_Func onVisible_optional) {
+            TGS_FuncMTUCE_In1<TGC_PopLblYesNoDateBoxExtraBtn4> onExe,
+            TGS_FuncMTUCE_In1<TGC_PopLblYesNoDateBoxExtraBtn4> onEsc,
+            TGS_FuncMTUCE onVisible_optional) {
         this(dim,
                 lblText, btnOkText, btnCancelText,
                 onExe, onEsc, onVisible_optional,
@@ -55,9 +55,9 @@ public class TGC_PopLblYesNoDateBoxExtraBtn4 implements TGC_PopInterface {
 
     public TGC_PopLblYesNoDateBoxExtraBtn4(TGC_Dimension dim,
             CharSequence lblHtml, CharSequence btnOkText, CharSequence btnCancelText,
-            TGS_Func_In1<TGC_PopLblYesNoDateBoxExtraBtn4> onExe,
-            TGS_Func_In1<TGC_PopLblYesNoDateBoxExtraBtn4> onEsc,
-            TGS_Func onVisible_optional, CharSequence iconClassExe_optional, CharSequence iconClassEsc_optional) {
+            TGS_FuncMTUCE_In1<TGC_PopLblYesNoDateBoxExtraBtn4> onExe,
+            TGS_FuncMTUCE_In1<TGC_PopLblYesNoDateBoxExtraBtn4> onEsc,
+            TGS_FuncMTUCE onVisible_optional, CharSequence iconClassExe_optional, CharSequence iconClassEsc_optional) {
         this.dim = dim;
         this.lblHtml = lblHtml.toString();
         this.btnOkText = btnOkText.toString();
@@ -83,8 +83,8 @@ public class TGC_PopLblYesNoDateBoxExtraBtn4 implements TGC_PopInterface {
     private TGC_Dimension dim;
     private String iconClassExe, iconClassEsc;
     final private String btnOkText, btnCancelText;
-    final public TGS_Func_In1<TGC_PopLblYesNoDateBoxExtraBtn4> onEsc, onExe;
-    final public TGS_Func onVisible;
+    final public TGS_FuncMTUCE_In1<TGC_PopLblYesNoDateBoxExtraBtn4> onEsc, onExe;
+    final public TGS_FuncMTUCE onVisible;
 
     @Override
     final public void createWidgets() {
@@ -259,15 +259,15 @@ public class TGC_PopLblYesNoDateBoxExtraBtn4 implements TGC_PopInterface {
     }
 
     public void btnAddSet(
-            TGS_Func_In1<TGC_PopLblYesNoDateBoxExtraBtn4> onAdd1,
-            TGS_Func_In1<TGC_PopLblYesNoDateBoxExtraBtn4> onAdd2,
-            TGS_Func_In1<TGC_PopLblYesNoDateBoxExtraBtn4> onAdd3,
-            TGS_Func_In1<TGC_PopLblYesNoDateBoxExtraBtn4> onAdd4
+            TGS_FuncMTUCE_In1<TGC_PopLblYesNoDateBoxExtraBtn4> onAdd1,
+            TGS_FuncMTUCE_In1<TGC_PopLblYesNoDateBoxExtraBtn4> onAdd2,
+            TGS_FuncMTUCE_In1<TGC_PopLblYesNoDateBoxExtraBtn4> onAdd3,
+            TGS_FuncMTUCE_In1<TGC_PopLblYesNoDateBoxExtraBtn4> onAdd4
     ) {
         this.onAdd1 = onAdd1;
         this.onAdd2 = onAdd2;
         this.onAdd3 = onAdd3;
         this.onAdd4 = onAdd4;
     }
-    private TGS_Func_In1<TGC_PopLblYesNoDateBoxExtraBtn4> onAdd1, onAdd2, onAdd3, onAdd4;
+    private TGS_FuncMTUCE_In1<TGC_PopLblYesNoDateBoxExtraBtn4> onAdd1, onAdd2, onAdd3, onAdd4;
 }

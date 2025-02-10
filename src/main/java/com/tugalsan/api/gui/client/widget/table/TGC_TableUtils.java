@@ -2,18 +2,18 @@ package com.tugalsan.api.gui.client.widget.table;
 
 import com.google.gwt.user.cellview.client.*;
 import com.google.gwt.view.client.*;
-import com.tugalsan.api.function.client.TGS_Func;
-import com.tugalsan.api.function.client.TGS_Func_In1;
+import com.tugalsan.api.function.client.maythrow.uncheckedexceptions.TGS_FuncMTUCE_In1;
 import java.util.*;
 import java.util.stream.*;
 
 import com.tugalsan.api.list.client.*;
 import com.tugalsan.api.tuple.client.*;
 import com.tugalsan.api.string.client.*;
+import com.tugalsan.api.function.client.maythrow.uncheckedexceptions.TGS_FuncMTUCE;
 
 public class TGC_TableUtils {
 
-    public static TGS_Tuple2<CellTable<TGC_TableRow>, List<TGC_TableRow>> createTable(int rowSize, List<String> columnTitles, TGS_Func_In1<String> onSelectTitle) {
+    public static TGS_Tuple2<CellTable<TGC_TableRow>, List<TGC_TableRow>> createTable(int rowSize, List<String> columnTitles, TGS_FuncMTUCE_In1<String> onSelectTitle) {
         CellTable<TGC_TableRow> cellTable = new CellTable();
         var colSize = columnTitles.size();
 
@@ -71,7 +71,7 @@ public class TGC_TableUtils {
         return cellTable.getSelectionModel() instanceof SingleSelectionModel ? (TGC_TableRow) ((SingleSelectionModel) cellTable.getSelectionModel()).getSelectedObject() : null;
     }
 
-    public static void addOnSelectAction(CellTable cellTable, TGS_Func onSelect) {
+    public static void addOnSelectAction(CellTable cellTable, TGS_FuncMTUCE onSelect) {
         var sm = cellTable.getSelectionModel() instanceof SingleSelectionModel ? (SingleSelectionModel) cellTable.getSelectionModel() : null;
         if (sm != null) {
             sm.addSelectionChangeHandler(e -> {

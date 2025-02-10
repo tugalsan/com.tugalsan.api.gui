@@ -1,7 +1,7 @@
 package com.tugalsan.api.gui.client.card;
 
 import com.google.gwt.user.client.ui.*;
-import com.tugalsan.api.function.client.TGS_Func_In1;
+import com.tugalsan.api.function.client.maythrow.uncheckedexceptions.TGS_FuncMTUCE_In1;
 import com.tugalsan.api.charset.client.*;
 import com.tugalsan.api.color.client.*;
 
@@ -46,7 +46,7 @@ public class TGC_CardUtils {
         return TGC_Card.class.getSimpleName() + "_input";
     }
 
-    public static TGS_Tuple3<TextBox, FlowPanel, List<TGC_Card>> create(ScrollPanel optionalScroll, CharSequence optionalTitleHtml, CharSequence urlSearchIcon, TGS_Func_In1<List<TGC_Card>> cards) {
+    public static TGS_Tuple3<TextBox, FlowPanel, List<TGC_Card>> create(ScrollPanel optionalScroll, CharSequence optionalTitleHtml, CharSequence urlSearchIcon, TGS_FuncMTUCE_In1<List<TGC_Card>> cards) {
         List<TGC_Card> cardsInner = TGS_ListUtils.of();
         cards.run(cardsInner);
 

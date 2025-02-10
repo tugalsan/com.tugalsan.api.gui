@@ -2,7 +2,7 @@ package com.tugalsan.api.gui.client.widget;
 
 import com.google.gwt.user.datepicker.client.DateBox;
 import com.google.gwt.i18n.client.DateTimeFormat;
-import com.tugalsan.api.function.client.TGS_Func_In1;
+import com.tugalsan.api.function.client.maythrow.uncheckedexceptions.TGS_FuncMTUCE_In1;
 import com.tugalsan.api.time.client.TGS_Time;
 
 public class TGC_DateBoxUtils {
@@ -11,7 +11,7 @@ public class TGC_DateBoxUtils {
         return 80;
     }
 
-    public static DateBox create(TGS_Func_In1<DateBox> onSelect) {
+    public static DateBox create(TGS_FuncMTUCE_In1<DateBox> onSelect) {
         var w = new DateBox();
         w.setFormat(new DateBox.DefaultFormat(DateTimeFormat.getFormat("dd.MM.yyyy")));
         w.getDatePicker().setYearAndMonthDropdownVisible(true);

@@ -3,8 +3,7 @@ package com.tugalsan.api.gui.client.pop;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.PushButton;
 import com.google.gwt.user.client.ui.TextBox;
-import com.tugalsan.api.function.client.TGS_Func;
-import com.tugalsan.api.function.client.TGS_Func_In1;
+import com.tugalsan.api.function.client.maythrow.uncheckedexceptions.TGS_FuncMTUCE_In1;
 import com.tugalsan.api.gui.client.click.TGC_ClickUtils;
 import com.tugalsan.api.gui.client.focus.TGC_FocusUtils;
 import com.tugalsan.api.gui.client.focus.TGS_FocusSides4;
@@ -13,6 +12,7 @@ import com.tugalsan.api.gui.client.dim.TGC_Dimension;
 import com.tugalsan.api.gui.client.widget.TGC_ButtonUtils;
 import com.tugalsan.api.gui.client.panel.TGC_PanelLayoutUtils;
 import com.tugalsan.api.icon.client.TGS_IconUtils;
+import com.tugalsan.api.function.client.maythrow.uncheckedexceptions.TGS_FuncMTUCE;
 
 
 
@@ -22,9 +22,9 @@ public class TGC_PopLblYesNoTextBox implements TGC_PopInterface {
 
     public TGC_PopLblYesNoTextBox(TGC_Dimension dim,
             CharSequence lblHTML, CharSequence btnOkText, CharSequence btnCancelText,
-            TGS_Func_In1<TGC_PopLblYesNoTextBox> onExe,
-            TGS_Func_In1<TGC_PopLblYesNoTextBox> onEsc,
-            TGS_Func onVisible_optional) {
+            TGS_FuncMTUCE_In1<TGC_PopLblYesNoTextBox> onExe,
+            TGS_FuncMTUCE_In1<TGC_PopLblYesNoTextBox> onEsc,
+            TGS_FuncMTUCE onVisible_optional) {
         this(dim,
                 lblHTML, btnOkText, btnCancelText,
                 onExe, onEsc, onVisible_optional,
@@ -34,9 +34,9 @@ public class TGC_PopLblYesNoTextBox implements TGC_PopInterface {
 
     public TGC_PopLblYesNoTextBox(TGC_Dimension dim,
             CharSequence lblHTML, CharSequence btnOkText, CharSequence btnCancelText,
-            TGS_Func_In1<TGC_PopLblYesNoTextBox> onExe,
-            TGS_Func_In1<TGC_PopLblYesNoTextBox> onEsc,
-            TGS_Func onVisible_optional, CharSequence iconClassExe_optional, CharSequence iconClassEsc_optional) {
+            TGS_FuncMTUCE_In1<TGC_PopLblYesNoTextBox> onExe,
+            TGS_FuncMTUCE_In1<TGC_PopLblYesNoTextBox> onEsc,
+            TGS_FuncMTUCE onVisible_optional, CharSequence iconClassExe_optional, CharSequence iconClassEsc_optional) {
         this.dim = dim;
         this.lblHTML = lblHTML.toString();
         this.btnOkText = btnOkText.toString();
@@ -57,8 +57,8 @@ public class TGC_PopLblYesNoTextBox implements TGC_PopInterface {
     private String iconClassExe, iconClassEsc;
     private TGC_Dimension dim;
     final private String lblHTML, btnOkText, btnCancelText;
-    final public TGS_Func_In1<TGC_PopLblYesNoTextBox> onEsc, onExe;
-    final public TGS_Func onVisible;
+    final public TGS_FuncMTUCE_In1<TGC_PopLblYesNoTextBox> onEsc, onExe;
+    final public TGS_FuncMTUCE onVisible;
 
     @Override
     final public void createWidgets() {
