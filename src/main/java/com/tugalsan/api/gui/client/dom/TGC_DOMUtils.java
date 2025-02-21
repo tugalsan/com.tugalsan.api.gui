@@ -133,7 +133,7 @@ public class TGC_DOMUtils {
     }
 
     public static Integer px2Int(CharSequence pxValue) {
-        return TGS_CastUtils.toInteger(pxValue.subSequence(0, pxValue.length() - 2));
+        return TGS_CastUtils.toInteger(pxValue.subSequence(0, pxValue.length() - 2)).orElse(null);
     }
 
     public static void setSize(Element e, int widthInPx, int heightInPx) {
