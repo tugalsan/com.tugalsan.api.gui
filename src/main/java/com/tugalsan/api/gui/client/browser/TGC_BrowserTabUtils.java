@@ -28,7 +28,7 @@ DomGlobal.document.addEventListener("visibilitychange", event -> {
 //    */
 //@Deprecated //TODO BroadCast NOT WORKING, no need add another dep for it
 //    final private static TGC_Log d = TGC_Log.of(TGC_BrowserTabUtils.class);
-//    public static BroadcastChannel addBroadCastChannel(CharSequence channelName, TGS_FuncMTUCE_In1<MessageEvent<Object>> exe) {
+//    public static BroadcastChannel addBroadCastChannel(CharSequence channelName, TGS_FuncMTU_In1<MessageEvent<Object>> exe) {
 //        var bc = new BroadcastChannel(channelName.toString());
 //        d.cr("onModuleLoad", "bc.name", bc.name);
 //        bc.onmessage = (MessageEvent<Object> e) -> {

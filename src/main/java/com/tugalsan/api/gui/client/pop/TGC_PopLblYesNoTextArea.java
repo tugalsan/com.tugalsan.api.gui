@@ -1,7 +1,7 @@
 package com.tugalsan.api.gui.client.pop;
 
 import com.google.gwt.user.client.ui.*;
-import com.tugalsan.api.function.client.maythrow.uncheckedexceptions.TGS_FuncMTUCE_In1;
+import com.tugalsan.api.function.client.maythrowexceptions.unchecked.TGS_FuncMTU_In1;
 import com.tugalsan.api.gui.client.click.*;
 import com.tugalsan.api.gui.client.focus.*;
 import com.tugalsan.api.gui.client.key.*;
@@ -14,7 +14,7 @@ import com.tugalsan.api.gui.client.browser.*;
 import com.tugalsan.api.network.client.*;
 import com.tugalsan.api.string.client.*;
 import com.tugalsan.api.thread.client.*;
-import com.tugalsan.api.function.client.maythrow.uncheckedexceptions.TGS_FuncMTUCE;
+import com.tugalsan.api.function.client.maythrowexceptions.unchecked.TGS_FuncMTU;
 
 public class TGC_PopLblYesNoTextArea implements TGC_PopInterface {
 
@@ -29,8 +29,8 @@ public class TGC_PopLblYesNoTextArea implements TGC_PopInterface {
     }
 
     final private String btnOkText, btnCancelText;
-    final public TGS_FuncMTUCE_In1<TGC_PopLblYesNoTextArea> onEsc, onExe;
-    final public TGS_FuncMTUCE onVisible;
+    final public TGS_FuncMTU_In1<TGC_PopLblYesNoTextArea> onEsc, onExe;
+    final public TGS_FuncMTU onVisible;
 
     public void setLabelHTML(String html) {
         lblHtml = TGS_NetworkHTMLUtils.HTML_SPACE() + html;
@@ -40,9 +40,9 @@ public class TGC_PopLblYesNoTextArea implements TGC_PopInterface {
 
     public TGC_PopLblYesNoTextArea(TGC_Dimension dim,
             CharSequence lblHtml, CharSequence btnOkText, CharSequence btnCancelText,
-            TGS_FuncMTUCE_In1<TGC_PopLblYesNoTextArea> onExe,
-            TGS_FuncMTUCE_In1<TGC_PopLblYesNoTextArea> onEsc,
-            TGS_FuncMTUCE onVisible_optional) {
+            TGS_FuncMTU_In1<TGC_PopLblYesNoTextArea> onExe,
+            TGS_FuncMTU_In1<TGC_PopLblYesNoTextArea> onEsc,
+            TGS_FuncMTU onVisible_optional) {
         this(dim,
                 lblHtml, btnOkText, btnCancelText,
                 onExe, onEsc, onVisible_optional,
@@ -52,9 +52,9 @@ public class TGC_PopLblYesNoTextArea implements TGC_PopInterface {
 
     public TGC_PopLblYesNoTextArea(TGC_Dimension dim,
             CharSequence lblHtml, CharSequence btnOkText, CharSequence btnCancelText,
-            TGS_FuncMTUCE_In1<TGC_PopLblYesNoTextArea> onExe,
-            TGS_FuncMTUCE_In1<TGC_PopLblYesNoTextArea> onEsc,
-            TGS_FuncMTUCE onVisible_optional, CharSequence iconClassExe_optional, CharSequence iconClassEsc_optional) {
+            TGS_FuncMTU_In1<TGC_PopLblYesNoTextArea> onExe,
+            TGS_FuncMTU_In1<TGC_PopLblYesNoTextArea> onEsc,
+            TGS_FuncMTU onVisible_optional, CharSequence iconClassExe_optional, CharSequence iconClassEsc_optional) {
         maxCharCount = MAX_CHAR_SQL_BLOB();
         this.dim = dim;
         this.lblHtml = TGS_NetworkHTMLUtils.HTML_SPACE() + lblHtml;

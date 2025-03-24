@@ -6,7 +6,7 @@ import com.google.gwt.user.client.ui.ListBox;
 import com.google.gwt.user.client.ui.TextArea;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.ValueBoxBase;
-import com.tugalsan.api.function.client.maythrow.uncheckedexceptions.TGS_FuncMTUCE_In1;
+import com.tugalsan.api.function.client.maythrowexceptions.unchecked.TGS_FuncMTU_In1;
 
 import com.tugalsan.api.log.client.TGC_Log;
 import com.tugalsan.api.thread.client.TGC_ThreadUtils;
@@ -157,7 +157,7 @@ public class TGC_FocusUtils {
     }
 
     @Deprecated //problem on textFields
-    public static void addKeyUp(FocusWidget fw, TGS_FuncMTUCE_In1<Integer> exe) {
+    public static void addKeyUp(FocusWidget fw, TGS_FuncMTU_In1<Integer> exe) {
         if (fw == null) {//FIX
             return;
         }
@@ -168,7 +168,7 @@ public class TGC_FocusUtils {
         });
     }
 
-    public static void addKeyDown(FocusWidget fw, TGS_FuncMTUCE_In1<Integer> exe) {
+    public static void addKeyDown(FocusWidget fw, TGS_FuncMTU_In1<Integer> exe) {
         if (fw == null) {//FIX
             return;
         }
@@ -179,7 +179,7 @@ public class TGC_FocusUtils {
         });
     }
 
-    public static void addKey(ListBox lb, TGS_FocusSides4 sides, TGS_FuncMTUCE_In1<Integer> exe) {
+    public static void addKey(ListBox lb, TGS_FocusSides4 sides, TGS_FuncMTU_In1<Integer> exe) {
         if (lb == null) {//FIX
             return;
         }

@@ -6,7 +6,7 @@ import com.tugalsan.api.gui.client.dom.TGC_DOMUtils;
 import com.tugalsan.api.list.client.*;
 import com.tugalsan.api.log.client.TGC_Log;
 import java.util.*;
-import com.tugalsan.api.function.client.maythrow.uncheckedexceptions.TGS_FuncMTUCE;
+import com.tugalsan.api.function.client.maythrowexceptions.unchecked.TGS_FuncMTU;
 
 public class TGC_KeyTriggerUtils {
 
@@ -70,9 +70,9 @@ public class TGC_KeyTriggerUtils {
     public static boolean isPreShift = false;
     public static boolean isCtrl = false;
     public static boolean isShift = false;
-    final public static List<TGS_FuncMTUCE> onTrigger = TGS_ListUtils.of();
-    public static TGS_FuncMTUCE quickCtrlShift = null;
-    public static TGS_FuncMTUCE quickCtrl = null;
-    public static TGS_FuncMTUCE quickShift = null;
-    public static TGS_FuncMTUCE quickNull = null;
+    final public static List<TGS_FuncMTU> onTrigger = TGS_ListUtils.of();
+    public static TGS_FuncMTU quickCtrlShift = null;
+    public static TGS_FuncMTU quickCtrl = null;
+    public static TGS_FuncMTU quickShift = null;
+    public static TGS_FuncMTU quickNull = null;
 }

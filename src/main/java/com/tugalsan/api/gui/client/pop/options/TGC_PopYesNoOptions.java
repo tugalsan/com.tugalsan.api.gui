@@ -1,7 +1,7 @@
 package com.tugalsan.api.gui.client.pop.options;
 
 import com.google.gwt.user.client.ui.*;
-import com.tugalsan.api.function.client.maythrow.uncheckedexceptions.TGS_FuncMTUCE_In1;
+import com.tugalsan.api.function.client.maythrowexceptions.unchecked.TGS_FuncMTU_In1;
 import com.tugalsan.api.gui.client.pop.*;
 import com.tugalsan.api.gui.client.click.TGC_ClickUtils;
 import com.tugalsan.api.gui.client.focus.TGC_FocusUtils;
@@ -11,7 +11,7 @@ import com.tugalsan.api.gui.client.panel.TGC_PanelLayoutUtils;
 import com.tugalsan.api.gui.client.dim.TGC_Dimension;
 import com.tugalsan.api.gui.client.widget.TGC_ButtonUtils;
 import com.tugalsan.api.icon.client.TGS_IconUtils;
-import com.tugalsan.api.function.client.maythrow.uncheckedexceptions.TGS_FuncMTUCE;
+import com.tugalsan.api.function.client.maythrowexceptions.unchecked.TGS_FuncMTU;
 
 
 
@@ -20,23 +20,23 @@ public class TGC_PopYesNoOptions implements TGC_PopInterface {
 //    final private static TGC_Log d = TGC_Log.of(TGC_PopYesNoOptions.class);
 
     final private String btnOkText, btnCancelText;
-    final public TGS_FuncMTUCE_In1<TGC_PopYesNoOptions> onEsc, onExe;
-    final private TGS_FuncMTUCE onVisible;
+    final public TGS_FuncMTU_In1<TGC_PopYesNoOptions> onEsc, onExe;
+    final private TGS_FuncMTU onVisible;
 
     public TGC_PopYesNoOptions(TGC_Dimension dim,
             CharSequence btnOkText, CharSequence btnCancelText,
-            TGS_FuncMTUCE_In1<TGC_PopYesNoOptions> onExe,
-            TGS_FuncMTUCE_In1<TGC_PopYesNoOptions> onEsc,
-            TGS_FuncMTUCE onVisible_optional) {
+            TGS_FuncMTU_In1<TGC_PopYesNoOptions> onExe,
+            TGS_FuncMTU_In1<TGC_PopYesNoOptions> onEsc,
+            TGS_FuncMTU onVisible_optional) {
         this(dim, btnOkText, btnCancelText,
                 onExe, onEsc, onVisible_optional, null, null);
     }
 
     public TGC_PopYesNoOptions(TGC_Dimension dim,
             CharSequence btnOkText, CharSequence btnCancelText,
-            TGS_FuncMTUCE_In1<TGC_PopYesNoOptions> onExe,
-            TGS_FuncMTUCE_In1<TGC_PopYesNoOptions> onEsc,
-            TGS_FuncMTUCE onVisible_optional, CharSequence iconClassExe_optional, CharSequence iconClassEsc_optional) {
+            TGS_FuncMTU_In1<TGC_PopYesNoOptions> onExe,
+            TGS_FuncMTU_In1<TGC_PopYesNoOptions> onEsc,
+            TGS_FuncMTU onVisible_optional, CharSequence iconClassExe_optional, CharSequence iconClassEsc_optional) {
         this.dim = dim;
         this.btnOkText = btnOkText.toString();
         this.btnCancelText = btnCancelText.toString();

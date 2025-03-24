@@ -8,9 +8,9 @@ import com.tugalsan.api.gui.client.widget.*;
 
 import com.tugalsan.api.list.client.*;
 import com.tugalsan.api.tuple.client.*;
-import com.tugalsan.api.function.client.maythrow.uncheckedexceptions.TGS_FuncMTUCE;
+import com.tugalsan.api.function.client.maythrowexceptions.unchecked.TGS_FuncMTU;
 
-public class TGC_MenuMobileSub implements TGS_FuncMTUCE {
+public class TGC_MenuMobileSub implements TGS_FuncMTU {
 
     final private static TGC_Log d = TGC_Log.of(TGC_MenuMobileSub.class);
 
@@ -49,7 +49,7 @@ public class TGC_MenuMobileSub implements TGS_FuncMTUCE {
         TGC_ListBoxUtils.selectNone(pop.listBox);
     }
     final public List<TGC_MenuMobileSub> subMenus = TGS_ListUtils.of();
-    final public List<TGS_Tuple2<String, TGS_FuncMTUCE>> cmd = TGS_ListUtils.of();
+    final public List<TGS_Tuple2<String, TGS_FuncMTU>> cmd = TGS_ListUtils.of();
 
     @Override
     public void run() {

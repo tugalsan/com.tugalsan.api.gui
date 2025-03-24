@@ -5,7 +5,7 @@ import com.google.gwt.dom.client.Style;
 import com.google.gwt.user.client.ui.AbsolutePanel;
 import com.google.gwt.user.client.ui.FocusWidget;
 import com.google.gwt.user.client.ui.Widget;
-import com.tugalsan.api.function.client.maythrow.checkedexceptions.TGS_FuncMTCEUtils;
+import com.tugalsan.api.function.client.maythrowexceptions.checked.TGS_FuncMTCUtils;
 import com.tugalsan.api.gui.client.dom.TGC_DOMUtils;
 import com.tugalsan.api.gui.client.dim.TGC_Dimension;
 import com.tugalsan.api.gui.client.widget.abs.TGC_ScrollPanel;
@@ -65,7 +65,7 @@ public class TGC_PanelAbsoluteUtils {
         var tolerans = 5;
         var newPanelWidth = rect.x + rect.width + tolerans;
         var newPanelHeight = rect.y + rect.height + tolerans;
-        TGS_FuncMTCEUtils.run(() -> {
+        TGS_FuncMTCUtils.run(() -> {
             var oldPanelWidth = TGC_DOMUtils.getWidth(panel.getElement());
             var oldPanelHeight = TGC_DOMUtils.getHeight(panel.getElement());
             if (oldPanelWidth < newPanelWidth) {

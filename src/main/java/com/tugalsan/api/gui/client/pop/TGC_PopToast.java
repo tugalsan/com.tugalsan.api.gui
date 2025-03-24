@@ -5,13 +5,13 @@ import com.google.gwt.user.client.ui.RootPanel;
 
 import com.tugalsan.api.gui.client.dim.TGC_Dimension;
 import com.tugalsan.api.thread.client.TGC_ThreadUtils;
-import com.tugalsan.api.function.client.maythrow.uncheckedexceptions.TGS_FuncMTUCE;
+import com.tugalsan.api.function.client.maythrowexceptions.unchecked.TGS_FuncMTU;
 
 public class TGC_PopToast implements TGC_PopInterface {
 
 //    final private static TGC_Log d = TGC_Log.of(TGC_PopToast.class);
 
-    public TGC_PopToast(TGC_Dimension dim, TGS_FuncMTUCE onVisible_optional) {
+    public TGC_PopToast(TGC_Dimension dim, TGS_FuncMTU onVisible_optional) {
         this.dim = dim;
         this.onVisible = onVisible_optional;
         createWidgets();
@@ -22,7 +22,7 @@ public class TGC_PopToast implements TGC_PopInterface {
         configLayout();
     }
     private final TGC_Dimension dim;
-    public final TGS_FuncMTUCE onVisible;
+    public final TGS_FuncMTU onVisible;
 
     @Override
     final public void createWidgets() {

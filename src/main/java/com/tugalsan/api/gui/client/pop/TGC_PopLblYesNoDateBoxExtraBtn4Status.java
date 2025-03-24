@@ -4,8 +4,8 @@ import com.google.gwt.event.dom.client.KeyCodes;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.PushButton;
 import com.google.gwt.user.datepicker.client.DateBox;
-import com.tugalsan.api.function.client.maythrow.uncheckedexceptions.TGS_FuncMTUCE_In1;
-import com.tugalsan.api.function.client.maythrow.uncheckedexceptions.TGS_FuncMTUCE_OutTyped_In1;
+import com.tugalsan.api.function.client.maythrowexceptions.unchecked.TGS_FuncMTU_In1;
+import com.tugalsan.api.function.client.maythrowexceptions.unchecked.TGS_FuncMTU_OutTyped_In1;
 import com.tugalsan.api.log.client.TGC_Log;
 import com.tugalsan.api.gui.client.click.TGC_ClickUtils;
 import com.tugalsan.api.gui.client.focus.TGC_FocusUtils;
@@ -19,7 +19,7 @@ import com.tugalsan.api.gui.client.widget.TGC_DateBoxUtils;
 import com.tugalsan.api.network.client.TGS_NetworkHTMLUtils;
 import com.tugalsan.api.string.client.TGS_StringUtils;
 import com.tugalsan.api.thread.client.TGC_ThreadUtils;
-import com.tugalsan.api.function.client.maythrow.uncheckedexceptions.TGS_FuncMTUCE;
+import com.tugalsan.api.function.client.maythrowexceptions.unchecked.TGS_FuncMTU;
 
 public class TGC_PopLblYesNoDateBoxExtraBtn4Status implements TGC_PopInterface {
 
@@ -56,9 +56,9 @@ public class TGC_PopLblYesNoDateBoxExtraBtn4Status implements TGC_PopInterface {
 
     public TGC_PopLblYesNoDateBoxExtraBtn4Status(TGC_Dimension dim,
             CharSequence lblText, CharSequence btnOkText, CharSequence btnCancelText,
-            TGS_FuncMTUCE_In1<TGC_PopLblYesNoDateBoxExtraBtn4Status> onExe,
-            TGS_FuncMTUCE_In1<TGC_PopLblYesNoDateBoxExtraBtn4Status> onEsc,
-            TGS_FuncMTUCE onVisible_optional, TGS_FuncMTUCE_OutTyped_In1<String, TGC_PopLblYesNoDateBoxExtraBtn4Status> statusModifier) {
+            TGS_FuncMTU_In1<TGC_PopLblYesNoDateBoxExtraBtn4Status> onExe,
+            TGS_FuncMTU_In1<TGC_PopLblYesNoDateBoxExtraBtn4Status> onEsc,
+            TGS_FuncMTU onVisible_optional, TGS_FuncMTU_OutTyped_In1<String, TGC_PopLblYesNoDateBoxExtraBtn4Status> statusModifier) {
         this(dim,
                 lblText, btnOkText, btnCancelText,
                 onExe, onEsc, onVisible_optional, statusModifier,
@@ -68,9 +68,9 @@ public class TGC_PopLblYesNoDateBoxExtraBtn4Status implements TGC_PopInterface {
 
     public TGC_PopLblYesNoDateBoxExtraBtn4Status(TGC_Dimension dim,
             CharSequence lblHtml, CharSequence btnOkText, CharSequence btnCancelText,
-            TGS_FuncMTUCE_In1<TGC_PopLblYesNoDateBoxExtraBtn4Status> onExe,
-            TGS_FuncMTUCE_In1<TGC_PopLblYesNoDateBoxExtraBtn4Status> onEsc,
-            TGS_FuncMTUCE onVisible_optional, TGS_FuncMTUCE_OutTyped_In1<String, TGC_PopLblYesNoDateBoxExtraBtn4Status> statusModifier,
+            TGS_FuncMTU_In1<TGC_PopLblYesNoDateBoxExtraBtn4Status> onExe,
+            TGS_FuncMTU_In1<TGC_PopLblYesNoDateBoxExtraBtn4Status> onEsc,
+            TGS_FuncMTU onVisible_optional, TGS_FuncMTU_OutTyped_In1<String, TGC_PopLblYesNoDateBoxExtraBtn4Status> statusModifier,
             CharSequence iconClassExe_optional, CharSequence iconClassEsc_optional) {
         this.dim = dim;
         this.lblHtml = lblHtml.toString();
@@ -98,9 +98,9 @@ public class TGC_PopLblYesNoDateBoxExtraBtn4Status implements TGC_PopInterface {
     private TGC_Dimension dim;
     private String iconClassExe, iconClassEsc;
     final private String btnOkText, btnCancelText;
-    final public TGS_FuncMTUCE_In1<TGC_PopLblYesNoDateBoxExtraBtn4Status> onEsc, onExe;
-    final public TGS_FuncMTUCE onVisible;
-    final private TGS_FuncMTUCE_OutTyped_In1<String, TGC_PopLblYesNoDateBoxExtraBtn4Status> statusModifier;
+    final public TGS_FuncMTU_In1<TGC_PopLblYesNoDateBoxExtraBtn4Status> onEsc, onExe;
+    final public TGS_FuncMTU onVisible;
+    final private TGS_FuncMTU_OutTyped_In1<String, TGC_PopLblYesNoDateBoxExtraBtn4Status> statusModifier;
 
     @Override
     final public void createWidgets() {
@@ -299,15 +299,15 @@ public class TGC_PopLblYesNoDateBoxExtraBtn4Status implements TGC_PopInterface {
     }
 
     public void btnAddSet(
-            TGS_FuncMTUCE_In1<TGC_PopLblYesNoDateBoxExtraBtn4Status> onAdd1,
-            TGS_FuncMTUCE_In1<TGC_PopLblYesNoDateBoxExtraBtn4Status> onAdd2,
-            TGS_FuncMTUCE_In1<TGC_PopLblYesNoDateBoxExtraBtn4Status> onAdd3,
-            TGS_FuncMTUCE_In1<TGC_PopLblYesNoDateBoxExtraBtn4Status> onAdd4
+            TGS_FuncMTU_In1<TGC_PopLblYesNoDateBoxExtraBtn4Status> onAdd1,
+            TGS_FuncMTU_In1<TGC_PopLblYesNoDateBoxExtraBtn4Status> onAdd2,
+            TGS_FuncMTU_In1<TGC_PopLblYesNoDateBoxExtraBtn4Status> onAdd3,
+            TGS_FuncMTU_In1<TGC_PopLblYesNoDateBoxExtraBtn4Status> onAdd4
     ) {
         this.onAdd1 = onAdd1;
         this.onAdd2 = onAdd2;
         this.onAdd3 = onAdd3;
         this.onAdd4 = onAdd4;
     }
-    private TGS_FuncMTUCE_In1<TGC_PopLblYesNoDateBoxExtraBtn4Status> onAdd1, onAdd2, onAdd3, onAdd4;
+    private TGS_FuncMTU_In1<TGC_PopLblYesNoDateBoxExtraBtn4Status> onAdd1, onAdd2, onAdd3, onAdd4;
 }
