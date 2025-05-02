@@ -7,7 +7,12 @@ import com.tugalsan.api.gui.client.panel.*;
 import com.tugalsan.api.icon.client.*;
 import com.tugalsan.api.shape.client.*;
 
+//WARNING: !!! CSS-STATIC-CLASS-NAME !!!
 public class TGC_ScrollUtils {
+    
+    private TGC_ScrollUtils(){
+        
+    }
 
     public static void addScrollToTop(ScrollPanel scroll) {
         var btnTop = TGC_ButtonUtils.createIcon(TGS_IconUtils.CLASS_ARROW_UP(), "Yukarı");

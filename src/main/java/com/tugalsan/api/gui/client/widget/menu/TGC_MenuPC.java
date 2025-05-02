@@ -47,6 +47,7 @@ public class TGC_MenuPC {
         return menu;
     }
 
+    //WARNING: !!! CSS-STATIC-CLASS-NAME !!!
     public class TGC_Menu {
 
         public TGC_Menu(CharSequence label, MenuBar widget) {

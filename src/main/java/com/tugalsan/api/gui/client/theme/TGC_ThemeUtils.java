@@ -17,7 +17,12 @@ import com.tugalsan.api.gui.client.widget.TGC_ButtonUtils;
 import com.tugalsan.api.gui.client.widget.TGC_HTMLUtils;
 import com.tugalsan.api.icon.client.TGS_IconUtils;
 
+//WARNING: !!! CSS-STATIC-CLASS-NAME !!!
 public class TGC_ThemeUtils {
+    
+    private TGC_ThemeUtils(){
+        
+    }
 
     final private static TGC_Log d = TGC_Log.of(TGC_ThemeUtils.class);
 

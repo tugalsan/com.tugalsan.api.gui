@@ -12,6 +12,7 @@ import com.tugalsan.api.list.client.*;
 import com.tugalsan.api.tuple.client.*;
 import com.tugalsan.api.function.client.maythrowexceptions.unchecked.TGS_FuncMTU;
 
+//WARNING: !!! CSS-STATIC-CLASS-NAME !!!
 public class TGC_MenuMobile {
 
     final private static TGC_Log d = TGC_Log.of(TGC_MenuMobile.class);

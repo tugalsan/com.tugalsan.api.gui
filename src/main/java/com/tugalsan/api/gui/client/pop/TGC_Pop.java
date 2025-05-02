@@ -9,12 +9,13 @@ import com.tugalsan.api.gui.client.focus.*;
 import com.tugalsan.api.log.client.*;
 import com.tugalsan.api.function.client.maythrowexceptions.unchecked.TGS_FuncMTU;
 
+//WARNING: !!! CSS-STATIC-CLASS-NAME !!!
 public class TGC_Pop {
 
     final private static TGC_Log d = TGC_Log.of(TGC_Pop.class);
 
+    //WARNING: !!! CSS-STATIC-CLASS-NAME !!!
     static class TGC_PopGlassStyle {
-        //LOOK CSS
     }
 
     public TGC_Pop(Widget content, TGC_Dimension dim, TGS_FuncMTU onVisible_optional) {

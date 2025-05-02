@@ -2,6 +2,7 @@ package com.tugalsan.api.gui.client.card;
 
 import com.tugalsan.api.function.client.maythrowexceptions.unchecked.TGS_FuncMTU;
 
+//WARNING: !!! CSS-STATIC-CLASS-NAME !!!
 public class TGC_Card {
 
     public CharSequence optional_urlImgForeground;
