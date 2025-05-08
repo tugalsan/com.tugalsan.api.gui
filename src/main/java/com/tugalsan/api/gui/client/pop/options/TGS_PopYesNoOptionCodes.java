@@ -1,6 +1,10 @@
 package com.tugalsan.api.gui.client.pop.options;
 
 public class TGS_PopYesNoOptionCodes {
+    
+    private TGS_PopYesNoOptionCodes(){
+        
+    }
 
     public static String EXE_REDIRECT() {
         return "EXE_REDIRECT";
