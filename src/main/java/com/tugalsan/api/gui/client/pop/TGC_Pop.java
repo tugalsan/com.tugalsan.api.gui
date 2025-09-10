@@ -23,7 +23,7 @@ public class TGC_Pop {
         this.content = content;
         this.dim = dim == null ? new TGC_Dimension(null, null, true) : dim;
         changeContentDimension(dim);
-        content.setStyleName(d.className);
+        content.setStyleName(d.className());
         widget = new PopupPanel();
         widget.setGlassEnabled(true);
         widget.setGlassStyleName(TGC_PopGlassStyle.class.getSimpleName());
