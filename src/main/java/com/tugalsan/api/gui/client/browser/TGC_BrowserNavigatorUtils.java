@@ -1,7 +1,7 @@
 package com.tugalsan.api.gui.client.browser;
 
-import java.util.Arrays;
 import com.tugalsan.api.log.client.TGC_Log;
+import java.util.Arrays;
 
 public class TGC_BrowserNavigatorUtils {
 

@@ -1,7 +1,7 @@
 package com.tugalsan.api.gui.client.browser;
 
-import com.google.gwt.user.client.Window;
 import com.tugalsan.api.shape.client.TGS_ShapeDimension;
+import com.google.gwt.user.client.Window;
 
 public class TGC_BrowserDimensionUtils {
 
