@@ -1,6 +1,10 @@
 package com.tugalsan.api.gui.client.browser;
 
 public class TGC_BrowserFavIconUtils {
+    
+    private TGC_BrowserFavIconUtils(){
+        
+    }
 
     public static native void setPng(CharSequence href) /*-{
         $wnd.setFavicon(href);

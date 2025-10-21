@@ -4,6 +4,10 @@ import com.tugalsan.api.string.client.*;
 
 public class TGS_BrowserFavIconUtils {
 
+    private TGS_BrowserFavIconUtils() {
+
+    }
+
     public static String createLabel(CharSequence filePrefix) {
         return createLabel(filePrefix, 16, "png", true);
     }

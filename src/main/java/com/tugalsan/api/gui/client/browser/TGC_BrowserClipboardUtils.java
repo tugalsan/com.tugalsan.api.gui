@@ -1,6 +1,10 @@
 package com.tugalsan.api.gui.client.browser;
 
 public class TGC_BrowserClipboardUtils {
+    
+    private TGC_BrowserClipboardUtils(){
+        
+    }
 
     /*
     study PasteAwareTextBox

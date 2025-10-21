@@ -2,6 +2,10 @@ package com.tugalsan.api.gui.client.browser;
 
 public class TGC_BrowserScreenUtils {
 
+    private TGC_BrowserScreenUtils() {
+
+    }
+
     public static native int depthColor() /*-{
         return screen.colorDepth;
     }-*/;

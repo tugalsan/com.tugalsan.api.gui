@@ -4,6 +4,10 @@ import com.tugalsan.api.shape.client.TGS_ShapeDimension;
 import com.google.gwt.user.client.Window;
 
 public class TGC_BrowserDimensionUtils {
+    
+    private TGC_BrowserDimensionUtils(){
+        
+    }
 
     public static TGS_ShapeDimension<Integer> getDimension() {
         return new TGS_ShapeDimension(width(), height());

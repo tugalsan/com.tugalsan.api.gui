@@ -4,6 +4,10 @@ import com.tugalsan.api.log.client.TGC_Log;
 import java.util.Arrays;
 
 public class TGC_BrowserNavigatorUtils {
+    
+    private TGC_BrowserNavigatorUtils(){
+        
+    }
 
     final private static TGC_Log d = TGC_Log.of(TGC_BrowserNavigatorUtils.class);
 

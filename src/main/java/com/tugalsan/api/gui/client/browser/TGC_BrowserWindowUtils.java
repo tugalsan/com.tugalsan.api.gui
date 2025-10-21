@@ -14,6 +14,10 @@ import java.util.List;
 
 public class TGC_BrowserWindowUtils {
 
+    private TGC_BrowserWindowUtils() {
+
+    }
+
     final private static TGC_Log d = TGC_Log.of(TGC_BrowserWindowUtils.class);
 
     public static void setTitle(CharSequence newTitle) {

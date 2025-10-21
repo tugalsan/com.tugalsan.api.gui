@@ -2,6 +2,10 @@ package com.tugalsan.api.gui.client.browser;
 
 public class TGC_BrowserCalenderUtils {
 
+    private TGC_BrowserCalenderUtils() {
+
+    }
+
     public static native String calender_date() /*-{
         return "" + new Date();
     }-*/;

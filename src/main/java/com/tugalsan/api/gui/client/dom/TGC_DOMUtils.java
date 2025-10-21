@@ -5,6 +5,7 @@ import com.google.gwt.dom.client.*;
 import com.google.gwt.user.client.*;
 import com.google.gwt.user.client.ui.*;
 import com.tugalsan.api.cast.client.*;
+import com.tugalsan.api.log.client.TGC_Log;
 import com.tugalsan.api.shape.client.*;
 import com.tugalsan.api.string.client.*;
 
@@ -15,6 +16,12 @@ setBorder
 setFontBold
  */
 public class TGC_DOMUtils {
+
+//    final private static TGC_Log d = TGC_Log.of(TGC_DOMUtils.class);
+
+    private TGC_DOMUtils() {
+
+    }
 
     public static TGS_ShapeRectangle getRect(Widget w) {
         return new TGS_ShapeRectangle(
@@ -133,6 +140,10 @@ public class TGC_DOMUtils {
     }
 
     public static Integer px2Int(CharSequence pxValue) {
+//        d.cr("px2Int", pxValue);
+        if (TGS_StringUtils.cmn().isNullOrEmpty(pxValue)) {
+            return null;
+        }
         return TGS_CastUtils.toInteger(pxValue.subSequence(0, pxValue.length() - 2)).orElse(null);
     }
 

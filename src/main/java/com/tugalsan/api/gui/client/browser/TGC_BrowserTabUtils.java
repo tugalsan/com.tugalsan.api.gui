@@ -3,6 +3,10 @@ package com.tugalsan.api.gui.client.browser;
 
 public class TGC_BrowserTabUtils {
 
+    private TGC_BrowserTabUtils() {
+
+    }
+
     public static native boolean tab_visible() /*-{
       return !$doc.hidden;
     }-*/;
