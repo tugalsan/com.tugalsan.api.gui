@@ -1,7 +1,5 @@
 package com.tugalsan.api.gui.client.pop;
 
-import com.google.gwt.event.dom.client.KeyCodes;
-import com.google.gwt.user.client.ui.CheckBox;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.PushButton;
 import com.google.gwt.user.client.ui.ListBox;
@@ -19,14 +17,9 @@ import com.tugalsan.api.gui.client.widget.TGC_ListBoxUtils;
 import com.tugalsan.api.gui.client.browser.TGC_BrowserNavigatorUtils;
 import com.tugalsan.api.gui.client.dim.TGC_Dimension;
 import com.tugalsan.api.gui.client.widget.TGC_ButtonUtils;
-import com.tugalsan.api.gui.client.widget.TGC_CheckBoxUtils;
 import com.tugalsan.api.icon.client.TGS_IconUtils;
-
 import com.tugalsan.api.list.client.*;
-import com.tugalsan.api.tuple.client.TGS_Tuple2;
-import com.tugalsan.api.stream.client.*;
 import com.tugalsan.api.function.client.maythrowexceptions.unchecked.TGS_FuncMTU;
-import com.tugalsan.api.gui.client.widget.TGC_TextBoxUtils;
 import java.util.ArrayList;
 
 public class TGC_PopLblYesNoTextBoxListBox implements TGC_PopInterface {
