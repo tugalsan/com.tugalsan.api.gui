@@ -12,8 +12,11 @@ import com.tugalsan.api.gui.client.widget.abs.TGC_ScrollPanel;
 import com.tugalsan.api.log.client.TGC_Log;
 import com.tugalsan.api.shape.client.TGS_ShapeRectangle;
 
-
 public class TGC_PanelAbsoluteUtils {
+
+    private TGC_PanelAbsoluteUtils() {
+
+    }
 
     final private static TGC_Log d = TGC_Log.of(TGC_PanelAbsoluteUtils.class);
 
